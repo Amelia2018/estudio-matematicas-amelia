@@ -257,32 +257,44 @@
       border-color: var(--primary);
       box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.15);
     }
-    .input-sm { width: 72px; }
+    .input-sm { width: 75px; }
     .input-md { width: 130px; }
     .input-lg { width: 100%; text-align: left; }
     select.input-clean { cursor: pointer; }
 
+    /* Ocultar botones de incremento/decremento en inputs tipo número */
+    input[type=number]::-webkit-inner-spin-button, 
+    input[type=number]::-webkit-outer-spin-button { 
+      -webkit-appearance: none; 
+      margin: 0; 
+    }
+    input[type=number] {
+      -moz-appearance: textfield;
+    }
+
     /* ========================================================================
-       ANTECESOR Y SUCESOR: FORMATO INLINE INQUEBRANTABLE
+       ANTECESOR Y SUCESOR: FORMATO AMPLIO Y ESPACIADO
        ======================================================================== */
     .ineq-container {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
-      gap: 12px;
-      margin: 14px 0;
+      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+      gap: 16px;
+      margin: 16px 0;
     }
     .ineq-card {
       background: #f8fafc;
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 12px 8px;
+      border: 1.5px solid var(--border);
+      border-radius: 14px;
+      padding: 16px 14px;
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 8px;
+      gap: 10px;
+      box-sizing: border-box;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.02);
     }
     .ineq-num-label {
-      font-size: 11px;
+      font-size: 13px;
       font-weight: 800;
       color: #3b82f6;
     }
@@ -291,22 +303,26 @@
       flex-direction: row;
       align-items: center;
       justify-content: center;
-      gap: 6px;
-      white-space: nowrap;
+      gap: 8px;
       width: 100%;
+      white-space: nowrap;
     }
     .ineq-symbol {
       font-weight: 900;
-      font-size: 16px;
+      font-size: 18px;
       color: #64748b;
+      user-select: none;
     }
     .ineq-center {
-      font-size: 17px;
+      font-size: 18px;
       font-weight: 900;
       color: #0f172a;
       background: #e2e8f0;
-      padding: 5px 10px;
-      border-radius: 6px;
+      padding: 6px 12px;
+      border-radius: 8px;
+      min-width: 50px;
+      text-align: center;
+      user-select: none;
     }
 
     /* ========================================================================
@@ -574,61 +590,61 @@
       <div class="ineq-container">
         <!-- 1.1 -->
         <div class="ineq-card">
-          <span class="ineq-num-label">1.1</span>
+          <span class="ineq-num-label">1.1)</span>
           <div class="ineq-row">
-            <input type="number" class="input-clean input-sm" id="ant-1" placeholder="...">
+            <input type="number" class="input-clean input-sm" id="ant-1">
             <span class="ineq-symbol">&lt;</span>
             <span class="ineq-center">600</span>
             <span class="ineq-symbol">&lt;</span>
-            <input type="number" class="input-clean input-sm" id="suc-1" placeholder="...">
+            <input type="number" class="input-clean input-sm" id="suc-1">
           </div>
         </div>
 
         <!-- 1.2 -->
         <div class="ineq-card">
-          <span class="ineq-num-label">1.2</span>
+          <span class="ineq-num-label">1.2)</span>
           <div class="ineq-row">
-            <input type="number" class="input-clean input-sm" id="ant-2" placeholder="...">
+            <input type="number" class="input-clean input-sm" id="ant-2">
             <span class="ineq-symbol">&lt;</span>
             <span class="ineq-center">499</span>
             <span class="ineq-symbol">&lt;</span>
-            <input type="number" class="input-clean input-sm" id="suc-2" placeholder="...">
+            <input type="number" class="input-clean input-sm" id="suc-2">
           </div>
         </div>
 
         <!-- 1.3 -->
         <div class="ineq-card">
-          <span class="ineq-num-label">1.3</span>
+          <span class="ineq-num-label">1.3)</span>
           <div class="ineq-row">
-            <input type="number" class="input-clean input-sm" id="ant-3" placeholder="...">
+            <input type="number" class="input-clean input-sm" id="ant-3">
             <span class="ineq-symbol">&lt;</span>
             <span class="ineq-center">820</span>
             <span class="ineq-symbol">&lt;</span>
-            <input type="number" class="input-clean input-sm" id="suc-3" placeholder="...">
+            <input type="number" class="input-clean input-sm" id="suc-3">
           </div>
         </div>
 
         <!-- 1.4 -->
         <div class="ineq-card">
-          <span class="ineq-num-label">1.4</span>
+          <span class="ineq-num-label">1.4)</span>
           <div class="ineq-row">
-            <input type="number" class="input-clean input-sm" id="ant-4" placeholder="...">
+            <input type="number" class="input-clean input-sm" id="ant-4">
             <span class="ineq-symbol">&lt;</span>
             <span class="ineq-center">700</span>
             <span class="ineq-symbol">&lt;</span>
-            <input type="number" class="input-clean input-sm" id="suc-4" placeholder="...">
+            <input type="number" class="input-clean input-sm" id="suc-4">
           </div>
         </div>
 
         <!-- 1.5 -->
         <div class="ineq-card">
-          <span class="ineq-num-label">1.5</span>
+          <span class="ineq-num-label">1.5)</span>
           <div class="ineq-row">
-            <input type="number" class="input-clean input-sm" id="ant-5" placeholder="...">
+            <input type="number" class="input-clean input-sm" id="ant-5">
             <span class="ineq-symbol">&lt;</span>
             <span class="ineq-center">350</span>
             <span class="ineq-symbol">&lt;</span>
-            <input type="number" class="input-clean input-sm" id="suc-5" placeholder="...">
+            <input type="number" class="input-clean input-sm" id="suc-5">
           </div>
         </div>
       </div>
@@ -699,7 +715,7 @@
             <tr><td class="cdu-op-cell">+</td><td class="cdu-num-cell">1</td><td class="cdu-num-cell">5</td><td class="cdu-num-cell">4</td></tr>
             <tr class="cdu-divider-row"><td colspan="4"></td></tr>
           </table>
-          <input type="number" class="cdu-input-res" id="sum-1" placeholder="Total">
+          <input type="number" class="cdu-input-res" id="sum-1">
         </div>
 
         <!-- 3.2 -->
@@ -712,7 +728,7 @@
             <tr><td class="cdu-op-cell">+</td><td class="cdu-num-cell">2</td><td class="cdu-num-cell">6</td><td class="cdu-num-cell">1</td></tr>
             <tr class="cdu-divider-row"><td colspan="4"></td></tr>
           </table>
-          <input type="number" class="cdu-input-res" id="sum-2" placeholder="Total">
+          <input type="number" class="cdu-input-res" id="sum-2">
         </div>
 
         <!-- 3.3 -->
@@ -725,7 +741,7 @@
             <tr><td class="cdu-op-cell">+</td><td class="cdu-num-cell">2</td><td class="cdu-num-cell">4</td><td class="cdu-num-cell">7</td></tr>
             <tr class="cdu-divider-row"><td colspan="4"></td></tr>
           </table>
-          <input type="number" class="cdu-input-res" id="sum-3" placeholder="Total">
+          <input type="number" class="cdu-input-res" id="sum-3">
         </div>
 
         <!-- 3.4 -->
@@ -738,7 +754,7 @@
             <tr><td class="cdu-op-cell">+</td><td class="cdu-num-cell">3</td><td class="cdu-num-cell">8</td><td class="cdu-num-cell">5</td></tr>
             <tr class="cdu-divider-row"><td colspan="4"></td></tr>
           </table>
-          <input type="number" class="cdu-input-res" id="sum-4" placeholder="Total">
+          <input type="number" class="cdu-input-res" id="sum-4">
         </div>
 
         <!-- 3.5 -->
@@ -751,7 +767,7 @@
             <tr><td class="cdu-op-cell">+</td><td class="cdu-num-cell">1</td><td class="cdu-num-cell">9</td><td class="cdu-num-cell">6</td></tr>
             <tr class="cdu-divider-row"><td colspan="4"></td></tr>
           </table>
-          <input type="number" class="cdu-input-res" id="sum-5" placeholder="Total">
+          <input type="number" class="cdu-input-res" id="sum-5">
         </div>
       </div>
 
@@ -781,7 +797,7 @@
             <tr><td class="cdu-op-cell">−</td><td class="cdu-num-cell">3</td><td class="cdu-num-cell">4</td><td class="cdu-num-cell">1</td></tr>
             <tr class="cdu-divider-row"><td colspan="4"></td></tr>
           </table>
-          <input type="number" class="cdu-input-res" id="res-1" placeholder="Diferencia">
+          <input type="number" class="cdu-input-res" id="res-1">
         </div>
 
         <!-- 4.2 -->
@@ -794,7 +810,7 @@
             <tr><td class="cdu-op-cell">−</td><td class="cdu-num-cell">5</td><td class="cdu-num-cell">2</td><td class="cdu-num-cell">3</td></tr>
             <tr class="cdu-divider-row"><td colspan="4"></td></tr>
           </table>
-          <input type="number" class="cdu-input-res" id="res-2" placeholder="Diferencia">
+          <input type="number" class="cdu-input-res" id="res-2">
         </div>
 
         <!-- 4.3 -->
@@ -807,7 +823,7 @@
             <tr><td class="cdu-op-cell">−</td><td class="cdu-num-cell">2</td><td class="cdu-num-cell">3</td><td class="cdu-num-cell">8</td></tr>
             <tr class="cdu-divider-row"><td colspan="4"></td></tr>
           </table>
-          <input type="number" class="cdu-input-res" id="res-3" placeholder="Diferencia">
+          <input type="number" class="cdu-input-res" id="res-3">
         </div>
 
         <!-- 4.4 -->
@@ -820,7 +836,7 @@
             <tr><td class="cdu-op-cell">−</td><td class="cdu-num-cell">4</td><td class="cdu-num-cell">5</td><td class="cdu-num-cell">6</td></tr>
             <tr class="cdu-divider-row"><td colspan="4"></td></tr>
           </table>
-          <input type="number" class="cdu-input-res" id="res-4" placeholder="Diferencia">
+          <input type="number" class="cdu-input-res" id="res-4">
         </div>
 
         <!-- 4.5 -->
@@ -833,7 +849,7 @@
             <tr><td class="cdu-op-cell">−</td><td class="cdu-num-cell">3</td><td class="cdu-num-cell">8</td><td class="cdu-num-cell">5</td></tr>
             <tr class="cdu-divider-row"><td colspan="4"></td></tr>
           </table>
-          <input type="number" class="cdu-input-res" id="res-5" placeholder="Diferencia">
+          <input type="number" class="cdu-input-res" id="res-5">
         </div>
       </div>
 
@@ -856,27 +872,27 @@
         <div style="background:#f8fafc; border:1px solid var(--border); border-radius:10px; padding:12px; text-align:center;">
           <div style="font-size:11px; font-weight:bold; color:var(--primary); margin-bottom:4px;">5.1</div>
           <div style="font-family:'Courier New', monospace; font-size:17px; font-weight:900; margin:6px 0;">32 × 3</div>
-          <input type="number" class="input-clean input-sm" id="mul-1" placeholder="=">
+          <input type="number" class="input-clean input-sm" id="mul-1">
         </div>
         <div style="background:#f8fafc; border:1px solid var(--border); border-radius:10px; padding:12px; text-align:center;">
           <div style="font-size:11px; font-weight:bold; color:var(--primary); margin-bottom:4px;">5.2</div>
           <div style="font-family:'Courier New', monospace; font-size:17px; font-weight:900; margin:6px 0;">41 × 2</div>
-          <input type="number" class="input-clean input-sm" id="mul-2" placeholder="=">
+          <input type="number" class="input-clean input-sm" id="mul-2">
         </div>
         <div style="background:#f8fafc; border:1px solid var(--border); border-radius:10px; padding:12px; text-align:center;">
           <div style="font-size:11px; font-weight:bold; color:var(--primary); margin-bottom:4px;">5.3</div>
           <div style="font-family:'Courier New', monospace; font-size:17px; font-weight:900; margin:6px 0;">23 × 3</div>
-          <input type="number" class="input-clean input-sm" id="mul-3" placeholder="=">
+          <input type="number" class="input-clean input-sm" id="mul-3">
         </div>
         <div style="background:#f8fafc; border:1px solid var(--border); border-radius:10px; padding:12px; text-align:center;">
           <div style="font-size:11px; font-weight:bold; color:var(--primary); margin-bottom:4px;">5.4</div>
           <div style="font-family:'Courier New', monospace; font-size:17px; font-weight:900; margin:6px 0;">54 × 2</div>
-          <input type="number" class="input-clean input-sm" id="mul-4" placeholder="=">
+          <input type="number" class="input-clean input-sm" id="mul-4">
         </div>
         <div style="background:#f8fafc; border:1px solid var(--border); border-radius:10px; padding:12px; text-align:center;">
           <div style="font-size:11px; font-weight:bold; color:var(--primary); margin-bottom:4px;">5.5</div>
           <div style="font-family:'Courier New', monospace; font-size:17px; font-weight:900; margin:6px 0;">30 × 3</div>
-          <input type="number" class="input-clean input-sm" id="mul-5" placeholder="=">
+          <input type="number" class="input-clean input-sm" id="mul-5">
         </div>
       </div>
 
@@ -900,7 +916,7 @@
           <p style="font-size:13.5px; margin-bottom:8px;"><strong>6.1)</strong> Martina compró 4 cajas con 5 lápices de colores cada una. ¿Cuántos lápices tiene en total?</p>
           <div style="display:flex; gap:10px; align-items:center;">
             <span>Respuesta:</span>
-            <input type="number" class="input-clean input-sm" id="pr-1" placeholder="Total"> lápices.
+            <input type="number" class="input-clean input-sm" id="pr-1"> lápices.
           </div>
         </div>
 
@@ -908,7 +924,7 @@
           <p style="font-size:13.5px; margin-bottom:8px;"><strong>6.2)</strong> En la biblioteca escolar hay 458 libros y llegan 235 libros nuevos. ¿Cuántos libros hay en total?</p>
           <div style="display:flex; gap:10px; align-items:center;">
             <span>Respuesta:</span>
-            <input type="number" class="input-clean input-sm" id="pr-2" placeholder="Total"> libros.
+            <input type="number" class="input-clean input-sm" id="pr-2"> libros.
           </div>
         </div>
 
@@ -916,7 +932,7 @@
           <p style="font-size:13.5px; margin-bottom:8px;"><strong>6.3)</strong> Tomás tenía $750 ahorrados y gastó $320 en un jugo. ¿Cuánto dinero le queda?</p>
           <div style="display:flex; gap:10px; align-items:center;">
             <span>Respuesta: $</span>
-            <input type="number" class="input-clean input-sm" id="pr-3" placeholder="Saldo"> pesos.
+            <input type="number" class="input-clean input-sm" id="pr-3"> pesos.
           </div>
         </div>
 
@@ -924,7 +940,7 @@
           <p style="font-size:13.5px; margin-bottom:8px;"><strong>6.4)</strong> Un agricultor cosechó 600 manzanas y vendió 238 en la feria. ¿Cuántas le quedan?</p>
           <div style="display:flex; gap:10px; align-items:center;">
             <span>Respuesta:</span>
-            <input type="number" class="input-clean input-sm" id="pr-4" placeholder="Quedan"> manzanas.
+            <input type="number" class="input-clean input-sm" id="pr-4"> manzanas.
           </div>
         </div>
 
@@ -932,7 +948,7 @@
           <p style="font-size:13.5px; margin-bottom:8px;"><strong>6.5)</strong> En 3° Básico hay 3 salas y cada una tiene 22 estudiantes. ¿Cuántos estudiantes hay en total?</p>
           <div style="display:flex; gap:10px; align-items:center;">
             <span>Respuesta:</span>
-            <input type="number" class="input-clean input-sm" id="pr-5" placeholder="Total"> estudiantes.
+            <input type="number" class="input-clean input-sm" id="pr-5"> estudiantes.
           </div>
         </div>
       </div>
@@ -976,7 +992,7 @@
             <line x1="50" y1="50" x2="50" y2="16" stroke="#0284c7" stroke-width="2.5" stroke-linecap="round"/>
             <circle cx="50" cy="50" r="3.5" fill="#0f172a"/>
           </svg>
-          <input type="text" class="input-clean input-md" id="reloj-1" placeholder="00:00">
+          <input type="text" class="input-clean input-md" id="reloj-1">
         </div>
 
         <!-- Reloj 2 (02:30) -->
@@ -995,7 +1011,7 @@
             <line x1="50" y1="50" x2="50" y2="82" stroke="#0284c7" stroke-width="2.5" stroke-linecap="round"/>
             <circle cx="50" cy="50" r="3.5" fill="#0f172a"/>
           </svg>
-          <input type="text" class="input-clean input-md" id="reloj-2" placeholder="00:00">
+          <input type="text" class="input-clean input-md" id="reloj-2">
         </div>
 
         <!-- Reloj 3 (09:15) -->
@@ -1014,7 +1030,7 @@
             <line x1="50" y1="50" x2="82" y2="50" stroke="#0284c7" stroke-width="2.5" stroke-linecap="round"/>
             <circle cx="50" cy="50" r="3.5" fill="#0f172a"/>
           </svg>
-          <input type="text" class="input-clean input-md" id="reloj-3" placeholder="00:00">
+          <input type="text" class="input-clean input-md" id="reloj-3">
         </div>
 
         <!-- Reloj 4 (04:45) -->
@@ -1033,7 +1049,7 @@
             <line x1="50" y1="50" x2="16" y2="50" stroke="#0284c7" stroke-width="2.5" stroke-linecap="round"/>
             <circle cx="50" cy="50" r="3.5" fill="#0f172a"/>
           </svg>
-          <input type="text" class="input-clean input-md" id="reloj-4" placeholder="00:00">
+          <input type="text" class="input-clean input-md" id="reloj-4">
         </div>
 
         <!-- Reloj 5 (11:10) -->
@@ -1052,7 +1068,7 @@
             <line x1="50" y1="50" x2="78" y2="34" stroke="#0284c7" stroke-width="2.5" stroke-linecap="round"/>
             <circle cx="50" cy="50" r="3.5" fill="#0f172a"/>
           </svg>
-          <input type="text" class="input-clean input-md" id="reloj-5" placeholder="00:00">
+          <input type="text" class="input-clean input-md" id="reloj-5">
         </div>
       </div>
 
@@ -1073,21 +1089,21 @@
       </div>
       <div class="instruction">Convierte las siguientes horas entre formato 12 horas y 24 horas:</div>
 
-      <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(220px, 1fr)); gap:12px; margin:14px 0;">
-        <div style="background:#f8fafc; padding:10px 14px; border-radius:8px; border:1px solid var(--border);">
-          <strong>2.1) 2:00 PM</strong> = <input type="text" class="input-clean input-sm" id="c-1" placeholder="14:00"> hrs.
+      <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(240px, 1fr)); gap:14px; margin:16px 0;">
+        <div style="background:#f8fafc; padding:12px 16px; border-radius:10px; border:1px solid var(--border); display:flex; align-items:center; gap:8px;">
+          <strong>2.1) 2:00 PM</strong> = <input type="text" class="input-clean input-sm" id="c-1"> hrs.
         </div>
-        <div style="background:#f8fafc; padding:10px 14px; border-radius:8px; border:1px solid var(--border);">
-          <strong>2.2) 5:30 PM</strong> = <input type="text" class="input-clean input-sm" id="c-2" placeholder="17:30"> hrs.
+        <div style="background:#f8fafc; padding:12px 16px; border-radius:10px; border:1px solid var(--border); display:flex; align-items:center; gap:8px;">
+          <strong>2.2) 5:30 PM</strong> = <input type="text" class="input-clean input-sm" id="c-2"> hrs.
         </div>
-        <div style="background:#f8fafc; padding:10px 14px; border-radius:8px; border:1px solid var(--border);">
-          <strong>2.3) 8:00 PM</strong> = <input type="text" class="input-clean input-sm" id="c-3" placeholder="20:00"> hrs.
+        <div style="background:#f8fafc; padding:12px 16px; border-radius:10px; border:1px solid var(--border); display:flex; align-items:center; gap:8px;">
+          <strong>2.3) 8:00 PM</strong> = <input type="text" class="input-clean input-sm" id="c-3"> hrs.
         </div>
-        <div style="background:#f8fafc; padding:10px 14px; border-radius:8px; border:1px solid var(--border);">
-          <strong>2.4) 10:15 PM</strong> = <input type="text" class="input-clean input-sm" id="c-4" placeholder="22:15"> hrs.
+        <div style="background:#f8fafc; padding:12px 16px; border-radius:10px; border:1px solid var(--border); display:flex; align-items:center; gap:8px;">
+          <strong>2.4) 10:15 PM</strong> = <input type="text" class="input-clean input-sm" id="c-4"> hrs.
         </div>
-        <div style="background:#f8fafc; padding:10px 14px; border-radius:8px; border:1px solid var(--border);">
-          <strong>2.5) 17:00 hrs</strong> = <input type="text" class="input-clean input-sm" id="c-5" placeholder="5:00"> PM
+        <div style="background:#f8fafc; padding:12px 16px; border-radius:10px; border:1px solid var(--border); display:flex; align-items:center; gap:8px;">
+          <strong>2.5) 17:00 hrs</strong> = <input type="text" class="input-clean input-sm" id="c-5"> PM
         </div>
       </div>
 
@@ -1468,7 +1484,7 @@
 
       <div style="display:flex; flex-direction:column; gap:10px; font-size:13.5px;">
         <div>• <strong>1.1)</strong> ¿Cuántos libros se leyeron en Marzo?: <input type="number" class="input-clean input-sm" id="p1-1"> libros.</div>
-        <div>• <strong>1.2)</strong> ¿Qué mes tuvo la MENOR cantidad de lecturas?: <input type="text" class="input-clean input-md" id="p1-2" placeholder="Nombre mes"></div>
+        <div>• <strong>1.2)</strong> ¿Qué mes tuvo la MENOR cantidad de lecturas?: <input type="text" class="input-clean input-md" id="p1-2"></div>
         <div>• <strong>1.3)</strong> ¿Cuántos libros MÁS se leyeron en Abril que en Marzo?: <input type="number" class="input-clean input-sm" id="p1-3"> libros más.</div>
         <div>• <strong>1.4)</strong> ¿Cuántos libros se leyeron en Junio?: <input type="number" class="input-clean input-sm" id="p1-4"> libros.</div>
         <div>• <strong>1.5)</strong> ¿Cuántos libros se leyeron en TOTAL durante los 4 meses?: <input type="number" class="input-clean input-sm" id="p1-5"> libros.</div>
@@ -1503,9 +1519,9 @@
 
       <div style="display:flex; flex-direction:column; gap:10px; font-size:13.5px;">
         <div>• <strong>2.1)</strong> ¿Cuántas manzanas se cosecharon el Martes?: <input type="number" class="input-clean input-sm" id="p2-1"> manzanas.</div>
-        <div>• <strong>2.2)</strong> ¿Qué día se cosecharon exactamente 10 manzanas?: <input type="text" class="input-clean input-md" id="p2-2" placeholder="Día"></div>
+        <div>• <strong>2.2)</strong> ¿Qué día se cosecharon exactamente 10 manzanas?: <input type="text" class="input-clean input-md" id="p2-2"></div>
         <div>• <strong>2.3)</strong> ¿Cuántas manzanas MÁS se cosecharon el Jueves que el Lunes?: <input type="number" class="input-clean input-sm" id="p2-3"> manzanas.</div>
-        <div>• <strong>2.4)</strong> ¿Qué día se produjo la MAYOR cosecha?: <input type="text" class="input-clean input-md" id="p2-4" placeholder="Día"></div>
+        <div>• <strong>2.4)</strong> ¿Qué día se produjo la MAYOR cosecha?: <input type="text" class="input-clean input-md" id="p2-4"></div>
         <div>• <strong>2.5)</strong> ¿Cuántas manzanas se cosecharon en TOTAL en los 4 días?: <input type="number" class="input-clean input-sm" id="p2-5"> manzanas.</div>
       </div>
 
@@ -1554,10 +1570,10 @@
       </div>
 
       <div style="display:flex; flex-direction:column; gap:10px; font-size:13.5px;">
-        <div>• <strong>3.1)</strong> ¿Cuál es el deporte con MAYOR preferencia?: <input type="text" class="input-clean input-md" id="b1-1" placeholder="Deporte"></div>
+        <div>• <strong>3.1)</strong> ¿Cuál es el deporte con MAYOR preferencia?: <input type="text" class="input-clean input-md" id="b1-1"></div>
         <div>• <strong>3.2)</strong> ¿Cuántos votos obtuvo la Natación?: <input type="number" class="input-clean input-sm" id="b1-2"> votos.</div>
         <div>• <strong>3.3)</strong> ¿Cuántos niños MÁS prefieren Fútbol que Atletismo?: <input type="number" class="input-clean input-sm" id="b1-3"> niños más.</div>
-        <div>• <strong>3.4)</strong> ¿Cuál es el deporte MENOS votado?: <input type="text" class="input-clean input-md" id="b1-4" placeholder="Deporte"></div>
+        <div>• <strong>3.4)</strong> ¿Cuál es el deporte MENOS votado?: <input type="text" class="input-clean input-md" id="b1-4"></div>
         <div>• <strong>3.5)</strong> ¿Cuántos estudiantes fueron encuestados en TOTAL?: <input type="number" class="input-clean input-sm" id="b1-5"> estudiantes.</div>
       </div>
 
@@ -1609,9 +1625,9 @@
 
       <div style="display:flex; flex-direction:column; gap:10px; font-size:13.5px;">
         <div>• <strong>4.1)</strong> ¿Cuántas familias tienen Gato como mascota?: <input type="number" class="input-clean input-sm" id="b2-1"> familias.</div>
-        <div>• <strong>4.2)</strong> ¿Cuál es la mascota con MAYOR presencia?: <input type="text" class="input-clean input-md" id="b2-2" placeholder="Mascota"></div>
+        <div>• <strong>4.2)</strong> ¿Cuál es la mascota con MAYOR presencia?: <input type="text" class="input-clean input-md" id="b2-2"></div>
         <div>• <strong>4.3)</strong> ¿Cuántos Perros MÁS hay en comparación con los Canarios?: <input type="number" class="input-clean input-sm" id="b2-3"> perros más.</div>
-        <div>• <strong>4.4)</strong> ¿Cuál es la mascota con MENOS menciones?: <input type="text" class="input-clean input-md" id="b2-4" placeholder="Mascota"></div>
+        <div>• <strong>4.4)</strong> ¿Cuál es la mascota con MENOS menciones?: <input type="text" class="input-clean input-md" id="b2-4"></div>
         <div>• <strong>4.5)</strong> ¿Cuántas mascotas hay registradas en TOTAL?: <input type="number" class="input-clean input-sm" id="b2-5"> mascotas en total.</div>
       </div>
 
