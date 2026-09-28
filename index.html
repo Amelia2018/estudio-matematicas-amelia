@@ -41,7 +41,7 @@
     }
 
     .container {
-      max-width: 960px;
+      max-width: 980px;
       margin: 0 auto;
     }
 
@@ -77,11 +77,11 @@
       backdrop-filter: blur(4px);
     }
 
-    /* Barra Superior */
+    /* Control Superior */
     .top-control-bar {
       background: white;
       border-radius: var(--radius);
-      padding: 14px 20px;
+      padding: 14px 18px;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -118,11 +118,8 @@
       color: #3b82f6;
       white-space: nowrap;
     }
-    .btn-toggle-sol {
-      background: #fef3c7;
-      color: #92400e;
-      border: 1.5px solid #fcd34d;
-      padding: 8px 16px;
+    .btn-top {
+      padding: 8px 14px;
       border-radius: 10px;
       font-weight: 700;
       font-size: 13px;
@@ -130,11 +127,21 @@
       display: inline-flex;
       align-items: center;
       gap: 6px;
+      text-decoration: none;
       transition: all 0.2s ease;
     }
-    .btn-toggle-sol:hover {
-      background: #fde68a;
+    .btn-pdf {
+      background: #e0e7ff;
+      color: #3730a3;
+      border: 1.5px solid #c7d2fe;
     }
+    .btn-pdf:hover { background: #c7d2fe; }
+    .btn-toggle-sol {
+      background: #fef3c7;
+      color: #92400e;
+      border: 1.5px solid #fcd34d;
+    }
+    .btn-toggle-sol:hover { background: #fde68a; }
 
     /* Pestañas */
     .tab-nav {
@@ -148,35 +155,34 @@
       border: 1px solid var(--border);
     }
     .tab-btn {
-      padding: 10px 8px;
-      border: none;
       background: transparent;
-      border-radius: 10px;
-      font-size: 13px;
+      border: none;
+      padding: 10px 14px;
       font-weight: 700;
+      font-size: 13.5px;
       color: var(--text-muted);
       cursor: pointer;
-      transition: all 0.2s ease;
+      border-radius: 10px;
       display: flex;
       align-items: center;
       justify-content: center;
       gap: 6px;
+      transition: all 0.2s;
+    }
+    .tab-btn:hover {
+      background: rgba(255,255,255,0.8);
+      color: var(--text);
     }
     .tab-btn.active {
       background: white;
       color: var(--primary);
-      box-shadow: 0 4px 12px rgba(79, 70, 229, 0.15);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.06);
     }
 
-    .tab-content {
-      display: none;
-    }
-    .tab-content.active {
-      display: block;
-      animation: fadeIn 0.25s ease;
-    }
+    .tab-content { display: none; }
+    .tab-content.active { display: block; animation: fadeIn 0.3s ease; }
     @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(4px); }
+      from { opacity: 0; transform: translateY(6px); }
       to { opacity: 1; transform: translateY(0); }
     }
 
@@ -185,18 +191,18 @@
       background: white;
       border-radius: var(--radius);
       padding: 20px;
-      margin-bottom: 18px;
-      border: 2px solid var(--border);
-      box-shadow: 0 4px 10px rgba(0,0,0,0.03);
-      position: relative;
+      margin-bottom: 20px;
+      border: 1px solid var(--border);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+      transition: border-color 0.3s, box-shadow 0.3s;
     }
     .exercise-card.correct {
       border-color: var(--success);
-      background: linear-gradient(180deg, #ffffff 0%, #f0fdf4 100%);
+      box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.2);
     }
     .exercise-card.incorrect {
       border-color: var(--danger);
-      background: linear-gradient(180deg, #ffffff 0%, #fef2f2 100%);
+      box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.2);
     }
 
     .exercise-header {
@@ -208,33 +214,33 @@
     .badge-number {
       background: var(--primary-light);
       color: var(--primary);
-      padding: 3px 10px;
+      padding: 4px 12px;
       border-radius: 8px;
-      font-size: 11.5px;
+      font-size: 12px;
       font-weight: 800;
     }
     .instruction {
       font-size: 14.5px;
       font-weight: 700;
       color: #1e293b;
-      margin-bottom: 12px;
+      margin-bottom: 14px;
     }
 
+    /* Solucionario Inline */
     .sol-inline {
       display: none;
       background: #eff6ff;
-      border-left: 3px solid #3b82f6;
-      padding: 8px 12px;
+      border-left: 4px solid #3b82f6;
+      padding: 10px 14px;
       border-radius: 6px;
       font-size: 13px;
       color: #1e40af;
-      margin-top: 10px;
+      margin-top: 12px;
       font-weight: bold;
     }
-    .sol-inline.show {
-      display: block;
-    }
+    .sol-inline.show { display: block; }
 
+    /* Inputs y Formularios */
     .input-clean {
       border: 2px solid #cbd5e1;
       border-radius: 8px;
@@ -245,85 +251,205 @@
       color: #0f172a;
       outline: none;
       transition: all 0.2s;
+      background: #ffffff;
     }
     .input-clean:focus {
       border-color: var(--primary);
       box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.15);
     }
-    .input-sm { width: 85px; }
-    .input-md { width: 140px; }
+    .input-sm { width: 72px; }
+    .input-md { width: 130px; }
     .input-lg { width: 100%; text-align: left; }
     select.input-clean { cursor: pointer; }
 
-    .cdu-grid-wrap {
+    /* ========================================================================
+       ANTECESOR Y SUCESOR: FORMATO INLINE INQUEBRANTABLE
+       ======================================================================== */
+    .ineq-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+      gap: 12px;
+      margin: 14px 0;
+    }
+    .ineq-card {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 12px 8px;
       display: flex;
       flex-direction: column;
       align-items: center;
-      margin: 10px 0;
+      gap: 8px;
+    }
+    .ineq-num-label {
+      font-size: 11px;
+      font-weight: 800;
+      color: #3b82f6;
+    }
+    .ineq-row {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      white-space: nowrap;
+      width: 100%;
+    }
+    .ineq-symbol {
+      font-weight: 900;
+      font-size: 16px;
+      color: #64748b;
+    }
+    .ineq-center {
+      font-size: 17px;
+      font-weight: 900;
+      color: #0f172a;
+      background: #e2e8f0;
+      padding: 5px 10px;
+      border-radius: 6px;
+    }
+
+    /* ========================================================================
+       AUTÉNTICA CUADRÍCULA VERTICAL CDU (SUMAS Y RESTAS)
+       ======================================================================== */
+    .cdu-grid-wrap {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 14px;
+      margin: 14px 0;
+    }
+    .cdu-box {
+      background: #ffffff;
+      border: 1.5px solid #cbd5e1;
+      border-radius: 12px;
+      padding: 12px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.03);
+    }
+    .cdu-tag {
+      align-self: flex-start;
+      font-size: 11px;
+      font-weight: 800;
+      color: var(--primary);
+      margin-bottom: 6px;
     }
     .cdu-table {
       border-collapse: collapse;
       font-family: "Courier New", Courier, monospace;
-      font-size: 18px;
       font-weight: bold;
     }
     .cdu-table td {
-      width: 34px;
-      height: 32px;
+      width: 32px;
+      height: 28px;
       text-align: center;
       vertical-align: middle;
-      border: 1px dashed #cbd5e1;
     }
-    .cdu-header-cell {
+    .cdu-head-cell {
       background: #f1f5f9;
       font-size: 11px;
       font-family: system-ui, sans-serif;
-      color: #64748b;
-      border: 1px solid #94a3b8;
+      font-weight: 800;
+      color: #334155;
+      border: 1px solid #cbd5e1;
+      border-radius: 4px;
     }
-    .cdu-reserva-cell {
+    .cdu-head-c { background: #dbeafe; color: #1e40af; }
+    .cdu-head-d { background: #e0e7ff; color: #3730a3; }
+    .cdu-head-u { background: #ede9fe; color: #5b21b6; }
+
+    .cdu-reserva-input {
+      width: 26px;
       height: 22px;
-      background: #fffbeb;
+      border: 1px dashed #94a3b8;
+      border-radius: 4px;
+      text-align: center;
       font-size: 12px;
-      color: #d97706;
-      border: 1px dotted #f59e0b;
+      font-weight: bold;
+      color: #b45309;
+      background: #fffbeb;
+      outline: none;
+    }
+    .cdu-num-cell {
+      font-size: 19px;
+      font-weight: 900;
+      color: #0f172a;
+    }
+    .cdu-op-cell {
+      font-size: 18px;
+      font-weight: 900;
+      color: var(--primary);
+      text-align: right;
+      padding-right: 4px;
+    }
+    .cdu-divider-row td {
+      border-top: 2.5px solid #0f172a;
+      height: 4px;
+      padding: 0;
+    }
+    .cdu-input-res {
+      width: 88px;
+      font-size: 17px;
+      font-weight: 900;
+      text-align: center;
+      padding: 6px;
+      border: 2px solid #cbd5e1;
+      border-radius: 8px;
+      margin-top: 8px;
+      outline: none;
+    }
+    .cdu-input-res:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.15);
     }
 
+    /* Botones y Acciones */
     .action-row {
       display: flex;
       align-items: center;
-      gap: 8px;
-      margin-top: 12px;
+      gap: 12px;
+      margin-top: 14px;
       flex-wrap: wrap;
     }
     .btn {
-      padding: 8px 14px;
-      border-radius: 8px;
-      font-size: 13px;
+      padding: 9px 18px;
+      border-radius: 10px;
       font-weight: 700;
+      font-size: 13.5px;
       border: none;
       cursor: pointer;
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      transition: all 0.15s ease;
+      transition: all 0.2s;
     }
     .btn-primary { background: var(--primary); color: white; }
     .btn-primary:hover { background: #4338ca; }
-    .btn-hint { background: var(--warning-light); color: #92400e; }
-    .feedback-msg {
-      font-size: 13px;
+    .btn-hint {
+      background: #fef3c7;
+      color: #92400e;
+      border: 1.5px solid #fcd34d;
+      font-size: 12.5px;
+      padding: 6px 12px;
+      cursor: pointer;
+      border-radius: 8px;
       font-weight: 700;
-      padding: 5px 10px;
-      border-radius: 6px;
-      display: none;
     }
-    .feedback-msg.show { display: inline-block; }
-    .feedback-msg.ok { background: var(--success-light); color: #065f46; }
-    .feedback-msg.err { background: var(--danger-light); color: #991b1b; }
+    .feedback-msg {
+      font-size: 13.5px;
+      font-weight: 700;
+      display: none;
+      align-items: center;
+      gap: 6px;
+    }
+    .feedback-msg.show { display: inline-flex; }
+    .feedback-msg.ok { color: var(--success); }
+    .feedback-msg.err { color: var(--danger); }
+
     .hint-box {
-      margin-top: 8px;
-      padding: 8px 12px;
+      margin-top: 10px;
+      padding: 10px 14px;
       background: #fffbeb;
       border-left: 3px solid #f59e0b;
       border-radius: 6px;
@@ -333,18 +459,34 @@
     }
     .hint-box.show { display: block; }
 
-    .clock-svg { width: 110px; height: 110px; }
-    .geo-shape-box {
+    /* Geometría y Figuras 3D */
+    .geo-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+      gap: 12px;
+      margin: 14px 0;
+    }
+    .geo-card {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 14px 10px;
       display: flex;
       flex-direction: column;
       align-items: center;
-      background: #f8fafc;
-      padding: 12px;
-      border-radius: 10px;
-      border: 1px solid var(--border);
       gap: 8px;
+      text-align: center;
     }
+    .geo-card strong { font-size: 12.5px; color: #1e293b; }
+    .geo-c3d-table {
+      font-size: 11.5px;
+      width: 100%;
+      margin-top: 4px;
+      text-align: left;
+    }
+    .geo-c3d-table td { padding: 3px 0; }
 
+    /* Barra Inferior */
     .util-bar {
       margin-top: 26px;
       padding: 16px 20px;
@@ -361,6 +503,7 @@
     @media (max-width: 600px) {
       .hero-card h1 { font-size: 20px; }
       .tab-btn { font-size: 11px; padding: 6px 4px; }
+      .top-control-bar { flex-direction: column; align-items: stretch; }
     }
   </style>
 </head>
@@ -390,10 +533,10 @@
       <div class="score-badge" id="scoreText">⭐ 0 / 80</div>
     </div>
     <div style="display:flex; gap:8px; flex-wrap:wrap;">
-      <a href="guia_estudio_amelia.pdf" download="Guia_Completa_Matematicas_Amelia_8Paginas.pdf" class="btn-toggle-sol" style="background:#e0e7ff; color:#3730a3; border-color:#c7d2fe; text-decoration:none;">
+      <a href="guia_estudio_amelia.pdf" download="Guia_Completa_Matematicas_Amelia_8Paginas.pdf" class="btn-top btn-pdf">
         📥 Descargar PDF (8 págs)
       </a>
-      <button class="btn-toggle-sol" id="btnToggle" onclick="toggleSolucionario()">
+      <button class="btn-top btn-toggle-sol" id="btnToggle" onclick="toggleSolucionario()">
         👁️ Ver Solucionario Completo
       </button>
     </div>
@@ -415,339 +558,655 @@
     </button>
   </div>
 
-  <!-- ========================================================================= -->
-  <!-- TAB 1: OPERATORIA Y NUMERACIÓN (30 EJERCICIOS)                            -->
-  <!-- ========================================================================= -->
-  <div id="tab-op" class="tab-content active">
+  <!-- =========================================================================
+       PESTAÑA 1: OPERATORIA Y NUMERACIÓN (30 EJERCICIOS)
+       ========================================================================= -->
+  <div class="tab-content active" id="tab-op">
 
-    <!-- I. ANTECESOR Y SUCESOR (5) -->
+    <!-- I. ANTECESOR Y SUCESOR -->
     <div class="exercise-card" id="card-ant">
-      <div class="exercise-header"><span class="badge-number">I. Antecesor y Sucesor (5 ejercicios)</span><span class="status-icon">⚪</span></div>
-      <div class="instruction">Escribe el número anterior (-1) y el número siguiente (+1) de cada cifra:</div>
-      <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(160px, 1fr)); gap:12px; margin:12px 0;">
-        <div style="background:#f8fafc; padding:10px; border-radius:8px; text-align:center;">
-          <strong>1.1)</strong> <br><input type="number" class="input-clean input-sm" id="ant-1a"> &lt; 600 &lt; <input type="number" class="input-clean input-sm" id="ant-1b">
+      <div class="exercise-header">
+        <span class="badge-number">I. Antecesor y Sucesor (5 ejercicios)</span>
+        <span class="status-icon">⚪</span>
+      </div>
+      <div class="instruction">Escribe el antecesor y el sucesor de cada número:</div>
+
+      <div class="ineq-container">
+        <!-- 1.1 -->
+        <div class="ineq-card">
+          <span class="ineq-num-label">1.1</span>
+          <div class="ineq-row">
+            <input type="number" class="input-clean input-sm" id="ant-1" placeholder="...">
+            <span class="ineq-symbol">&lt;</span>
+            <span class="ineq-center">600</span>
+            <span class="ineq-symbol">&lt;</span>
+            <input type="number" class="input-clean input-sm" id="suc-1" placeholder="...">
+          </div>
         </div>
-        <div style="background:#f8fafc; padding:10px; border-radius:8px; text-align:center;">
-          <strong>1.2)</strong> <br><input type="number" class="input-clean input-sm" id="ant-2a"> &lt; 499 &lt; <input type="number" class="input-clean input-sm" id="ant-2b">
+
+        <!-- 1.2 -->
+        <div class="ineq-card">
+          <span class="ineq-num-label">1.2</span>
+          <div class="ineq-row">
+            <input type="number" class="input-clean input-sm" id="ant-2" placeholder="...">
+            <span class="ineq-symbol">&lt;</span>
+            <span class="ineq-center">499</span>
+            <span class="ineq-symbol">&lt;</span>
+            <input type="number" class="input-clean input-sm" id="suc-2" placeholder="...">
+          </div>
         </div>
-        <div style="background:#f8fafc; padding:10px; border-radius:8px; text-align:center;">
-          <strong>1.3)</strong> <br><input type="number" class="input-clean input-sm" id="ant-3a"> &lt; 820 &lt; <input type="number" class="input-clean input-sm" id="ant-3b">
+
+        <!-- 1.3 -->
+        <div class="ineq-card">
+          <span class="ineq-num-label">1.3</span>
+          <div class="ineq-row">
+            <input type="number" class="input-clean input-sm" id="ant-3" placeholder="...">
+            <span class="ineq-symbol">&lt;</span>
+            <span class="ineq-center">820</span>
+            <span class="ineq-symbol">&lt;</span>
+            <input type="number" class="input-clean input-sm" id="suc-3" placeholder="...">
+          </div>
         </div>
-        <div style="background:#f8fafc; padding:10px; border-radius:8px; text-align:center;">
-          <strong>1.4)</strong> <br><input type="number" class="input-clean input-sm" id="ant-4a"> &lt; 700 &lt; <input type="number" class="input-clean input-sm" id="ant-4b">
+
+        <!-- 1.4 -->
+        <div class="ineq-card">
+          <span class="ineq-num-label">1.4</span>
+          <div class="ineq-row">
+            <input type="number" class="input-clean input-sm" id="ant-4" placeholder="...">
+            <span class="ineq-symbol">&lt;</span>
+            <span class="ineq-center">700</span>
+            <span class="ineq-symbol">&lt;</span>
+            <input type="number" class="input-clean input-sm" id="suc-4" placeholder="...">
+          </div>
         </div>
-        <div style="background:#f8fafc; padding:10px; border-radius:8px; text-align:center;">
-          <strong>1.5)</strong> <br><input type="number" class="input-clean input-sm" id="ant-5a"> &lt; 350 &lt; <input type="number" class="input-clean input-sm" id="ant-5b">
+
+        <!-- 1.5 -->
+        <div class="ineq-card">
+          <span class="ineq-num-label">1.5</span>
+          <div class="ineq-row">
+            <input type="number" class="input-clean input-sm" id="ant-5" placeholder="...">
+            <span class="ineq-symbol">&lt;</span>
+            <span class="ineq-center">350</span>
+            <span class="ineq-symbol">&lt;</span>
+            <input type="number" class="input-clean input-sm" id="suc-5" placeholder="...">
+          </div>
         </div>
       </div>
-      <div class="action-row"><button class="btn btn-primary" onclick="checkAnt()">Comprobar Antecesores</button><span class="feedback-msg" id="fb-ant"></span></div>
+
+      <div class="action-row">
+        <button class="btn btn-primary" onclick="checkAntecesores()">Comprobar Antecesores</button>
+        <button class="btn-hint" onclick="toggleHint('hint-ant')">💡 Pista</button>
+        <span class="feedback-msg" id="fb-ant"></span>
+      </div>
+      <div class="hint-box" id="hint-ant">Antecesor es el número inmediatamente anterior (-1) y sucesor es el inmediatamente posterior (+1).</div>
       <div class="sol-inline">Solución: 1.1) 599 y 601 | 1.2) 498 y 500 | 1.3) 819 y 821 | 1.4) 699 y 701 | 1.5) 349 y 351</div>
     </div>
 
-    <!-- II. ESCRITURA EN PALABRAS (5) -->
-    <div class="exercise-card" id="card-wrd">
-      <div class="exercise-header"><span class="badge-number">II. Escritura en Palabras (5 ejercicios)</span><span class="status-icon">⚪</span></div>
-      <div class="instruction">Escribe con palabras los siguientes números:</div>
-      <div style="display:flex; flex-direction:column; gap:10px; margin:12px 0;">
-        <div><strong>2.1) 753:</strong> <input type="text" class="input-clean input-lg" id="wrd-1"></div>
-        <div><strong>2.2) 608:</strong> <input type="text" class="input-clean input-lg" id="wrd-2"></div>
-        <div><strong>2.3) 942:</strong> <input type="text" class="input-clean input-lg" id="wrd-3"></div>
-        <div><strong>2.4) 516:</strong> <input type="text" class="input-clean input-lg" id="wrd-4"></div>
-        <div><strong>2.5) 870:</strong> <input type="text" class="input-clean input-lg" id="wrd-5"></div>
+    <!-- II. ESCRITURA EN PALABRAS -->
+    <div class="exercise-card" id="card-esc">
+      <div class="exercise-header">
+        <span class="badge-number">II. Escritura en Palabras (5 ejercicios)</span>
+        <span class="status-icon">⚪</span>
       </div>
-      <div class="action-row"><button class="btn btn-primary" onclick="checkWrd()">Comprobar Escritura</button><span class="feedback-msg" id="fb-wrd"></span></div>
-      <div class="sol-inline">Solución: 753: Setecientos cincuenta y tres | 608: Seiscientos ocho | 942: Novecientos cuarenta y dos | 516: Quinientos dieciséis | 870: Ochocientos setenta</div>
+      <div class="instruction">Escribe con palabras cada uno de los siguientes números:</div>
+
+      <div style="display:flex; flex-direction:column; gap:10px; margin:14px 0;">
+        <div style="display:flex; align-items:center; gap:10px; flex-wrap:wrap;">
+          <strong style="width:75px;">2.1) 753:</strong>
+          <input type="text" class="input-clean input-lg" id="esc-1" placeholder="Escribe aquí con palabras..." style="flex:1; min-width:220px;">
+        </div>
+        <div style="display:flex; align-items:center; gap:10px; flex-wrap:wrap;">
+          <strong style="width:75px;">2.2) 608:</strong>
+          <input type="text" class="input-clean input-lg" id="esc-2" placeholder="Escribe aquí con palabras..." style="flex:1; min-width:220px;">
+        </div>
+        <div style="display:flex; align-items:center; gap:10px; flex-wrap:wrap;">
+          <strong style="width:75px;">2.3) 942:</strong>
+          <input type="text" class="input-clean input-lg" id="esc-3" placeholder="Escribe aquí con palabras..." style="flex:1; min-width:220px;">
+        </div>
+        <div style="display:flex; align-items:center; gap:10px; flex-wrap:wrap;">
+          <strong style="width:75px;">2.4) 516:</strong>
+          <input type="text" class="input-clean input-lg" id="esc-4" placeholder="Escribe aquí con palabras..." style="flex:1; min-width:220px;">
+        </div>
+        <div style="display:flex; align-items:center; gap:10px; flex-wrap:wrap;">
+          <strong style="width:75px;">2.5) 870:</strong>
+          <input type="text" class="input-clean input-lg" id="esc-5" placeholder="Escribe aquí con palabras..." style="flex:1; min-width:220px;">
+        </div>
+      </div>
+
+      <div class="action-row">
+        <button class="btn btn-primary" onclick="checkEscritura()">Comprobar Escritura</button>
+        <span class="feedback-msg" id="fb-esc"></span>
+      </div>
+      <div class="sol-inline">Solución: 2.1) Setecientos cincuenta y tres | 2.2) Seiscientos ocho | 2.3) Novecientos cuarenta y dos | 2.4) Quinientos dieciséis | 2.5) Ochocientos setenta</div>
     </div>
 
-    <!-- III. SUMAS VERTICALES (5) -->
+    <!-- III. SUMAS VERTICALES (FORMATO CDU AUTÉNTICO) -->
     <div class="exercise-card" id="card-sum">
-      <div class="exercise-header"><span class="badge-number">III. Sumas Verticales (5 ejercicios)</span><span class="status-icon">⚪</span></div>
-      <div class="instruction">Resuelve cada suma vertical (atenta a las reservas cuando corresponda):</div>
-      <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(160px, 1fr)); gap:12px; margin:12px 0;">
-        <div style="background:#f8fafc; padding:10px; border-radius:8px; text-align:center;">
-          <strong>3.1) 342 + 154</strong><br>
-          <input type="number" class="input-clean input-md" id="sum-1" placeholder="Resultado">
+      <div class="exercise-header">
+        <span class="badge-number">III. Sumas Verticales (5 ejercicios)</span>
+        <span class="status-icon">⚪</span>
+      </div>
+      <div class="instruction">Calcula el resultado de las siguientes adiciones verticales (puedes anotar reservas en las casillas superiores si las necesitas):</div>
+
+      <div class="cdu-grid-wrap">
+        <!-- 3.1 -->
+        <div class="cdu-box">
+          <span class="cdu-tag">3.1</span>
+          <table class="cdu-table">
+            <tr><td></td><td class="cdu-head-cell cdu-head-c">C</td><td class="cdu-head-cell cdu-head-d">D</td><td class="cdu-head-cell cdu-head-u">U</td></tr>
+            <tr><td></td><td><input type="text" maxlength="1" class="cdu-reserva-input"></td><td><input type="text" maxlength="1" class="cdu-reserva-input"></td><td><input type="text" maxlength="1" class="cdu-reserva-input"></td></tr>
+            <tr><td class="cdu-op-cell"></td><td class="cdu-num-cell">3</td><td class="cdu-num-cell">4</td><td class="cdu-num-cell">2</td></tr>
+            <tr><td class="cdu-op-cell">+</td><td class="cdu-num-cell">1</td><td class="cdu-num-cell">5</td><td class="cdu-num-cell">4</td></tr>
+            <tr class="cdu-divider-row"><td colspan="4"></td></tr>
+          </table>
+          <input type="number" class="cdu-input-res" id="sum-1" placeholder="Total">
         </div>
-        <div style="background:#f8fafc; padding:10px; border-radius:8px; text-align:center;">
-          <strong>3.2) 523 + 261</strong><br>
-          <input type="number" class="input-clean input-md" id="sum-2" placeholder="Resultado">
+
+        <!-- 3.2 -->
+        <div class="cdu-box">
+          <span class="cdu-tag">3.2</span>
+          <table class="cdu-table">
+            <tr><td></td><td class="cdu-head-cell cdu-head-c">C</td><td class="cdu-head-cell cdu-head-d">D</td><td class="cdu-head-cell cdu-head-u">U</td></tr>
+            <tr><td></td><td><input type="text" maxlength="1" class="cdu-reserva-input"></td><td><input type="text" maxlength="1" class="cdu-reserva-input"></td><td><input type="text" maxlength="1" class="cdu-reserva-input"></td></tr>
+            <tr><td class="cdu-op-cell"></td><td class="cdu-num-cell">5</td><td class="cdu-num-cell">2</td><td class="cdu-num-cell">3</td></tr>
+            <tr><td class="cdu-op-cell">+</td><td class="cdu-num-cell">2</td><td class="cdu-num-cell">6</td><td class="cdu-num-cell">1</td></tr>
+            <tr class="cdu-divider-row"><td colspan="4"></td></tr>
+          </table>
+          <input type="number" class="cdu-input-res" id="sum-2" placeholder="Total">
         </div>
-        <div style="background:#f8fafc; padding:10px; border-radius:8px; text-align:center;">
-          <strong>3.3) 586 + 247 🔴</strong><br>
-          <input type="number" class="input-clean input-md" id="sum-3" placeholder="Resultado">
+
+        <!-- 3.3 -->
+        <div class="cdu-box">
+          <span class="cdu-tag">3.3</span>
+          <table class="cdu-table">
+            <tr><td></td><td class="cdu-head-cell cdu-head-c">C</td><td class="cdu-head-cell cdu-head-d">D</td><td class="cdu-head-cell cdu-head-u">U</td></tr>
+            <tr><td></td><td><input type="text" maxlength="1" class="cdu-reserva-input"></td><td><input type="text" maxlength="1" class="cdu-reserva-input"></td><td><input type="text" maxlength="1" class="cdu-reserva-input"></td></tr>
+            <tr><td class="cdu-op-cell"></td><td class="cdu-num-cell">5</td><td class="cdu-num-cell">8</td><td class="cdu-num-cell">6</td></tr>
+            <tr><td class="cdu-op-cell">+</td><td class="cdu-num-cell">2</td><td class="cdu-num-cell">4</td><td class="cdu-num-cell">7</td></tr>
+            <tr class="cdu-divider-row"><td colspan="4"></td></tr>
+          </table>
+          <input type="number" class="cdu-input-res" id="sum-3" placeholder="Total">
         </div>
-        <div style="background:#f8fafc; padding:10px; border-radius:8px; text-align:center;">
-          <strong>3.4) 479 + 385 🔴</strong><br>
-          <input type="number" class="input-clean input-md" id="sum-4" placeholder="Resultado">
+
+        <!-- 3.4 -->
+        <div class="cdu-box">
+          <span class="cdu-tag">3.4</span>
+          <table class="cdu-table">
+            <tr><td></td><td class="cdu-head-cell cdu-head-c">C</td><td class="cdu-head-cell cdu-head-d">D</td><td class="cdu-head-cell cdu-head-u">U</td></tr>
+            <tr><td></td><td><input type="text" maxlength="1" class="cdu-reserva-input"></td><td><input type="text" maxlength="1" class="cdu-reserva-input"></td><td><input type="text" maxlength="1" class="cdu-reserva-input"></td></tr>
+            <tr><td class="cdu-op-cell"></td><td class="cdu-num-cell">4</td><td class="cdu-num-cell">7</td><td class="cdu-num-cell">9</td></tr>
+            <tr><td class="cdu-op-cell">+</td><td class="cdu-num-cell">3</td><td class="cdu-num-cell">8</td><td class="cdu-num-cell">5</td></tr>
+            <tr class="cdu-divider-row"><td colspan="4"></td></tr>
+          </table>
+          <input type="number" class="cdu-input-res" id="sum-4" placeholder="Total">
         </div>
-        <div style="background:#f8fafc; padding:10px; border-radius:8px; text-align:center;">
-          <strong>3.5) 658 + 196 🔴</strong><br>
-          <input type="number" class="input-clean input-md" id="sum-5" placeholder="Resultado">
+
+        <!-- 3.5 -->
+        <div class="cdu-box">
+          <span class="cdu-tag">3.5</span>
+          <table class="cdu-table">
+            <tr><td></td><td class="cdu-head-cell cdu-head-c">C</td><td class="cdu-head-cell cdu-head-d">D</td><td class="cdu-head-cell cdu-head-u">U</td></tr>
+            <tr><td></td><td><input type="text" maxlength="1" class="cdu-reserva-input"></td><td><input type="text" maxlength="1" class="cdu-reserva-input"></td><td><input type="text" maxlength="1" class="cdu-reserva-input"></td></tr>
+            <tr><td class="cdu-op-cell"></td><td class="cdu-num-cell">6</td><td class="cdu-num-cell">5</td><td class="cdu-num-cell">8</td></tr>
+            <tr><td class="cdu-op-cell">+</td><td class="cdu-num-cell">1</td><td class="cdu-num-cell">9</td><td class="cdu-num-cell">6</td></tr>
+            <tr class="cdu-divider-row"><td colspan="4"></td></tr>
+          </table>
+          <input type="number" class="cdu-input-res" id="sum-5" placeholder="Total">
         </div>
       </div>
-      <div class="action-row"><button class="btn btn-primary" onclick="checkSum()">Comprobar Sumas</button><span class="feedback-msg" id="fb-sum"></span></div>
+
+      <div class="action-row">
+        <button class="btn btn-primary" onclick="checkSumas()">Comprobar Sumas</button>
+        <span class="feedback-msg" id="fb-sum"></span>
+      </div>
       <div class="sol-inline">Solución: 3.1) 496 | 3.2) 784 | 3.3) 833 | 3.4) 864 | 3.5) 854</div>
     </div>
 
-    <!-- IV. RESTAS VERTICALES (5) -->
+    <!-- IV. RESTAS VERTICALES (FORMATO CDU AUTÉNTICO) -->
     <div class="exercise-card" id="card-res">
-      <div class="exercise-header"><span class="badge-number">IV. Restas Verticales (5 ejercicios)</span><span class="status-icon">⚪</span></div>
-      <div class="instruction">Resuelve cada resta vertical (con y sin canje):</div>
-      <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(160px, 1fr)); gap:12px; margin:12px 0;">
-        <div style="background:#f8fafc; padding:10px; border-radius:8px; text-align:center;">
-          <strong>4.1) 785 - 341</strong><br>
-          <input type="number" class="input-clean input-md" id="res-1" placeholder="Resultado">
+      <div class="exercise-header">
+        <span class="badge-number">IV. Restas Verticales (5 ejercicios)</span>
+        <span class="status-icon">⚪</span>
+      </div>
+      <div class="instruction">Calcula el resultado de las siguientes sustracciones verticales:</div>
+
+      <div class="cdu-grid-wrap">
+        <!-- 4.1 -->
+        <div class="cdu-box">
+          <span class="cdu-tag">4.1</span>
+          <table class="cdu-table">
+            <tr><td></td><td class="cdu-head-cell cdu-head-c">C</td><td class="cdu-head-cell cdu-head-d">D</td><td class="cdu-head-cell cdu-head-u">U</td></tr>
+            <tr><td></td><td><input type="text" maxlength="1" class="cdu-reserva-input"></td><td><input type="text" maxlength="1" class="cdu-reserva-input"></td><td><input type="text" maxlength="1" class="cdu-reserva-input"></td></tr>
+            <tr><td class="cdu-op-cell"></td><td class="cdu-num-cell">7</td><td class="cdu-num-cell">8</td><td class="cdu-num-cell">5</td></tr>
+            <tr><td class="cdu-op-cell">−</td><td class="cdu-num-cell">3</td><td class="cdu-num-cell">4</td><td class="cdu-num-cell">1</td></tr>
+            <tr class="cdu-divider-row"><td colspan="4"></td></tr>
+          </table>
+          <input type="number" class="cdu-input-res" id="res-1" placeholder="Diferencia">
         </div>
-        <div style="background:#f8fafc; padding:10px; border-radius:8px; text-align:center;">
-          <strong>4.2) 964 - 523</strong><br>
-          <input type="number" class="input-clean input-md" id="res-2" placeholder="Resultado">
+
+        <!-- 4.2 -->
+        <div class="cdu-box">
+          <span class="cdu-tag">4.2</span>
+          <table class="cdu-table">
+            <tr><td></td><td class="cdu-head-cell cdu-head-c">C</td><td class="cdu-head-cell cdu-head-d">D</td><td class="cdu-head-cell cdu-head-u">U</td></tr>
+            <tr><td></td><td><input type="text" maxlength="1" class="cdu-reserva-input"></td><td><input type="text" maxlength="1" class="cdu-reserva-input"></td><td><input type="text" maxlength="1" class="cdu-reserva-input"></td></tr>
+            <tr><td class="cdu-op-cell"></td><td class="cdu-num-cell">9</td><td class="cdu-num-cell">6</td><td class="cdu-num-cell">4</td></tr>
+            <tr><td class="cdu-op-cell">−</td><td class="cdu-num-cell">5</td><td class="cdu-num-cell">2</td><td class="cdu-num-cell">3</td></tr>
+            <tr class="cdu-divider-row"><td colspan="4"></td></tr>
+          </table>
+          <input type="number" class="cdu-input-res" id="res-2" placeholder="Diferencia">
         </div>
-        <div style="background:#f8fafc; padding:10px; border-radius:8px; text-align:center;">
-          <strong>4.3) 600 - 238 ⚠️</strong><br>
-          <input type="number" class="input-clean input-md" id="res-3" placeholder="Resultado">
+
+        <!-- 4.3 -->
+        <div class="cdu-box">
+          <span class="cdu-tag">4.3</span>
+          <table class="cdu-table">
+            <tr><td></td><td class="cdu-head-cell cdu-head-c">C</td><td class="cdu-head-cell cdu-head-d">D</td><td class="cdu-head-cell cdu-head-u">U</td></tr>
+            <tr><td></td><td><input type="text" maxlength="1" class="cdu-reserva-input"></td><td><input type="text" maxlength="1" class="cdu-reserva-input"></td><td><input type="text" maxlength="1" class="cdu-reserva-input"></td></tr>
+            <tr><td class="cdu-op-cell"></td><td class="cdu-num-cell">6</td><td class="cdu-num-cell">0</td><td class="cdu-num-cell">0</td></tr>
+            <tr><td class="cdu-op-cell">−</td><td class="cdu-num-cell">2</td><td class="cdu-num-cell">3</td><td class="cdu-num-cell">8</td></tr>
+            <tr class="cdu-divider-row"><td colspan="4"></td></tr>
+          </table>
+          <input type="number" class="cdu-input-res" id="res-3" placeholder="Diferencia">
         </div>
-        <div style="background:#f8fafc; padding:10px; border-radius:8px; text-align:center;">
-          <strong>4.4) 800 - 456 ⚠️</strong><br>
-          <input type="number" class="input-clean input-md" id="res-4" placeholder="Resultado">
+
+        <!-- 4.4 -->
+        <div class="cdu-box">
+          <span class="cdu-tag">4.4</span>
+          <table class="cdu-table">
+            <tr><td></td><td class="cdu-head-cell cdu-head-c">C</td><td class="cdu-head-cell cdu-head-d">D</td><td class="cdu-head-cell cdu-head-u">U</td></tr>
+            <tr><td></td><td><input type="text" maxlength="1" class="cdu-reserva-input"></td><td><input type="text" maxlength="1" class="cdu-reserva-input"></td><td><input type="text" maxlength="1" class="cdu-reserva-input"></td></tr>
+            <tr><td class="cdu-op-cell"></td><td class="cdu-num-cell">8</td><td class="cdu-num-cell">0</td><td class="cdu-num-cell">0</td></tr>
+            <tr><td class="cdu-op-cell">−</td><td class="cdu-num-cell">4</td><td class="cdu-num-cell">5</td><td class="cdu-num-cell">6</td></tr>
+            <tr class="cdu-divider-row"><td colspan="4"></td></tr>
+          </table>
+          <input type="number" class="cdu-input-res" id="res-4" placeholder="Diferencia">
         </div>
-        <div style="background:#f8fafc; padding:10px; border-radius:8px; text-align:center;">
-          <strong>4.5) 742 - 385 ⚠️</strong><br>
-          <input type="number" class="input-clean input-md" id="res-5" placeholder="Resultado">
+
+        <!-- 4.5 -->
+        <div class="cdu-box">
+          <span class="cdu-tag">4.5</span>
+          <table class="cdu-table">
+            <tr><td></td><td class="cdu-head-cell cdu-head-c">C</td><td class="cdu-head-cell cdu-head-d">D</td><td class="cdu-head-cell cdu-head-u">U</td></tr>
+            <tr><td></td><td><input type="text" maxlength="1" class="cdu-reserva-input"></td><td><input type="text" maxlength="1" class="cdu-reserva-input"></td><td><input type="text" maxlength="1" class="cdu-reserva-input"></td></tr>
+            <tr><td class="cdu-op-cell"></td><td class="cdu-num-cell">7</td><td class="cdu-num-cell">4</td><td class="cdu-num-cell">2</td></tr>
+            <tr><td class="cdu-op-cell">−</td><td class="cdu-num-cell">3</td><td class="cdu-num-cell">8</td><td class="cdu-num-cell">5</td></tr>
+            <tr class="cdu-divider-row"><td colspan="4"></td></tr>
+          </table>
+          <input type="number" class="cdu-input-res" id="res-5" placeholder="Diferencia">
         </div>
       </div>
-      <div class="action-row"><button class="btn btn-primary" onclick="checkRes()">Comprobar Restas</button><span class="feedback-msg" id="fb-res"></span></div>
+
+      <div class="action-row">
+        <button class="btn btn-primary" onclick="checkRestas()">Comprobar Restas</button>
+        <span class="feedback-msg" id="fb-res"></span>
+      </div>
       <div class="sol-inline">Solución: 4.1) 444 | 4.2) 441 | 4.3) 362 | 4.4) 344 | 4.5) 357</div>
     </div>
 
-    <!-- V. MULTIPLICACIONES (5) -->
+    <!-- V. MULTIPLICACIONES -->
     <div class="exercise-card" id="card-mul">
-      <div class="exercise-header"><span class="badge-number">V. Multiplicaciones (5 ejercicios)</span><span class="status-icon">⚪</span></div>
-      <div class="instruction">Calcula el resultado de las siguientes multiplicaciones:</div>
-      <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(160px, 1fr)); gap:12px; margin:12px 0;">
-        <div style="background:#f8fafc; padding:10px; border-radius:8px; text-align:center;"><strong>5.1) 32 x 3 =</strong> <input type="number" class="input-clean input-sm" id="mul-1"></div>
-        <div style="background:#f8fafc; padding:10px; border-radius:8px; text-align:center;"><strong>5.2) 41 x 2 =</strong> <input type="number" class="input-clean input-sm" id="mul-2"></div>
-        <div style="background:#f8fafc; padding:10px; border-radius:8px; text-align:center;"><strong>5.3) 24 x 2 =</strong> <input type="number" class="input-clean input-sm" id="mul-3"></div>
-        <div style="background:#f8fafc; padding:10px; border-radius:8px; text-align:center;"><strong>5.4) 13 x 3 =</strong> <input type="number" class="input-clean input-sm" id="mul-4"></div>
-        <div style="background:#f8fafc; padding:10px; border-radius:8px; text-align:center;"><strong>5.5) 23 x 3 =</strong> <input type="number" class="input-clean input-sm" id="mul-5"></div>
+      <div class="exercise-header">
+        <span class="badge-number">V. Multiplicaciones (5 ejercicios)</span>
+        <span class="status-icon">⚪</span>
       </div>
-      <div class="action-row"><button class="btn btn-primary" onclick="checkMul()">Comprobar Multiplicaciones</button><span class="feedback-msg" id="fb-mul"></span></div>
-      <div class="sol-inline">Solución: 5.1) 96 | 5.2) 82 | 5.3) 48 | 5.4) 39 | 5.5) 69</div>
+      <div class="instruction">Calcula el resultado de las siguientes multiplicaciones:</div>
+
+      <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(130px, 1fr)); gap:12px; margin:14px 0;">
+        <div style="background:#f8fafc; border:1px solid var(--border); border-radius:10px; padding:12px; text-align:center;">
+          <div style="font-size:11px; font-weight:bold; color:var(--primary); margin-bottom:4px;">5.1</div>
+          <div style="font-family:'Courier New', monospace; font-size:17px; font-weight:900; margin:6px 0;">32 × 3</div>
+          <input type="number" class="input-clean input-sm" id="mul-1" placeholder="=">
+        </div>
+        <div style="background:#f8fafc; border:1px solid var(--border); border-radius:10px; padding:12px; text-align:center;">
+          <div style="font-size:11px; font-weight:bold; color:var(--primary); margin-bottom:4px;">5.2</div>
+          <div style="font-family:'Courier New', monospace; font-size:17px; font-weight:900; margin:6px 0;">41 × 2</div>
+          <input type="number" class="input-clean input-sm" id="mul-2" placeholder="=">
+        </div>
+        <div style="background:#f8fafc; border:1px solid var(--border); border-radius:10px; padding:12px; text-align:center;">
+          <div style="font-size:11px; font-weight:bold; color:var(--primary); margin-bottom:4px;">5.3</div>
+          <div style="font-family:'Courier New', monospace; font-size:17px; font-weight:900; margin:6px 0;">23 × 3</div>
+          <input type="number" class="input-clean input-sm" id="mul-3" placeholder="=">
+        </div>
+        <div style="background:#f8fafc; border:1px solid var(--border); border-radius:10px; padding:12px; text-align:center;">
+          <div style="font-size:11px; font-weight:bold; color:var(--primary); margin-bottom:4px;">5.4</div>
+          <div style="font-family:'Courier New', monospace; font-size:17px; font-weight:900; margin:6px 0;">54 × 2</div>
+          <input type="number" class="input-clean input-sm" id="mul-4" placeholder="=">
+        </div>
+        <div style="background:#f8fafc; border:1px solid var(--border); border-radius:10px; padding:12px; text-align:center;">
+          <div style="font-size:11px; font-weight:bold; color:var(--primary); margin-bottom:4px;">5.5</div>
+          <div style="font-family:'Courier New', monospace; font-size:17px; font-weight:900; margin:6px 0;">30 × 3</div>
+          <input type="number" class="input-clean input-sm" id="mul-5" placeholder="=">
+        </div>
+      </div>
+
+      <div class="action-row">
+        <button class="btn btn-primary" onclick="checkMultiplicaciones()">Comprobar Multiplicaciones</button>
+        <span class="feedback-msg" id="fb-mul"></span>
+      </div>
+      <div class="sol-inline">Solución: 5.1) 96 | 5.2) 82 | 5.3) 69 | 5.4) 108 | 5.5) 90</div>
     </div>
 
-    <!-- VI. PROBLEMAS DE APLICACIÓN (5) -->
-    <div class="exercise-card" id="card-prb">
-      <div class="exercise-header"><span class="badge-number">VI. Problemas de Aplicación (5 ejercicios)</span><span class="status-icon">⚪</span></div>
-      <div class="instruction">Lee cada problema, realiza tu cálculo e ingresa la respuesta final:</div>
-      <div style="display:flex; flex-direction:column; gap:12px; margin:12px 0;">
-        <div style="background:#fffbeb; padding:10px; border-radius:8px;">
-          <strong>6.1)</strong> “Martina compró 4 cajas con 5 lápices cada una. ¿Cuántos lápices tiene en total?”<br>
-          Respuesta: <input type="number" class="input-clean input-sm" id="prb-1"> lápices.
+    <!-- VI. PROBLEMAS DE APLICACIÓN -->
+    <div class="exercise-card" id="card-prob">
+      <div class="exercise-header">
+        <span class="badge-number">VI. Problemas de Aplicación (5 problemas formativos)</span>
+        <span class="status-icon">⚪</span>
+      </div>
+      <div class="instruction">Lee cada situación y escribe el resultado final:</div>
+
+      <div style="display:flex; flex-direction:column; gap:14px; margin:14px 0;">
+        <div style="background:#f8fafc; padding:12px; border-radius:10px; border:1px solid var(--border);">
+          <p style="font-size:13.5px; margin-bottom:8px;"><strong>6.1)</strong> Martina compró 4 cajas con 5 lápices de colores cada una. ¿Cuántos lápices tiene en total?</p>
+          <div style="display:flex; gap:10px; align-items:center;">
+            <span>Respuesta:</span>
+            <input type="number" class="input-clean input-sm" id="pr-1" placeholder="Total"> lápices.
+          </div>
         </div>
-        <div style="background:#fffbeb; padding:10px; border-radius:8px;">
-          <strong>6.2)</strong> “Joaquín tiene 3 paquetes con 6 galletas cada uno. ¿Cuántas galletas tiene en total?”<br>
-          Respuesta: <input type="number" class="input-clean input-sm" id="prb-2"> galletas.
+
+        <div style="background:#f8fafc; padding:12px; border-radius:10px; border:1px solid var(--border);">
+          <p style="font-size:13.5px; margin-bottom:8px;"><strong>6.2)</strong> En la biblioteca escolar hay 458 libros y llegan 235 libros nuevos. ¿Cuántos libros hay en total?</p>
+          <div style="display:flex; gap:10px; align-items:center;">
+            <span>Respuesta:</span>
+            <input type="number" class="input-clean input-sm" id="pr-2" placeholder="Total"> libros.
+          </div>
         </div>
-        <div style="background:#fffbeb; padding:10px; border-radius:8px;">
-          <strong>6.3)</strong> “En una biblioteca hay 450 libros y llegan 235 libros nuevos. ¿Cuántos libros hay en total?”<br>
-          Respuesta: <input type="number" class="input-clean input-sm" id="prb-3"> libros.
+
+        <div style="background:#f8fafc; padding:12px; border-radius:10px; border:1px solid var(--border);">
+          <p style="font-size:13.5px; margin-bottom:8px;"><strong>6.3)</strong> Tomás tenía $750 ahorrados y gastó $320 en un jugo. ¿Cuánto dinero le queda?</p>
+          <div style="display:flex; gap:10px; align-items:center;">
+            <span>Respuesta: $</span>
+            <input type="number" class="input-clean input-sm" id="pr-3" placeholder="Saldo"> pesos.
+          </div>
         </div>
-        <div style="background:#fffbeb; padding:10px; border-radius:8px;">
-          <strong>6.4)</strong> “Matías tenía $800 pesos y compró un helado de $350 pesos. ¿Cuánto dinero le sobró?”<br>
-          Respuesta: $<input type="number" class="input-clean input-sm" id="prb-4"> pesos.
+
+        <div style="background:#f8fafc; padding:12px; border-radius:10px; border:1px solid var(--border);">
+          <p style="font-size:13.5px; margin-bottom:8px;"><strong>6.4)</strong> Un agricultor cosechó 600 manzanas y vendió 238 en la feria. ¿Cuántas le quedan?</p>
+          <div style="display:flex; gap:10px; align-items:center;">
+            <span>Respuesta:</span>
+            <input type="number" class="input-clean input-sm" id="pr-4" placeholder="Quedan"> manzanas.
+          </div>
         </div>
-        <div style="background:#fffbeb; padding:10px; border-radius:8px;">
-          <strong>6.5)</strong> “En un jardín infantil hay 5 mesas y en cada mesa se sientan 4 niños. ¿Cuántos niños hay sentados?”<br>
-          Respuesta: <input type="number" class="input-clean input-sm" id="prb-5"> niños.
+
+        <div style="background:#f8fafc; padding:12px; border-radius:10px; border:1px solid var(--border);">
+          <p style="font-size:13.5px; margin-bottom:8px;"><strong>6.5)</strong> En 3° Básico hay 3 salas y cada una tiene 22 estudiantes. ¿Cuántos estudiantes hay en total?</p>
+          <div style="display:flex; gap:10px; align-items:center;">
+            <span>Respuesta:</span>
+            <input type="number" class="input-clean input-sm" id="pr-5" placeholder="Total"> estudiantes.
+          </div>
         </div>
       </div>
-      <div class="action-row"><button class="btn btn-primary" onclick="checkPrb()">Comprobar Problemas</button><span class="feedback-msg" id="fb-prb"></span></div>
-      <div class="sol-inline">Solución: 6.1) 20 lápices (4x5) | 6.2) 18 galletas (3x6) | 6.3) 685 libros (450+235) | 6.4) $450 pesos (800-350) | 6.5) 20 niños (5x4)</div>
+
+      <div class="action-row">
+        <button class="btn btn-primary" onclick="checkProblemas()">Comprobar Problemas</button>
+        <span class="feedback-msg" id="fb-pr"></span>
+      </div>
+      <div class="sol-inline">Solución: 6.1) 20 lápices | 6.2) 693 libros | 6.3) $430 | 6.4) 362 manzanas | 6.5) 66 estudiantes</div>
     </div>
 
   </div>
 
-  <!-- ========================================================================= -->
-  <!-- TAB 2: EL TIEMPO Y LOS RELOJES (15 EJERCICIOS)                            -->
-  <!-- ========================================================================= -->
-  <div id="tab-tiempo" class="tab-content">
-    
-    <!-- 5 RELOJES -->
+  <!-- =========================================================================
+       PESTAÑA 2: EL TIEMPO Y LOS RELOJES (15 EJERCICIOS)
+       ========================================================================= -->
+  <div class="tab-content" id="tab-tiempo">
+
+    <!-- I. RELOJES ANÁLOGOS (CERO SPOILERS EN EL TÍTULO O PLACEHOLDER) -->
     <div class="exercise-card" id="card-rel">
-      <div class="exercise-header"><span class="badge-number">I. Lectura de Relojes Análogos (5 ejercicios)</span><span class="status-icon">⚪</span></div>
-      <div class="instruction">Observa cada reloj e ingresa la hora digital correspondiente:</div>
-      <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(160px, 1fr)); gap:12px; margin:12px 0;">
-        
-        <div class="geo-shape-box">
-          <strong>1.1) 7 en punto</strong>
-          <svg class="clock-svg" viewBox="0 0 100 100">
-            <circle cx="50" cy="50" r="46" fill="#f8fafc" stroke="#3b82f6" stroke-width="4"/>
-            <text x="50" y="16" font-size="9" font-weight="bold" text-anchor="middle">12</text>
-            <text x="84" y="53" font-size="9" font-weight="bold" text-anchor="middle">3</text>
-            <text x="50" y="90" font-size="9" font-weight="bold" text-anchor="middle">6</text>
-            <text x="16" y="53" font-size="9" font-weight="bold" text-anchor="middle">9</text>
-            <circle cx="50" cy="50" r="3.5" fill="#0f172a"/>
-            <line x1="50" y1="50" x2="33" y2="69" stroke="#dc2626" stroke-width="3.5" stroke-linecap="round"/>
-            <line x1="50" y1="50" x2="50" y2="18" stroke="#0284c7" stroke-width="2.5" stroke-linecap="round"/>
-          </svg>
-          <input type="text" class="input-clean input-md" id="rel-1" placeholder="Ej: 07:00">
-        </div>
-
-        <div class="geo-shape-box">
-          <strong>1.2) Dos y media</strong>
-          <svg class="clock-svg" viewBox="0 0 100 100">
-            <circle cx="50" cy="50" r="46" fill="#f8fafc" stroke="#8b5cf6" stroke-width="4"/>
-            <text x="50" y="16" font-size="9" font-weight="bold" text-anchor="middle">12</text>
-            <text x="84" y="53" font-size="9" font-weight="bold" text-anchor="middle">3</text>
-            <text x="50" y="90" font-size="9" font-weight="bold" text-anchor="middle">6</text>
-            <text x="16" y="53" font-size="9" font-weight="bold" text-anchor="middle">9</text>
-            <circle cx="50" cy="50" r="3.5" fill="#0f172a"/>
-            <line x1="50" y1="50" x2="68" y2="55" stroke="#dc2626" stroke-width="3.5" stroke-linecap="round"/>
-            <line x1="50" y1="50" x2="50" y2="82" stroke="#0284c7" stroke-width="2.5" stroke-linecap="round"/>
-          </svg>
-          <input type="text" class="input-clean input-md" id="rel-2" placeholder="Ej: 02:30">
-        </div>
-
-        <div class="geo-shape-box">
-          <strong>1.3) Nueve y cuarto</strong>
-          <svg class="clock-svg" viewBox="0 0 100 100">
-            <circle cx="50" cy="50" r="46" fill="#f8fafc" stroke="#0284c7" stroke-width="4"/>
-            <text x="50" y="16" font-size="9" font-weight="bold" text-anchor="middle">12</text>
-            <text x="84" y="53" font-size="9" font-weight="bold" text-anchor="middle">3</text>
-            <text x="50" y="90" font-size="9" font-weight="bold" text-anchor="middle">6</text>
-            <text x="16" y="53" font-size="9" font-weight="bold" text-anchor="middle">9</text>
-            <circle cx="50" cy="50" r="3.5" fill="#0f172a"/>
-            <line x1="50" y1="50" x2="26" y2="47" stroke="#dc2626" stroke-width="3.5" stroke-linecap="round"/>
-            <line x1="50" y1="50" x2="82" y2="50" stroke="#0284c7" stroke-width="2.5" stroke-linecap="round"/>
-          </svg>
-          <input type="text" class="input-clean input-md" id="rel-3" placeholder="Ej: 09:15">
-        </div>
-
-        <div class="geo-shape-box">
-          <strong>1.4) 4:45</strong>
-          <svg class="clock-svg" viewBox="0 0 100 100">
-            <circle cx="50" cy="50" r="46" fill="#f8fafc" stroke="#059669" stroke-width="4"/>
-            <text x="50" y="16" font-size="9" font-weight="bold" text-anchor="middle">12</text>
-            <text x="84" y="53" font-size="9" font-weight="bold" text-anchor="middle">3</text>
-            <text x="50" y="90" font-size="9" font-weight="bold" text-anchor="middle">6</text>
-            <text x="16" y="53" font-size="9" font-weight="bold" text-anchor="middle">9</text>
-            <circle cx="50" cy="50" r="3.5" fill="#0f172a"/>
-            <line x1="50" y1="50" x2="62" y2="68" stroke="#dc2626" stroke-width="3.5" stroke-linecap="round"/>
-            <line x1="50" y1="50" x2="18" y2="50" stroke="#0284c7" stroke-width="2.5" stroke-linecap="round"/>
-          </svg>
-          <input type="text" class="input-clean input-md" id="rel-4" placeholder="Ej: 04:45">
-        </div>
-
-        <div class="geo-shape-box">
-          <strong>1.5) 11:10</strong>
-          <svg class="clock-svg" viewBox="0 0 100 100">
-            <circle cx="50" cy="50" r="46" fill="#f8fafc" stroke="#d97706" stroke-width="4"/>
-            <text x="50" y="16" font-size="9" font-weight="bold" text-anchor="middle">12</text>
-            <text x="84" y="53" font-size="9" font-weight="bold" text-anchor="middle">3</text>
-            <text x="50" y="90" font-size="9" font-weight="bold" text-anchor="middle">6</text>
-            <text x="16" y="53" font-size="9" font-weight="bold" text-anchor="middle">9</text>
-            <circle cx="50" cy="50" r="3.5" fill="#0f172a"/>
-            <line x1="50" y1="50" x2="38" y2="28" stroke="#dc2626" stroke-width="3.5" stroke-linecap="round"/>
-            <line x1="50" y1="50" x2="76" y2="34" stroke="#0284c7" stroke-width="2.5" stroke-linecap="round"/>
-          </svg>
-          <input type="text" class="input-clean input-md" id="rel-5" placeholder="Ej: 11:10">
-        </div>
-
+      <div class="exercise-header">
+        <span class="badge-number">I. Lectura de Relojes Análogos (5 ejercicios)</span>
+        <span class="status-icon">⚪</span>
       </div>
-      <div class="action-row"><button class="btn btn-primary" onclick="checkRel()">Comprobar Relojes</button><span class="feedback-msg" id="fb-rel"></span></div>
-      <div class="sol-inline">Solución: 1.1) 07:00 | 1.2) 02:30 | 1.3) 09:15 | 1.4) 04:45 | 1.5) 11:10</div>
+      <div class="instruction">Observa cada reloj e ingresa la hora digital correspondiente (formato hh:mm):</div>
+
+      <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(160px, 1fr)); gap:14px; margin:14px 0;">
+        <!-- Reloj 1 (07:00) -->
+        <div style="display:flex; flex-direction:column; align-items:center; background:#f8fafc; padding:12px; border-radius:12px; border:1px solid var(--border); gap:8px;">
+          <span style="font-size:12px; font-weight:800; color:var(--purple);">Reloj 1</span>
+          <svg class="clock-svg" viewBox="0 0 100 100" width="110" height="110">
+            <circle cx="50" cy="50" r="46" fill="#f8fafc" stroke="#2563eb" stroke-width="3"/>
+            <circle cx="50" cy="50" r="41" fill="none" stroke="#dbeafe" stroke-width="1"/>
+            <text x="50" y="19" font-size="9" font-weight="bold" text-anchor="middle" fill="#1e293b">12</text>
+            <text x="83" y="53" font-size="9" font-weight="bold" text-anchor="middle" fill="#1e293b">3</text>
+            <text x="50" y="87" font-size="9" font-weight="bold" text-anchor="middle" fill="#1e293b">6</text>
+            <text x="17" y="53" font-size="9" font-weight="bold" text-anchor="middle" fill="#1e293b">9</text>
+            <!-- Horario al 7 -->
+            <line x1="50" y1="50" x2="36" y2="70" stroke="#dc2626" stroke-width="3.5" stroke-linecap="round"/>
+            <!-- Minutero al 12 -->
+            <line x1="50" y1="50" x2="50" y2="16" stroke="#0284c7" stroke-width="2.5" stroke-linecap="round"/>
+            <circle cx="50" cy="50" r="3.5" fill="#0f172a"/>
+          </svg>
+          <input type="text" class="input-clean input-md" id="reloj-1" placeholder="00:00">
+        </div>
+
+        <!-- Reloj 2 (02:30) -->
+        <div style="display:flex; flex-direction:column; align-items:center; background:#f8fafc; padding:12px; border-radius:12px; border:1px solid var(--border); gap:8px;">
+          <span style="font-size:12px; font-weight:800; color:var(--purple);">Reloj 2</span>
+          <svg class="clock-svg" viewBox="0 0 100 100" width="110" height="110">
+            <circle cx="50" cy="50" r="46" fill="#f8fafc" stroke="#7c3aed" stroke-width="3"/>
+            <circle cx="50" cy="50" r="41" fill="none" stroke="#ede9fe" stroke-width="1"/>
+            <text x="50" y="19" font-size="9" font-weight="bold" text-anchor="middle" fill="#1e293b">12</text>
+            <text x="83" y="53" font-size="9" font-weight="bold" text-anchor="middle" fill="#1e293b">3</text>
+            <text x="50" y="87" font-size="9" font-weight="bold" text-anchor="middle" fill="#1e293b">6</text>
+            <text x="17" y="53" font-size="9" font-weight="bold" text-anchor="middle" fill="#1e293b">9</text>
+            <!-- Horario entre el 2 y el 3 -->
+            <line x1="50" y1="50" x2="68" y2="39" stroke="#dc2626" stroke-width="3.5" stroke-linecap="round"/>
+            <!-- Minutero al 6 -->
+            <line x1="50" y1="50" x2="50" y2="82" stroke="#0284c7" stroke-width="2.5" stroke-linecap="round"/>
+            <circle cx="50" cy="50" r="3.5" fill="#0f172a"/>
+          </svg>
+          <input type="text" class="input-clean input-md" id="reloj-2" placeholder="00:00">
+        </div>
+
+        <!-- Reloj 3 (09:15) -->
+        <div style="display:flex; flex-direction:column; align-items:center; background:#f8fafc; padding:12px; border-radius:12px; border:1px solid var(--border); gap:8px;">
+          <span style="font-size:12px; font-weight:800; color:var(--purple);">Reloj 3</span>
+          <svg class="clock-svg" viewBox="0 0 100 100" width="110" height="110">
+            <circle cx="50" cy="50" r="46" fill="#f8fafc" stroke="#0284c7" stroke-width="3"/>
+            <circle cx="50" cy="50" r="41" fill="none" stroke="#e0f2fe" stroke-width="1"/>
+            <text x="50" y="19" font-size="9" font-weight="bold" text-anchor="middle" fill="#1e293b">12</text>
+            <text x="83" y="53" font-size="9" font-weight="bold" text-anchor="middle" fill="#1e293b">3</text>
+            <text x="50" y="87" font-size="9" font-weight="bold" text-anchor="middle" fill="#1e293b">6</text>
+            <text x="17" y="53" font-size="9" font-weight="bold" text-anchor="middle" fill="#1e293b">9</text>
+            <!-- Horario al 9 -->
+            <line x1="50" y1="50" x2="26" y2="48" stroke="#dc2626" stroke-width="3.5" stroke-linecap="round"/>
+            <!-- Minutero al 3 -->
+            <line x1="50" y1="50" x2="82" y2="50" stroke="#0284c7" stroke-width="2.5" stroke-linecap="round"/>
+            <circle cx="50" cy="50" r="3.5" fill="#0f172a"/>
+          </svg>
+          <input type="text" class="input-clean input-md" id="reloj-3" placeholder="00:00">
+        </div>
+
+        <!-- Reloj 4 (04:45) -->
+        <div style="display:flex; flex-direction:column; align-items:center; background:#f8fafc; padding:12px; border-radius:12px; border:1px solid var(--border); gap:8px;">
+          <span style="font-size:12px; font-weight:800; color:var(--purple);">Reloj 4</span>
+          <svg class="clock-svg" viewBox="0 0 100 100" width="110" height="110">
+            <circle cx="50" cy="50" r="46" fill="#f8fafc" stroke="#059669" stroke-width="3"/>
+            <circle cx="50" cy="50" r="41" fill="none" stroke="#d1fae5" stroke-width="1"/>
+            <text x="50" y="19" font-size="9" font-weight="bold" text-anchor="middle" fill="#1e293b">12</text>
+            <text x="83" y="53" font-size="9" font-weight="bold" text-anchor="middle" fill="#1e293b">3</text>
+            <text x="50" y="87" font-size="9" font-weight="bold" text-anchor="middle" fill="#1e293b">6</text>
+            <text x="17" y="53" font-size="9" font-weight="bold" text-anchor="middle" fill="#1e293b">9</text>
+            <!-- Horario casi al 5 -->
+            <line x1="50" y1="50" x2="66" y2="67" stroke="#dc2626" stroke-width="3.5" stroke-linecap="round"/>
+            <!-- Minutero al 9 -->
+            <line x1="50" y1="50" x2="16" y2="50" stroke="#0284c7" stroke-width="2.5" stroke-linecap="round"/>
+            <circle cx="50" cy="50" r="3.5" fill="#0f172a"/>
+          </svg>
+          <input type="text" class="input-clean input-md" id="reloj-4" placeholder="00:00">
+        </div>
+
+        <!-- Reloj 5 (11:10) -->
+        <div style="display:flex; flex-direction:column; align-items:center; background:#f8fafc; padding:12px; border-radius:12px; border:1px solid var(--border); gap:8px;">
+          <span style="font-size:12px; font-weight:800; color:var(--purple);">Reloj 5</span>
+          <svg class="clock-svg" viewBox="0 0 100 100" width="110" height="110">
+            <circle cx="50" cy="50" r="46" fill="#f8fafc" stroke="#d97706" stroke-width="3"/>
+            <circle cx="50" cy="50" r="41" fill="none" stroke="#fef3c7" stroke-width="1"/>
+            <text x="50" y="19" font-size="9" font-weight="bold" text-anchor="middle" fill="#1e293b">12</text>
+            <text x="83" y="53" font-size="9" font-weight="bold" text-anchor="middle" fill="#1e293b">3</text>
+            <text x="50" y="87" font-size="9" font-weight="bold" text-anchor="middle" fill="#1e293b">6</text>
+            <text x="17" y="53" font-size="9" font-weight="bold" text-anchor="middle" fill="#1e293b">9</text>
+            <!-- Horario al 11 -->
+            <line x1="50" y1="50" x2="38" y2="28" stroke="#dc2626" stroke-width="3.5" stroke-linecap="round"/>
+            <!-- Minutero al 2 -->
+            <line x1="50" y1="50" x2="78" y2="34" stroke="#0284c7" stroke-width="2.5" stroke-linecap="round"/>
+            <circle cx="50" cy="50" r="3.5" fill="#0f172a"/>
+          </svg>
+          <input type="text" class="input-clean input-md" id="reloj-5" placeholder="00:00">
+        </div>
+      </div>
+
+      <div class="action-row">
+        <button class="btn btn-primary" onclick="checkRelojes()">Comprobar Relojes</button>
+        <button class="btn-hint" onclick="toggleHint('hint-rel')">💡 Pista</button>
+        <span class="feedback-msg" id="fb-rel"></span>
+      </div>
+      <div class="hint-box" id="hint-rel">La manecilla roja corta marca la HORA y la azul larga marca los MINUTOS (cada número avanza de 5 en 5 minutos).</div>
+      <div class="sol-inline">Solución: Reloj 1: 07:00 | Reloj 2: 02:30 | Reloj 3: 09:15 | Reloj 4: 04:45 | Reloj 5: 11:10</div>
     </div>
 
-    <!-- CONVERSIONES (5) -->
-    <div class="exercise-card" id="card-cnv">
-      <div class="exercise-header"><span class="badge-number">II. Conversión de Horas (5 ejercicios)</span><span class="status-icon">⚪</span></div>
-      <div class="instruction">Convierte las siguientes horas entre formato 12 horas y 24 horas:</div>
-      <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px; margin:12px 0;">
-        <div style="background:#f8fafc; padding:10px; border-radius:8px;">• 2.1) 2:00 PM = <input type="text" class="input-clean input-sm" id="cnv-1"> hrs.</div>
-        <div style="background:#f8fafc; padding:10px; border-radius:8px;">• 2.2) 5:30 PM = <input type="text" class="input-clean input-sm" id="cnv-2"> hrs.</div>
-        <div style="background:#f8fafc; padding:10px; border-radius:8px;">• 2.3) 8:00 PM = <input type="text" class="input-clean input-sm" id="cnv-3"> hrs.</div>
-        <div style="background:#f8fafc; padding:10px; border-radius:8px;">• 2.4) 10:15 PM = <input type="text" class="input-clean input-sm" id="cnv-4"> hrs.</div>
-        <div style="background:#f8fafc; padding:10px; border-radius:8px; grid-column:span 2;">• 2.5) ¿Qué hora es las 17:00 hrs de la tarde? R: <input type="text" class="input-clean input-sm" id="cnv-5"> PM</div>
+    <!-- II. CONVERSIÓN DE HORAS -->
+    <div class="exercise-card" id="card-conv">
+      <div class="exercise-header">
+        <span class="badge-number">II. Conversión de Horas (5 ejercicios)</span>
+        <span class="status-icon">⚪</span>
       </div>
-      <div class="action-row"><button class="btn btn-primary" onclick="checkCnv()">Comprobar Conversiones</button><span class="feedback-msg" id="fb-cnv"></span></div>
+      <div class="instruction">Convierte las siguientes horas entre formato 12 horas y 24 horas:</div>
+
+      <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(220px, 1fr)); gap:12px; margin:14px 0;">
+        <div style="background:#f8fafc; padding:10px 14px; border-radius:8px; border:1px solid var(--border);">
+          <strong>2.1) 2:00 PM</strong> = <input type="text" class="input-clean input-sm" id="c-1" placeholder="14:00"> hrs.
+        </div>
+        <div style="background:#f8fafc; padding:10px 14px; border-radius:8px; border:1px solid var(--border);">
+          <strong>2.2) 5:30 PM</strong> = <input type="text" class="input-clean input-sm" id="c-2" placeholder="17:30"> hrs.
+        </div>
+        <div style="background:#f8fafc; padding:10px 14px; border-radius:8px; border:1px solid var(--border);">
+          <strong>2.3) 8:00 PM</strong> = <input type="text" class="input-clean input-sm" id="c-3" placeholder="20:00"> hrs.
+        </div>
+        <div style="background:#f8fafc; padding:10px 14px; border-radius:8px; border:1px solid var(--border);">
+          <strong>2.4) 10:15 PM</strong> = <input type="text" class="input-clean input-sm" id="c-4" placeholder="22:15"> hrs.
+        </div>
+        <div style="background:#f8fafc; padding:10px 14px; border-radius:8px; border:1px solid var(--border);">
+          <strong>2.5) 17:00 hrs</strong> = <input type="text" class="input-clean input-sm" id="c-5" placeholder="5:00"> PM
+        </div>
+      </div>
+
+      <div class="action-row">
+        <button class="btn btn-primary" onclick="checkConv()">Comprobar Conversiones</button>
+        <span class="feedback-msg" id="fb-conv"></span>
+      </div>
       <div class="sol-inline">Solución: 2.1) 14:00 | 2.2) 17:30 | 2.3) 20:00 | 2.4) 22:15 | 2.5) 5:00 PM</div>
     </div>
 
-    <!-- INTERVALOS (5) -->
-    <div class="exercise-card" id="card-int">
-      <div class="exercise-header"><span class="badge-number">III. Intervalos de Tiempo (5 problemas)</span><span class="status-icon">⚪</span></div>
-      <div class="instruction">Calcula cuántos minutos faltan o han transcurrido:</div>
-      <div style="display:flex; flex-direction:column; gap:10px; margin:12px 0;">
-        <div style="background:#fffbeb; padding:10px; border-radius:8px;">3.1) De 09:00 a 09:30 hrs. Faltan: <input type="number" class="input-clean input-sm" id="int-1"> min.</div>
-        <div style="background:#fffbeb; padding:10px; border-radius:8px;">3.2) De 10:45 a 11:15 hrs. Faltan: <input type="number" class="input-clean input-sm" id="int-2"> min.</div>
-        <div style="background:#fffbeb; padding:10px; border-radius:8px;">3.3) De 12:35 a 12:50 hrs. Faltan: <input type="number" class="input-clean input-sm" id="int-3"> min.</div>
-        <div style="background:#fffbeb; padding:10px; border-radius:8px;">3.4) De 15:10 a 15:40 hrs. Han pasado: <input type="number" class="input-clean input-sm" id="int-4"> min.</div>
-        <div style="background:#fffbeb; padding:10px; border-radius:8px;">3.5) De 08:20 a 08:45 hrs. Faltan: <input type="number" class="input-clean input-sm" id="int-5"> min.</div>
+    <!-- III. INTERVALOS DE TIEMPO -->
+    <div class="exercise-card" id="card-interv">
+      <div class="exercise-header">
+        <span class="badge-number">III. Intervalos de Tiempo (5 ejercicios)</span>
+        <span class="status-icon">⚪</span>
       </div>
-      <div class="action-row"><button class="btn btn-primary" onclick="checkInt()">Comprobar Intervalos</button><span class="feedback-msg" id="fb-int"></span></div>
+      <div class="instruction">Calcula cuántos minutos faltan o han transcurrido en cada situación:</div>
+
+      <div style="display:flex; flex-direction:column; gap:12px; margin:14px 0;">
+        <div style="background:#f8fafc; padding:10px 14px; border-radius:8px; border:1px solid var(--border); font-size:13.5px;">
+          • <strong>3.1)</strong> Son las 09:00 hrs y el recreo comienza a las 09:30 hrs. ¿Cuántos minutos faltan?: 
+          <input type="number" class="input-clean input-sm" id="it-1"> minutos.
+        </div>
+        <div style="background:#f8fafc; padding:10px 14px; border-radius:8px; border:1px solid var(--border); font-size:13.5px;">
+          • <strong>3.2)</strong> Son las 10:45 hrs y la clase termina a las 11:15 hrs. ¿Cuántos minutos faltan?: 
+          <input type="number" class="input-clean input-sm" id="it-2"> minutos.
+        </div>
+        <div style="background:#f8fafc; padding:10px 14px; border-radius:8px; border:1px solid var(--border); font-size:13.5px;">
+          • <strong>3.3)</strong> Son las 12:35 hrs y el almuerzo es a las 12:50 hrs. ¿Cuántos minutos faltan?: 
+          <input type="number" class="input-clean input-sm" id="it-3"> minutos.
+        </div>
+        <div style="background:#f8fafc; padding:10px 14px; border-radius:8px; border:1px solid var(--border); font-size:13.5px;">
+          • <strong>3.4)</strong> La película empezó a las 15:10 hrs y ahora son las 15:40 hrs. ¿Cuántos minutos han pasado?: 
+          <input type="number" class="input-clean input-sm" id="it-4"> minutos.
+        </div>
+        <div style="background:#f8fafc; padding:10px 14px; border-radius:8px; border:1px solid var(--border); font-size:13.5px;">
+          • <strong>3.5)</strong> Son las 08:20 hrs y la prueba empieza a las 08:45 hrs. ¿Cuántos minutos faltan?: 
+          <input type="number" class="input-clean input-sm" id="it-5"> minutos.
+        </div>
+      </div>
+
+      <div class="action-row">
+        <button class="btn btn-primary" onclick="checkInterv()">Comprobar Intervalos</button>
+        <span class="feedback-msg" id="fb-it"></span>
+      </div>
       <div class="sol-inline">Solución: 3.1) 30 min | 3.2) 30 min | 3.3) 15 min | 3.4) 30 min | 3.5) 25 min</div>
     </div>
 
   </div>
 
-  <!-- ========================================================================= -->
-  <!-- TAB 3: GEOMETRÍA COMPLETA (15 EJERCICIOS)                                -->
-  <!-- ========================================================================= -->
-  <div id="tab-geo" class="tab-content">
-    
-    <!-- ÁNGULOS (5) -->
+  <!-- =========================================================================
+       PESTAÑA 3: GEOMETRÍA (15 EJERCICIOS CON 100% ILUSTRACIONES VECTORIALES)
+       ========================================================================= -->
+  <div class="tab-content" id="tab-geo">
+
+    <!-- I. ÁNGULOS (5) -->
     <div class="exercise-card" id="card-geo-a">
-      <div class="exercise-header"><span class="badge-number">I. Ángulos (5 ejercicios)</span><span class="status-icon">⚪</span></div>
-      <div class="instruction">Clasifica y responde sobre los ángulos:</div>
-      <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(180px, 1fr)); gap:12px; margin:12px 0;">
-        <div class="geo-shape-box">
-          <svg width="90" height="80" viewBox="0 0 90 80">
-            <line x1="20" y1="10" x2="20" y2="65" stroke="#1e3a8a" stroke-width="4" stroke-linecap="round"/>
-            <line x1="20" y1="65" x2="75" y2="65" stroke="#1e3a8a" stroke-width="4" stroke-linecap="round"/>
-            <rect x="20" y="49" width="16" height="16" fill="none" stroke="#dc2626" stroke-width="2"/>
+      <div class="exercise-header">
+        <span class="badge-number">I. Ángulos (5 ejercicios)</span>
+        <span class="status-icon">⚪</span>
+      </div>
+      <div class="instruction">Observa cada ilustración y clasifica el ángulo correspondiente:</div>
+
+      <div class="geo-grid">
+        <!-- 1.1 Ángulo Recto -->
+        <div class="geo-card">
+          <svg width="100" height="90" viewBox="0 0 100 90">
+            <line x1="25" y1="15" x2="25" y2="75" stroke="#1e3a8a" stroke-width="4" stroke-linecap="round"/>
+            <line x1="25" y1="75" x2="85" y2="75" stroke="#1e3a8a" stroke-width="4" stroke-linecap="round"/>
+            <rect x="25" y="57" width="18" height="18" fill="none" stroke="#dc2626" stroke-width="2.5"/>
+            <circle cx="25" cy="75" r="4" fill="#0f172a"/>
           </svg>
           <strong>1.1) Ángulo A:</strong>
           <select class="input-clean" id="ga-1">
             <option value="">Selecciona...</option>
-            <option value="recto">Ángulo Recto</option>
-            <option value="agudo">Ángulo Agudo</option>
-            <option value="obtuso">Ángulo Obtuso</option>
+            <option value="recto">Ángulo Recto (90°)</option>
+            <option value="agudo">Ángulo Agudo (&lt;90°)</option>
+            <option value="obtuso">Ángulo Obtuso (&gt;90°)</option>
           </select>
         </div>
 
-        <div class="geo-shape-box">
-          <svg width="90" height="80" viewBox="0 0 90 80">
-            <line x1="20" y1="65" x2="65" y2="20" stroke="#1e3a8a" stroke-width="4" stroke-linecap="round"/>
-            <line x1="20" y1="65" x2="75" y2="65" stroke="#1e3a8a" stroke-width="4" stroke-linecap="round"/>
-            <path d="M 45 65 A 25 25 0 0 0 38 47" fill="none" stroke="#2563eb" stroke-width="2"/>
+        <!-- 1.2 Ángulo Agudo -->
+        <div class="geo-card">
+          <svg width="100" height="90" viewBox="0 0 100 90">
+            <line x1="25" y1="75" x2="75" y2="25" stroke="#1e3a8a" stroke-width="4" stroke-linecap="round"/>
+            <line x1="25" y1="75" x2="85" y2="75" stroke="#1e3a8a" stroke-width="4" stroke-linecap="round"/>
+            <path d="M 55 75 A 30 30 0 0 0 46 54" fill="none" stroke="#2563eb" stroke-width="2.5"/>
+            <circle cx="25" cy="75" r="4" fill="#0f172a"/>
           </svg>
           <strong>1.2) Ángulo B:</strong>
           <select class="input-clean" id="ga-2">
             <option value="">Selecciona...</option>
-            <option value="recto">Ángulo Recto</option>
-            <option value="agudo">Ángulo Agudo</option>
-            <option value="obtuso">Ángulo Obtuso</option>
+            <option value="recto">Ángulo Recto (90°)</option>
+            <option value="agudo">Ángulo Agudo (&lt;90°)</option>
+            <option value="obtuso">Ángulo Obtuso (&gt;90°)</option>
           </select>
         </div>
 
-        <div class="geo-shape-box">
-          <svg width="90" height="80" viewBox="0 0 90 80">
-            <line x1="45" y1="65" x2="10" y2="25" stroke="#1e3a8a" stroke-width="4" stroke-linecap="round"/>
-            <line x1="45" y1="65" x2="85" y2="65" stroke="#1e3a8a" stroke-width="4" stroke-linecap="round"/>
-            <path d="M 65 65 A 25 25 0 0 0 25 45" fill="none" stroke="#059669" stroke-width="2"/>
+        <!-- 1.3 Ángulo Obtuso -->
+        <div class="geo-card">
+          <svg width="100" height="90" viewBox="0 0 100 90">
+            <line x1="50" y1="75" x2="15" y2="30" stroke="#1e3a8a" stroke-width="4" stroke-linecap="round"/>
+            <line x1="50" y1="75" x2="90" y2="75" stroke="#1e3a8a" stroke-width="4" stroke-linecap="round"/>
+            <path d="M 72 75 A 22 22 0 0 0 32 52" fill="none" stroke="#059669" stroke-width="2.5"/>
+            <circle cx="50" cy="75" r="4" fill="#0f172a"/>
           </svg>
           <strong>1.3) Ángulo C:</strong>
           <select class="input-clean" id="ga-3">
             <option value="">Selecciona...</option>
-            <option value="recto">Ángulo Recto</option>
-            <option value="agudo">Ángulo Agudo</option>
-            <option value="obtuso">Ángulo Obtuso</option>
+            <option value="recto">Ángulo Recto (90°)</option>
+            <option value="agudo">Ángulo Agudo (&lt;90°)</option>
+            <option value="obtuso">Ángulo Obtuso (&gt;90°)</option>
           </select>
         </div>
       </div>
-      <div style="background:#f8fafc; padding:10px; border-radius:8px; margin-top:8px; font-size:13.5px; line-height:1.9;">
-        • <strong>1.4)</strong> ¿Cuántos ángulos rectos (90°) tiene una hoja o cuaderno rectangular?: <input type="number" class="input-clean input-sm" id="ga-4"> ángulos.<br>
-        • <strong>1.5)</strong> A las 3:00 en punto, las manecillas forman un ángulo: 
+
+      <div style="background:#f8fafc; padding:12px; border-radius:10px; border:1px solid var(--border); font-size:13.5px; line-height:2;">
+        • <strong>1.4)</strong> ¿Cuántos ángulos rectos (90°) tiene una hoja o cuaderno rectangular?: <input type="number" class="input-clean input-sm" id="ga-4"> ángulos rectos.<br>
+        • <strong>1.5)</strong> A las 3:00 en punto, el minutero y el horario forman un ángulo: 
         <select class="input-clean" id="ga-5">
           <option value="">Selecciona...</option>
           <option value="recto">Ángulo Recto (90°)</option>
@@ -755,17 +1214,33 @@
           <option value="obtuso">Ángulo Obtuso</option>
         </select>
       </div>
-      <div class="action-row"><button class="btn btn-primary" onclick="checkGA()">Comprobar Ángulos</button><span class="feedback-msg" id="fb-ga"></span></div>
+
+      <div class="action-row">
+        <button class="btn btn-primary" onclick="checkGA()">Comprobar Ángulos</button>
+        <span class="feedback-msg" id="fb-ga"></span>
+      </div>
       <div class="sol-inline">Solución: 1.1) Recto | 1.2) Agudo | 1.3) Obtuso | 1.4) 4 ángulos rectos | 1.5) Ángulo Recto (90°)</div>
     </div>
 
-    <!-- TRIÁNGULOS (5) -->
+    <!-- II. TRIÁNGULOS (5 CON ILUSTRACIONES VECTORIALES) -->
     <div class="exercise-card" id="card-geo-t">
-      <div class="exercise-header"><span class="badge-number">II. Triángulos (5 ejercicios)</span><span class="status-icon">⚪</span></div>
-      <div class="instruction">Clasifica y responde sobre los triángulos:</div>
-      <div style="display:flex; flex-direction:column; gap:10px; margin:12px 0; font-size:13.5px;">
-        <div style="background:#f8fafc; padding:10px; border-radius:8px;">
-          • <strong>2.1)</strong> Triángulo con sus 3 lados de igual medida: 
+      <div class="exercise-header">
+        <span class="badge-number">II. Triángulos (5 ejercicios)</span>
+        <span class="status-icon">⚪</span>
+      </div>
+      <div class="instruction">Observa las ilustraciones y clasifica los triángulos según sus lados y ángulos:</div>
+
+      <div class="geo-grid">
+        <!-- 2.1 Equilátero -->
+        <div class="geo-card">
+          <svg width="100" height="90" viewBox="0 0 100 90">
+            <polygon points="50,15 15,80 85,80" fill="#eff6ff" stroke="#1d4ed8" stroke-width="3"/>
+            <!-- Marcas de congruencia -->
+            <line x1="50" y1="76" x2="50" y2="84" stroke="#dc2626" stroke-width="2"/>
+            <line x1="31" y1="46" x2="35" y2="49" stroke="#dc2626" stroke-width="2"/>
+            <line x1="69" y1="46" x2="65" y2="49" stroke="#dc2626" stroke-width="2"/>
+          </svg>
+          <strong>2.1) 3 lados iguales:</strong>
           <select class="input-clean" id="gt-1">
             <option value="">Selecciona...</option>
             <option value="equilatero">Triángulo Equilátero</option>
@@ -773,8 +1248,18 @@
             <option value="escaleno">Triángulo Escaleno</option>
           </select>
         </div>
-        <div style="background:#f8fafc; padding:10px; border-radius:8px;">
-          • <strong>2.2)</strong> Triángulo con 2 lados iguales y 1 diferente: 
+
+        <!-- 2.2 Isósceles -->
+        <div class="geo-card">
+          <svg width="100" height="90" viewBox="0 0 100 90">
+            <polygon points="50,12 25,82 75,82" fill="#f0fdf4" stroke="#047857" stroke-width="3"/>
+            <!-- Marcas dobles en los 2 lados iguales -->
+            <line x1="34" y1="45" x2="39" y2="48" stroke="#dc2626" stroke-width="2"/>
+            <line x1="37" y1="49" x2="42" y2="52" stroke="#dc2626" stroke-width="2"/>
+            <line x1="66" y1="45" x2="61" y2="48" stroke="#dc2626" stroke-width="2"/>
+            <line x1="63" y1="49" x2="58" y2="52" stroke="#dc2626" stroke-width="2"/>
+          </svg>
+          <strong>2.2) 2 lados iguales:</strong>
           <select class="input-clean" id="gt-2">
             <option value="">Selecciona...</option>
             <option value="equilatero">Triángulo Equilátero</option>
@@ -782,8 +1267,16 @@
             <option value="escaleno">Triángulo Escaleno</option>
           </select>
         </div>
-        <div style="background:#f8fafc; padding:10px; border-radius:8px;">
-          • <strong>2.3)</strong> Triángulo con sus 3 lados de diferente medida: 
+
+        <!-- 2.3 Escaleno -->
+        <div class="geo-card">
+          <svg width="100" height="90" viewBox="0 0 100 90">
+            <polygon points="35,16 10,80 90,80" fill="#fffbeb" stroke="#b45309" stroke-width="3"/>
+            <circle cx="35" cy="16" r="3" fill="#b45309"/>
+            <circle cx="10" cy="80" r="3" fill="#b45309"/>
+            <circle cx="90" cy="80" r="3" fill="#b45309"/>
+          </svg>
+          <strong>2.3) 3 lados distintos:</strong>
           <select class="input-clean" id="gt-3">
             <option value="">Selecciona...</option>
             <option value="equilatero">Triángulo Equilátero</option>
@@ -791,8 +1284,14 @@
             <option value="escaleno">Triángulo Escaleno</option>
           </select>
         </div>
-        <div style="background:#f8fafc; padding:10px; border-radius:8px;">
-          • <strong>2.4)</strong> Triángulo que tiene 1 ángulo recto de 90°: 
+
+        <!-- 2.4 Triángulo Rectángulo -->
+        <div class="geo-card">
+          <svg width="100" height="90" viewBox="0 0 100 90">
+            <polygon points="20,15 20,80 85,80" fill="#faf5ff" stroke="#6d28d9" stroke-width="3"/>
+            <rect x="20" y="66" width="14" height="14" fill="none" stroke="#dc2626" stroke-width="2.5"/>
+          </svg>
+          <strong>2.4) Ángulo recto 90°:</strong>
           <select class="input-clean" id="gt-4">
             <option value="">Selecciona...</option>
             <option value="rectangulo">Triángulo Rectángulo</option>
@@ -800,189 +1299,327 @@
             <option value="obtusangulo">Triángulo Obtusángulo</option>
           </select>
         </div>
-        <div style="background:#f8fafc; padding:10px; border-radius:8px;">
-          • <strong>2.5)</strong> ¿Cuántos lados tiene cualquier triángulo?: <input type="number" class="input-clean input-sm" id="gt-5"> lados.
-        </div>
       </div>
-      <div class="action-row"><button class="btn btn-primary" onclick="checkGT()">Comprobar Triángulos</button><span class="feedback-msg" id="fb-gt"></span></div>
-      <div class="sol-inline">Solución: 2.1) Equilátero | 2.2) Isósceles | 2.3) Escaleno | 2.4) Rectángulo | 2.5) 3 lados</div>
+
+      <div style="background:#f8fafc; padding:12px; border-radius:10px; border:1px solid var(--border); font-size:13.5px;">
+        • <strong>2.5)</strong> Todo triángulo tiene: 
+        <input type="number" class="input-clean input-sm" id="gt-5a"> lados, 
+        <input type="number" class="input-clean input-sm" id="gt-5b"> vértices y 
+        <input type="number" class="input-clean input-sm" id="gt-5c"> ángulos interiores.
+      </div>
+
+      <div class="action-row">
+        <button class="btn btn-primary" onclick="checkGT()">Comprobar Triángulos</button>
+        <span class="feedback-msg" id="fb-gt"></span>
+      </div>
+      <div class="sol-inline">Solución: 2.1) Equilátero | 2.2) Isósceles | 2.3) Escaleno | 2.4) Rectángulo | 2.5) 3 lados, 3 vértices y 3 ángulos</div>
     </div>
 
-    <!-- CUERPOS 3D (5) -->
+    <!-- III. CUERPOS GEOMÉTRICOS 3D (5 CON ILUSTRACIONES ISOMÉTRICAS 3D) -->
     <div class="exercise-card" id="card-geo-c">
-      <div class="exercise-header"><span class="badge-number">III. Cuerpos Geométricos 3D (5 ejercicios)</span><span class="status-icon">⚪</span></div>
-      <div class="instruction">Indica los elementos de cada cuerpo geométrico 3D:</div>
-      <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(200px, 1fr)); gap:12px; margin:12px 0; font-size:13px;">
-        <div class="geo-shape-box">
+      <div class="exercise-header">
+        <span class="badge-number">III. Cuerpos Geométricos 3D (5 ejercicios)</span>
+        <span class="status-icon">⚪</span>
+      </div>
+      <div class="instruction">Observa cada cuerpo geométrico 3D e ingresa el número de caras, vértices y aristas:</div>
+
+      <div class="geo-grid">
+        <!-- 3.1 CUBO -->
+        <div class="geo-card">
+          <svg width="100" height="90" viewBox="0 0 100 90">
+            <!-- Cara Frontal -->
+            <rect x="25" y="35" width="45" height="45" fill="#dbeafe" stroke="#1e3a8a" stroke-width="2.5"/>
+            <!-- Cara Superior -->
+            <polygon points="25,35 45,15 90,15 70,35" fill="#eff6ff" stroke="#1e3a8a" stroke-width="2.5"/>
+            <!-- Cara Derecha -->
+            <polygon points="70,35 90,15 90,60 70,80" fill="#bfdbfe" stroke="#1e3a8a" stroke-width="2.5"/>
+            <!-- Aristas ocultas punteadas -->
+            <line x1="25" y1="80" x2="45" y2="60" stroke="#93c5fd" stroke-width="1.8" stroke-dasharray="3,3"/>
+            <line x1="45" y1="60" x2="90" y2="60" stroke="#93c5fd" stroke-width="1.8" stroke-dasharray="3,3"/>
+            <line x1="45" y1="60" x2="45" y2="15" stroke="#93c5fd" stroke-width="1.8" stroke-dasharray="3,3"/>
+          </svg>
           <strong>3.1) EL CUBO</strong>
-          • Caras: <input type="number" class="input-clean input-sm" id="gc-1c"><br>
-          • Vértices: <input type="number" class="input-clean input-sm" id="gc-1v"><br>
-          • Aristas: <input type="number" class="input-clean input-sm" id="gc-1a">
+          <table class="geo-c3d-table">
+            <tr><td>• Caras:</td><td><input type="number" class="input-clean input-sm" id="gc-1a"></td></tr>
+            <tr><td>• Vértices:</td><td><input type="number" class="input-clean input-sm" id="gc-1b"></td></tr>
+            <tr><td>• Aristas:</td><td><input type="number" class="input-clean input-sm" id="gc-1c"></td></tr>
+          </table>
         </div>
-        <div class="geo-shape-box">
+
+        <!-- 3.2 PRISMA RECTANGULAR -->
+        <div class="geo-card">
+          <svg width="100" height="90" viewBox="0 0 100 90">
+            <!-- Cara Frontal -->
+            <rect x="15" y="45" width="55" height="35" fill="#ede9fe" stroke="#5b21b6" stroke-width="2.5"/>
+            <!-- Cara Superior -->
+            <polygon points="15,45 35,22 90,22 70,45" fill="#f5f3ff" stroke="#5b21b6" stroke-width="2.5"/>
+            <!-- Cara Derecha -->
+            <polygon points="70,45 90,22 90,57 70,80" fill="#ddd6fe" stroke="#5b21b6" stroke-width="2.5"/>
+            <!-- Aristas ocultas -->
+            <line x1="15" y1="80" x2="35" y2="57" stroke="#c4b5fd" stroke-width="1.8" stroke-dasharray="3,3"/>
+            <line x1="35" y1="57" x2="90" y2="57" stroke="#c4b5fd" stroke-width="1.8" stroke-dasharray="3,3"/>
+            <line x1="35" y1="57" x2="35" y2="22" stroke="#c4b5fd" stroke-width="1.8" stroke-dasharray="3,3"/>
+          </svg>
           <strong>3.2) PRISMA RECTANGULAR</strong>
-          • Caras: <input type="number" class="input-clean input-sm" id="gc-2c"><br>
-          • Vértices: <input type="number" class="input-clean input-sm" id="gc-2v"><br>
-          • Aristas: <input type="number" class="input-clean input-sm" id="gc-2a">
+          <table class="geo-c3d-table">
+            <tr><td>• Caras:</td><td><input type="number" class="input-clean input-sm" id="gc-2a"></td></tr>
+            <tr><td>• Vértices:</td><td><input type="number" class="input-clean input-sm" id="gc-2b"></td></tr>
+            <tr><td>• Aristas:</td><td><input type="number" class="input-clean input-sm" id="gc-2c"></td></tr>
+          </table>
         </div>
-        <div class="geo-shape-box">
-          <strong>3.3) PIRÁMIDE (Base cuadrada)</strong>
-          • Caras: <input type="number" class="input-clean input-sm" id="gc-3c"><br>
-          • Vértices: <input type="number" class="input-clean input-sm" id="gc-3v"><br>
-          • Aristas: <input type="number" class="input-clean input-sm" id="gc-3a">
+
+        <!-- 3.3 PIRÁMIDE DE BASE CUADRADA -->
+        <div class="geo-card">
+          <svg width="100" height="90" viewBox="0 0 100 90">
+            <!-- Cúspide y cara frontal -->
+            <polygon points="20,70 50,15 75,70" fill="#fef3c7" stroke="#b45309" stroke-width="2.5"/>
+            <!-- Cara lateral derecha -->
+            <polygon points="75,70 50,15 90,55" fill="#fde68a" stroke="#b45309" stroke-width="2.5"/>
+            <!-- Aristas ocultas base -->
+            <line x1="20" y1="70" x2="35" y2="55" stroke="#fcd34d" stroke-width="1.8" stroke-dasharray="3,3"/>
+            <line x1="35" y1="55" x2="90" y2="55" stroke="#fcd34d" stroke-width="1.8" stroke-dasharray="3,3"/>
+            <line x1="35" y1="55" x2="50" y2="15" stroke="#fcd34d" stroke-width="1.8" stroke-dasharray="3,3"/>
+          </svg>
+          <strong>3.3) PIRÁMIDE CUADRADA</strong>
+          <table class="geo-c3d-table">
+            <tr><td>• Caras:</td><td><input type="number" class="input-clean input-sm" id="gc-3a"></td></tr>
+            <tr><td>• Vértices:</td><td><input type="number" class="input-clean input-sm" id="gc-3b"></td></tr>
+            <tr><td>• Aristas:</td><td><input type="number" class="input-clean input-sm" id="gc-3c"></td></tr>
+          </table>
         </div>
-        <div class="geo-shape-box">
+
+        <!-- 3.4 CILINDRO -->
+        <div class="geo-card">
+          <svg width="100" height="90" viewBox="0 0 100 90">
+            <!-- Cuerpo -->
+            <rect x="30" y="25" width="40" height="42" fill="#d1fae5" stroke="#065f46" stroke-width="0"/>
+            <line x1="30" y1="25" x2="30" y2="67" stroke="#065f46" stroke-width="2.5"/>
+            <line x1="70" y1="25" x2="70" y2="67" stroke="#065f46" stroke-width="2.5"/>
+            <!-- Base inferior elipse -->
+            <ellipse cx="50" cy="67" rx="20" ry="8" fill="#d1fae5" stroke="#065f46" stroke-width="2.5"/>
+            <!-- Tapa superior elipse -->
+            <ellipse cx="50" cy="25" rx="20" ry="8" fill="#a7f3d0" stroke="#065f46" stroke-width="2.5"/>
+          </svg>
           <strong>3.4) CILINDRO</strong>
-          • Caras planas circulares: <input type="number" class="input-clean input-sm" id="gc-4c"><br>
-          • ¿Rueda?: 
-          <select class="input-clean" id="gc-4r">
-            <option value="">¿?</option>
-            <option value="si">Sí rueda</option>
-            <option value="no">No rueda</option>
-          </select>
+          <table class="geo-c3d-table">
+            <tr><td>• C. Planas:</td><td><input type="number" class="input-clean input-sm" id="gc-4a"></td></tr>
+            <tr><td>• ¿Rueda?:</td><td>
+              <select class="input-clean" id="gc-4b" style="width:72px;">
+                <option value="">?</option><option value="si">Sí</option><option value="no">No</option>
+              </select>
+            </td></tr>
+          </table>
         </div>
-        <div class="geo-shape-box">
+
+        <!-- 3.5 ESFERA -->
+        <div class="geo-card">
+          <svg width="100" height="90" viewBox="0 0 100 90">
+            <circle cx="50" cy="46" r="32" fill="#fee2e2" stroke="#991b1b" stroke-width="2.5"/>
+            <!-- Reflejo brillo -->
+            <circle cx="40" cy="36" r="10" fill="#ffffff" opacity="0.6"/>
+            <!-- Ecuador punteado -->
+            <ellipse cx="50" cy="46" rx="32" ry="9" fill="none" stroke="#f87171" stroke-width="1.8" stroke-dasharray="3,3"/>
+          </svg>
           <strong>3.5) ESFERA</strong>
-          • Caras planas: <input type="number" class="input-clean input-sm" id="gc-5c"><br>
-          • ¿Vértices?: <input type="number" class="input-clean input-sm" id="gc-5v">
+          <table class="geo-c3d-table">
+            <tr><td>• C. Planas:</td><td><input type="number" class="input-clean input-sm" id="gc-5a"></td></tr>
+            <tr><td>• ¿Rueda?:</td><td>
+              <select class="input-clean" id="gc-5b" style="width:72px;">
+                <option value="">?</option><option value="si">Sí</option><option value="no">No</option>
+              </select>
+            </td></tr>
+          </table>
         </div>
       </div>
-      <div class="action-row"><button class="btn btn-primary" onclick="checkGC()">Comprobar Cuerpos 3D</button><span class="feedback-msg" id="fb-gc"></span></div>
-      <div class="sol-inline">Solución: 3.1) 6C, 8V, 12A | 3.2) 6C, 8V, 12A | 3.3) 5C, 5V, 8A | 3.4) 2 caras planas, Sí rueda | 3.5) 0 caras planas, 0 vértices</div>
+
+      <div class="action-row">
+        <button class="btn btn-primary" onclick="checkGC()">Comprobar Cuerpos 3D</button>
+        <span class="feedback-msg" id="fb-gc"></span>
+      </div>
+      <div class="sol-inline">Solución: 3.1 Cubo: 6 caras, 8 vértices, 12 aristas | 3.2 Prisma: 6 caras, 8 vértices, 12 aristas | 3.3 Pirámide: 5 caras, 5 vértices, 8 aristas | 3.4 Cilindro: 2 caras planas, SÍ rueda | 3.5 Esfera: 0 caras planas, SÍ rueda</div>
     </div>
 
   </div>
 
-  <!-- ========================================================================= -->
-  <!-- TAB 4: DATOS Y GRÁFICOS (20 PREGUNTAS EN 4 GRÁFICOS/PICTOGRAMAS)          -->
-  <!-- ========================================================================= -->
-  <div id="tab-datos" class="tab-content">
+  <!-- =========================================================================
+       PESTAÑA 4: DATOS Y GRÁFICOS (20 EJERCICIOS)
+       ========================================================================= -->
+  <div class="tab-content" id="tab-datos">
 
-    <!-- PICTOGRAMA 1: LIBROS (5 PREGUNTAS) -->
+    <!-- PICTOGRAMA 1 (LIBROS, ESCALA X4) -->
     <div class="exercise-card" id="card-p1">
-      <div class="exercise-header"><span class="badge-number">I. Pictograma 1: Libros leídos (5 preguntas)</span><span class="status-icon">⚪</span></div>
-      <div class="instruction">Observa el pictograma y responde analizando los datos:</div>
-      <div style="background:#eff6ff; border:1.5px solid #38bdf8; border-radius:8px; padding:10px 14px; margin-bottom:12px; font-weight:bold; color:#0369a1;">
-        🔑 CLAVE: Cada 📘 = 4 libros leídos
+      <div class="exercise-header">
+        <span class="badge-number">I. Pictograma 1: Libros Leídos (5 ejercicios)</span>
+        <span class="status-icon">⚪</span>
       </div>
-      <div style="background:#f8fafc; padding:14px; border-radius:8px; border:1px solid #cbd5e1; font-size:15px; line-height:1.9; margin-bottom:12px;">
-        • <strong>Marzo:</strong> 📘 📘 📘 📘<br>
-        • <strong>Abril:</strong> 📘 📘 📘 📘 📘 📘<br>
-        • <strong>Mayo:</strong> 📘 📘<br>
-        • <strong>Junio:</strong> 📘 📘 📘 📘 📘
+      <div class="instruction">Observa la clave y calcula las lecturas sin pistas operativas:</div>
+
+      <div style="background:#f8fafc; border:1px solid var(--border); border-radius:12px; padding:14px; margin-bottom:14px;">
+        <div style="background:#e0f2fe; color:#0369a1; padding:6px 14px; border-radius:8px; font-weight:800; font-size:13px; display:inline-block; margin-bottom:10px;">
+          🔑 CLAVE: Cada 📘 = 4 libros leídos
+        </div>
+        <table style="width:100%; border-collapse:collapse; font-size:14px;">
+          <tr style="border-bottom:1px solid #e2e8f0;"><td style="padding:6px 0; width:90px; font-weight:bold;">Marzo:</td><td style="font-size:18px;">📘 📘 📘 📘</td></tr>
+          <tr style="border-bottom:1px solid #e2e8f0;"><td style="padding:6px 0; font-weight:bold;">Abril:</td><td style="font-size:18px;">📘 📘 📘 📘 📘 📘</td></tr>
+          <tr style="border-bottom:1px solid #e2e8f0;"><td style="padding:6px 0; font-weight:bold;">Mayo:</td><td style="font-size:18px;">📘 📘</td></tr>
+          <tr><td style="padding:6px 0; font-weight:bold;">Junio:</td><td style="font-size:18px;">📘 📘 📘 📘 📘</td></tr>
+        </table>
       </div>
+
       <div style="display:flex; flex-direction:column; gap:10px; font-size:13.5px;">
-        <div>1.1) ¿Cuántos libros se leyeron en <strong>Marzo</strong>?: <input type="number" class="input-clean input-sm" id="p1-1"> libros.</div>
-        <div>1.2) ¿En qué mes se leyó la <strong>menor</strong> cantidad?: <input type="text" class="input-clean input-sm" id="p1-2" placeholder="Mes">.</div>
-        <div>1.3) ¿Cuántos libros <strong>MÁS</strong> se leyeron en Abril que en Mayo?: <input type="number" class="input-clean input-sm" id="p1-3"> libros.</div>
-        <div>1.4) ¿Cuántos libros se leyeron en <strong>Junio</strong>?: <input type="number" class="input-clean input-sm" id="p1-4"> libros.</div>
-        <div>1.5) ¿Cuántos libros se leyeron en <strong>TOTAL</strong> en los 4 meses?: <input type="number" class="input-clean input-sm" id="p1-5"> libros.</div>
+        <div>• <strong>1.1)</strong> ¿Cuántos libros se leyeron en Marzo?: <input type="number" class="input-clean input-sm" id="p1-1"> libros.</div>
+        <div>• <strong>1.2)</strong> ¿Qué mes tuvo la MENOR cantidad de lecturas?: <input type="text" class="input-clean input-md" id="p1-2" placeholder="Nombre mes"></div>
+        <div>• <strong>1.3)</strong> ¿Cuántos libros MÁS se leyeron en Abril que en Marzo?: <input type="number" class="input-clean input-sm" id="p1-3"> libros más.</div>
+        <div>• <strong>1.4)</strong> ¿Cuántos libros se leyeron en Junio?: <input type="number" class="input-clean input-sm" id="p1-4"> libros.</div>
+        <div>• <strong>1.5)</strong> ¿Cuántos libros se leyeron en TOTAL durante los 4 meses?: <input type="number" class="input-clean input-sm" id="p1-5"> libros.</div>
       </div>
-      <div class="action-row"><button class="btn btn-primary" onclick="checkP1()">Comprobar Pictograma 1</button><span class="feedback-msg" id="fb-p1"></span></div>
-      <div class="sol-inline">Solución: 1.1) 16 libros (4x4) | 1.2) Mayo (8) | 1.3) 16 más (24 - 8) | 1.4) 20 libros (5x4) | 1.5) 68 libros en total (16+24+8+20)</div>
+
+      <div class="action-row">
+        <button class="btn btn-primary" onclick="checkP1()">Comprobar Pictograma 1</button>
+        <span class="feedback-msg" id="fb-p1"></span>
+      </div>
+      <div class="sol-inline">Solución: 1.1) 16 libros (4x4) | 1.2) Mayo (8 libros) | 1.3) 8 libros más (24 - 16) | 1.4) 20 libros (5x4) | 1.5) 68 libros en total (16+24+8+20)</div>
     </div>
 
-    <!-- PICTOGRAMA 2: MANZANAS (5 PREGUNTAS) -->
+    <!-- PICTOGRAMA 2 (MANZANAS, ESCALA X5) -->
     <div class="exercise-card" id="card-p2">
-      <div class="exercise-header"><span class="badge-number">II. Pictograma 2: Cosecha de Manzanas (5 preguntas)</span><span class="status-icon">⚪</span></div>
-      <div class="instruction">Observa el pictograma y responde:</div>
-      <div style="background:#f0fdf4; border:1.5px solid #86efac; border-radius:8px; padding:10px 14px; margin-bottom:12px; font-weight:bold; color:#166534;">
-        🔑 CLAVE: Cada 🍎 = 5 manzanas cosechadas
+      <div class="exercise-header">
+        <span class="badge-number">II. Pictograma 2: Cosecha de Manzanas (5 ejercicios)</span>
+        <span class="status-icon">⚪</span>
       </div>
-      <div style="background:#f8fafc; padding:14px; border-radius:8px; border:1px solid #cbd5e1; font-size:15px; line-height:1.9; margin-bottom:12px;">
-        • <strong>Lunes:</strong> 🍎 🍎 🍎<br>
-        • <strong>Martes:</strong> 🍎 🍎 🍎 🍎<br>
-        • <strong>Miércoles:</strong> 🍎 🍎<br>
-        • <strong>Jueves:</strong> 🍎 🍎 🍎 🍎 🍎
+      <div class="instruction">Observa la clave y responde:</div>
+
+      <div style="background:#f8fafc; border:1px solid var(--border); border-radius:12px; padding:14px; margin-bottom:14px;">
+        <div style="background:#dcfce7; color:#15803d; padding:6px 14px; border-radius:8px; font-weight:800; font-size:13px; display:inline-block; margin-bottom:10px;">
+          🔑 CLAVE: Cada 🍎 = 5 manzanas cosechadas
+        </div>
+        <table style="width:100%; border-collapse:collapse; font-size:14px;">
+          <tr style="border-bottom:1px solid #e2e8f0;"><td style="padding:6px 0; width:100px; font-weight:bold;">Lunes:</td><td style="font-size:18px;">🍎 🍎 🍎</td></tr>
+          <tr style="border-bottom:1px solid #e2e8f0;"><td style="padding:6px 0; font-weight:bold;">Martes:</td><td style="font-size:18px;">🍎 🍎 🍎 🍎</td></tr>
+          <tr style="border-bottom:1px solid #e2e8f0;"><td style="padding:6px 0; font-weight:bold;">Miércoles:</td><td style="font-size:18px;">🍎 🍎</td></tr>
+          <tr><td style="padding:6px 0; font-weight:bold;">Jueves:</td><td style="font-size:18px;">🍎 🍎 🍎 🍎 🍎</td></tr>
+        </table>
       </div>
+
       <div style="display:flex; flex-direction:column; gap:10px; font-size:13.5px;">
-        <div>2.1) ¿Cuántas manzanas se cosecharon el <strong>Martes</strong>?: <input type="number" class="input-clean input-sm" id="p2-1"> manzanas.</div>
-        <div>2.2) ¿Qué día se cosecharon exactamente <strong>10</strong> manzanas?: <input type="text" class="input-clean input-sm" id="p2-2" placeholder="Día">.</div>
-        <div>2.3) ¿Cuántas manzanas <strong>MÁS</strong> se cosecharon el Jueves que el Lunes?: <input type="number" class="input-clean input-sm" id="p2-3"> manzanas.</div>
-        <div>2.4) ¿Qué día fue la <strong>mayor</strong> cosecha?: <input type="text" class="input-clean input-sm" id="p2-4" placeholder="Día">.</div>
-        <div>2.5) ¿Cuántas manzanas se cosecharon en <strong>TOTAL</strong> en los 4 días?: <input type="number" class="input-clean input-sm" id="p2-5"> manzanas.</div>
+        <div>• <strong>2.1)</strong> ¿Cuántas manzanas se cosecharon el Martes?: <input type="number" class="input-clean input-sm" id="p2-1"> manzanas.</div>
+        <div>• <strong>2.2)</strong> ¿Qué día se cosecharon exactamente 10 manzanas?: <input type="text" class="input-clean input-md" id="p2-2" placeholder="Día"></div>
+        <div>• <strong>2.3)</strong> ¿Cuántas manzanas MÁS se cosecharon el Jueves que el Lunes?: <input type="number" class="input-clean input-sm" id="p2-3"> manzanas.</div>
+        <div>• <strong>2.4)</strong> ¿Qué día se produjo la MAYOR cosecha?: <input type="text" class="input-clean input-md" id="p2-4" placeholder="Día"></div>
+        <div>• <strong>2.5)</strong> ¿Cuántas manzanas se cosecharon en TOTAL en los 4 días?: <input type="number" class="input-clean input-sm" id="p2-5"> manzanas.</div>
       </div>
-      <div class="action-row"><button class="btn btn-primary" onclick="checkP2()">Comprobar Pictograma 2</button><span class="feedback-msg" id="fb-p2"></span></div>
-      <div class="sol-inline">Solución: 2.1) 20 manzanas (4x5) | 2.2) Miércoles (2x5=10) | 2.3) 10 más (25 - 15) | 2.4) Jueves (25) | 2.5) 70 manzanas en total (15+20+10+25)</div>
+
+      <div class="action-row">
+        <button class="btn btn-primary" onclick="checkP2()">Comprobar Pictograma 2</button>
+        <span class="feedback-msg" id="fb-p2"></span>
+      </div>
+      <div class="sol-inline">Solución: 2.1) 20 manzanas (4x5) | 2.2) Miércoles (2x5=10) | 2.3) 10 manzanas más (25 - 15) | 2.4) Jueves (25 manzanas) | 2.5) 70 manzanas en total (15+20+10+25)</div>
     </div>
 
-    <!-- GRÁFICO 1: DEPORTES (5 PREGUNTAS) -->
+    <!-- GRÁFICO DE BARRAS 1 (DEPORTES, ESCALA 5 EN 5) -->
     <div class="exercise-card" id="card-b1">
-      <div class="exercise-header"><span class="badge-number">III. Gráfico de Barras 1: Deportes (5 preguntas)</span><span class="status-icon">⚪</span></div>
-      <div class="instruction">Observa el gráfico con escala de 5 en 5 y responde:</div>
-      <div style="display:flex; align-items:center; justify-content:space-around; flex-wrap:wrap; gap:16px; margin:16px 0;">
-        <svg width="240" height="150" viewBox="0 0 240 150">
-          <line x1="35" y1="15" x2="35" y2="120" stroke="#475569" stroke-width="2"/>
-          <line x1="35" y1="120" x2="225" y2="120" stroke="#475569" stroke-width="2"/>
-          <text x="14" y="22" font-size="9" fill="#475569">25</text>
-          <text x="14" y="42" font-size="9" fill="#475569">20</text>
-          <text x="14" y="62" font-size="9" fill="#475569">15</text>
-          <text x="14" y="82" font-size="9" fill="#475569">10</text>
-          <text x="18" y="102" font-size="9" fill="#475569">5</text>
-          <text x="18" y="122" font-size="9" fill="#475569">0</text>
-          
-          <rect x="50" y="20" width="30" height="100" fill="#3b82f6" rx="2"/>
-          <text x="65" y="134" font-size="8" text-anchor="middle" font-weight="bold">Fútbol</text>
-
-          <rect x="95" y="60" width="30" height="60" fill="#f59e0b" rx="2"/>
-          <text x="110" y="134" font-size="8" text-anchor="middle" font-weight="bold">Básquet</text>
-
-          <rect x="140" y="40" width="30" height="80" fill="#06b6d4" rx="2"/>
-          <text x="155" y="134" font-size="8" text-anchor="middle" font-weight="bold">Natación</text>
-
-          <rect x="185" y="80" width="30" height="40" fill="#8b5cf6" rx="2"/>
-          <text x="200" y="134" font-size="8" text-anchor="middle" font-weight="bold">Atletismo</text>
-        </svg>
-        <div style="font-size:13.5px; line-height:2;">
-          3.1) Deporte con <strong>mayor</strong> preferencia: <input type="text" class="input-clean input-sm" id="b1-1"><br>
-          3.2) Votos de la <strong>Natación</strong>: <input type="number" class="input-clean input-sm" id="b1-2"><br>
-          3.3) ¿Cuántos niños MÁS prefieren Fútbol que Atletismo?: <input type="number" class="input-clean input-sm" id="b1-3"><br>
-          3.4) Deporte <strong>menos</strong> votado: <input type="text" class="input-clean input-sm" id="b1-4"><br>
-          3.5) Total de estudiantes encuestados: <input type="number" class="input-clean input-sm" id="b1-5">
-        </div>
+      <div class="exercise-header">
+        <span class="badge-number">III. Gráfico de Barras 1: Deporte Favorito (5 ejercicios)</span>
+        <span class="status-icon">⚪</span>
       </div>
-      <div class="action-row"><button class="btn btn-primary" onclick="checkB1()">Comprobar Gráfico 1</button><span class="feedback-msg" id="fb-b1"></span></div>
-      <div class="sol-inline">Solución: 3.1) Fútbol (25) | 3.2) 20 votos | 3.3) 15 más (25 - 10) | 3.4) Atletismo (10) | 3.5) 70 estudiantes (25+15+20+10)</div>
+      <div class="instruction">Observa la escala graduada de 5 en 5 y responde:</div>
+
+      <div style="background:#f8fafc; border:1px solid var(--border); border-radius:12px; padding:16px; margin-bottom:14px; display:flex; justify-content:center;">
+        <svg width="340" height="180" viewBox="0 0 340 180">
+          <!-- Cuadrícula horizontal -->
+          <line x1="45" y1="20" x2="320" y2="20" stroke="#e2e8f0" stroke-width="1"/>
+          <line x1="45" y1="50" x2="320" y2="50" stroke="#e2e8f0" stroke-width="1"/>
+          <line x1="45" y1="80" x2="320" y2="80" stroke="#e2e8f0" stroke-width="1"/>
+          <line x1="45" y1="110" x2="320" y2="110" stroke="#e2e8f0" stroke-width="1"/>
+          <line x1="45" y1="140" x2="320" y2="140" stroke="#475569" stroke-width="2"/>
+          <!-- Eje Y -->
+          <line x1="45" y1="20" x2="45" y2="140" stroke="#475569" stroke-width="2"/>
+          <!-- Ticks Y -->
+          <text x="38" y="24" font-size="10" font-weight="bold" text-anchor="end" fill="#64748b">25</text>
+          <text x="38" y="54" font-size="10" font-weight="bold" text-anchor="end" fill="#64748b">20</text>
+          <text x="38" y="84" font-size="10" font-weight="bold" text-anchor="end" fill="#64748b">15</text>
+          <text x="38" y="114" font-size="10" font-weight="bold" text-anchor="end" fill="#64748b">10</text>
+          <text x="38" y="144" font-size="10" font-weight="bold" text-anchor="end" fill="#64748b">0</text>
+          <!-- Barras -->
+          <rect x="65" y="20" width="40" height="120" fill="#3b82f6" rx="4"/>
+          <rect x="130" y="80" width="40" height="60" fill="#f59e0b" rx="4"/>
+          <rect x="195" y="50" width="40" height="90" fill="#06b6d4" rx="4"/>
+          <rect x="260" y="110" width="40" height="30" fill="#8b5cf6" rx="4"/>
+          <!-- Etiquetas X -->
+          <text x="85" y="158" font-size="11" font-weight="bold" text-anchor="middle" fill="#1e293b">Fútbol</text>
+          <text x="150" y="158" font-size="11" font-weight="bold" text-anchor="middle" fill="#1e293b">Básquet</text>
+          <text x="215" y="158" font-size="11" font-weight="bold" text-anchor="middle" fill="#1e293b">Natación</text>
+          <text x="280" y="158" font-size="11" font-weight="bold" text-anchor="middle" fill="#1e293b">Atletismo</text>
+        </svg>
+      </div>
+
+      <div style="display:flex; flex-direction:column; gap:10px; font-size:13.5px;">
+        <div>• <strong>3.1)</strong> ¿Cuál es el deporte con MAYOR preferencia?: <input type="text" class="input-clean input-md" id="b1-1" placeholder="Deporte"></div>
+        <div>• <strong>3.2)</strong> ¿Cuántos votos obtuvo la Natación?: <input type="number" class="input-clean input-sm" id="b1-2"> votos.</div>
+        <div>• <strong>3.3)</strong> ¿Cuántos niños MÁS prefieren Fútbol que Atletismo?: <input type="number" class="input-clean input-sm" id="b1-3"> niños más.</div>
+        <div>• <strong>3.4)</strong> ¿Cuál es el deporte MENOS votado?: <input type="text" class="input-clean input-md" id="b1-4" placeholder="Deporte"></div>
+        <div>• <strong>3.5)</strong> ¿Cuántos estudiantes fueron encuestados en TOTAL?: <input type="number" class="input-clean input-sm" id="b1-5"> estudiantes.</div>
+      </div>
+
+      <div class="action-row">
+        <button class="btn btn-primary" onclick="checkB1()">Comprobar Gráfico 1</button>
+        <span class="feedback-msg" id="fb-b1"></span>
+      </div>
+      <div class="sol-inline">Solución: 3.1) Fútbol (25) | 3.2) 20 votos | 3.3) 15 niños más (25 - 10) | 3.4) Atletismo (10) | 3.5) 70 estudiantes (25+15+20+10)</div>
     </div>
 
-    <!-- GRÁFICO 2: MASCOTAS (5 PREGUNTAS) -->
+    <!-- GRÁFICO DE BARRAS 2 (MASCOTAS, ESCALA 2 EN 2) -->
     <div class="exercise-card" id="card-b2">
-      <div class="exercise-header"><span class="badge-number">IV. Gráfico de Barras 2: Mascotas (5 preguntas)</span><span class="status-icon">⚪</span></div>
-      <div class="instruction">Observa el gráfico con escala de 2 en 2 y responde:</div>
-      <div style="display:flex; align-items:center; justify-content:space-around; flex-wrap:wrap; gap:16px; margin:16px 0;">
-        <svg width="240" height="150" viewBox="0 0 240 150">
-          <line x1="35" y1="15" x2="35" y2="120" stroke="#475569" stroke-width="2"/>
-          <line x1="35" y1="120" x2="225" y2="120" stroke="#475569" stroke-width="2"/>
-          <text x="14" y="22" font-size="9" fill="#475569">12</text>
-          <text x="14" y="38" font-size="9" fill="#475569">10</text>
-          <text x="18" y="55" font-size="9" fill="#475569">8</text>
-          <text x="18" y="72" font-size="9" fill="#475569">6</text>
-          <text x="18" y="88" font-size="9" fill="#475569">4</text>
-          <text x="18" y="105" font-size="9" fill="#475569">2</text>
-          <text x="18" y="122" font-size="9" fill="#475569">0</text>
-          
-          <rect x="50" y="20" width="30" height="100" fill="#10b981" rx="2"/>
-          <text x="65" y="134" font-size="8" text-anchor="middle" font-weight="bold">Perro</text>
-
-          <rect x="95" y="37" width="30" height="83" fill="#ec4899" rx="2"/>
-          <text x="110" y="134" font-size="8" text-anchor="middle" font-weight="bold">Gato</text>
-
-          <rect x="140" y="70" width="30" height="50" fill="#eab308" rx="2"/>
-          <text x="155" y="134" font-size="8" text-anchor="middle" font-weight="bold">Hámster</text>
-
-          <rect x="185" y="87" width="30" height="33" fill="#6366f1" rx="2"/>
-          <text x="200" y="134" font-size="8" text-anchor="middle" font-weight="bold">Canario</text>
-        </svg>
-        <div style="font-size:13.5px; line-height:2;">
-          4.1) Votos obtenidos por el <strong>Gato</strong>: <input type="number" class="input-clean input-sm" id="b2-1"><br>
-          4.2) Mascota con <strong>mayor</strong> cantidad de votos: <input type="text" class="input-clean input-sm" id="b2-2"><br>
-          4.3) ¿Cuántos votos MÁS tiene el Perro que el Canario?: <input type="number" class="input-clean input-sm" id="b2-3"><br>
-          4.4) Mascota <strong>menos</strong> votada: <input type="text" class="input-clean input-sm" id="b2-4"><br>
-          4.5) Total de mascotas registradas: <input type="number" class="input-clean input-sm" id="b2-5">
-        </div>
+      <div class="exercise-header">
+        <span class="badge-number">IV. Gráfico de Barras 2: Mascotas del Curso (5 ejercicios)</span>
+        <span class="status-icon">⚪</span>
       </div>
-      <div class="action-row"><button class="btn btn-primary" onclick="checkB2()">Comprobar Gráfico 2</button><span class="feedback-msg" id="fb-b2"></span></div>
-      <div class="sol-inline">Solución: 4.1) 10 votos | 4.2) Perro (12) | 4.3) 8 votos más (12 - 4) | 4.4) Canario (4) | 4.5) 32 mascotas (12+10+6+4)</div>
+      <div class="instruction">Observa la escala graduada de 2 en 2 y responde:</div>
+
+      <div style="background:#f8fafc; border:1px solid var(--border); border-radius:12px; padding:16px; margin-bottom:14px; display:flex; justify-content:center;">
+        <svg width="340" height="180" viewBox="0 0 340 180">
+          <line x1="45" y1="20" x2="320" y2="20" stroke="#e2e8f0" stroke-width="1"/>
+          <line x1="45" y1="40" x2="320" y2="40" stroke="#e2e8f0" stroke-width="1"/>
+          <line x1="45" y1="60" x2="320" y2="60" stroke="#e2e8f0" stroke-width="1"/>
+          <line x1="45" y1="80" x2="320" y2="80" stroke="#e2e8f0" stroke-width="1"/>
+          <line x1="45" y1="100" x2="320" y2="100" stroke="#e2e8f0" stroke-width="1"/>
+          <line x1="45" y1="120" x2="320" y2="120" stroke="#e2e8f0" stroke-width="1"/>
+          <line x1="45" y1="140" x2="320" y2="140" stroke="#475569" stroke-width="2"/>
+          <line x1="45" y1="20" x2="45" y2="140" stroke="#475569" stroke-width="2"/>
+          <!-- Ticks Y -->
+          <text x="38" y="24" font-size="10" font-weight="bold" text-anchor="end" fill="#64748b">12</text>
+          <text x="38" y="44" font-size="10" font-weight="bold" text-anchor="end" fill="#64748b">10</text>
+          <text x="38" y="64" font-size="10" font-weight="bold" text-anchor="end" fill="#64748b">8</text>
+          <text x="38" y="84" font-size="10" font-weight="bold" text-anchor="end" fill="#64748b">6</text>
+          <text x="38" y="104" font-size="10" font-weight="bold" text-anchor="end" fill="#64748b">4</text>
+          <text x="38" y="124" font-size="10" font-weight="bold" text-anchor="end" fill="#64748b">2</text>
+          <text x="38" y="144" font-size="10" font-weight="bold" text-anchor="end" fill="#64748b">0</text>
+          <!-- Barras -->
+          <rect x="65" y="20" width="40" height="120" fill="#10b981" rx="4"/>
+          <rect x="130" y="40" width="40" height="100" fill="#ec4899" rx="4"/>
+          <rect x="195" y="80" width="40" height="60" fill="#eab308" rx="4"/>
+          <rect x="260" y="100" width="40" height="40" fill="#6366f1" rx="4"/>
+          <!-- Etiquetas X -->
+          <text x="85" y="158" font-size="11" font-weight="bold" text-anchor="middle" fill="#1e293b">Perro</text>
+          <text x="150" y="158" font-size="11" font-weight="bold" text-anchor="middle" fill="#1e293b">Gato</text>
+          <text x="215" y="158" font-size="11" font-weight="bold" text-anchor="middle" fill="#1e293b">Hámster</text>
+          <text x="280" y="158" font-size="11" font-weight="bold" text-anchor="middle" fill="#1e293b">Canario</text>
+        </svg>
+      </div>
+
+      <div style="display:flex; flex-direction:column; gap:10px; font-size:13.5px;">
+        <div>• <strong>4.1)</strong> ¿Cuántas familias tienen Gato como mascota?: <input type="number" class="input-clean input-sm" id="b2-1"> familias.</div>
+        <div>• <strong>4.2)</strong> ¿Cuál es la mascota con MAYOR presencia?: <input type="text" class="input-clean input-md" id="b2-2" placeholder="Mascota"></div>
+        <div>• <strong>4.3)</strong> ¿Cuántos Perros MÁS hay en comparación con los Canarios?: <input type="number" class="input-clean input-sm" id="b2-3"> perros más.</div>
+        <div>• <strong>4.4)</strong> ¿Cuál es la mascota con MENOS menciones?: <input type="text" class="input-clean input-md" id="b2-4" placeholder="Mascota"></div>
+        <div>• <strong>4.5)</strong> ¿Cuántas mascotas hay registradas en TOTAL?: <input type="number" class="input-clean input-sm" id="b2-5"> mascotas en total.</div>
+      </div>
+
+      <div class="action-row">
+        <button class="btn btn-primary" onclick="checkB2()">Comprobar Gráfico 2</button>
+        <span class="feedback-msg" id="fb-b2"></span>
+      </div>
+      <div class="sol-inline">Solución: 4.1) 10 familias | 4.2) Perro (12) | 4.3) 8 perros más (12 - 4) | 4.4) Canario (4) | 4.5) 32 mascotas (12+10+6+4)</div>
     </div>
 
   </div>
@@ -1020,6 +1657,11 @@
     btn.innerText = visibleSol ? '🙈 Ocultar Solucionario' : '👁️ Ver Solucionario Completo';
     btn.style.background = visibleSol ? '#fee2e2' : '#fef3c7';
     btn.style.color = visibleSol ? '#991b1b' : '#92400e';
+  }
+
+  function toggleHint(id) {
+    const el = document.getElementById(id);
+    if (el) el.classList.toggle('show');
   }
 
   function switchTab(tabId, btn) {
@@ -1076,153 +1718,150 @@
   }
 
   function norm(str) {
-    return (str || "").toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[^a-z0-9]/g, "");
+    return (str || "").toLowerCase().trim()
+      .normalize("NFD").replace(/[\u0300-\u036f]/g, "")
+      .replace(/[^a-z0-9]/g, "");
   }
 
-  // --- VALIDACIONES DE OPERATORIA ---
-  function checkAnt() {
-    const a1 = parseInt(document.getElementById('ant-1a').value, 10);
-    const b1 = parseInt(document.getElementById('ant-1b').value, 10);
-    const a2 = parseInt(document.getElementById('ant-2a').value, 10);
-    const b2 = parseInt(document.getElementById('ant-2b').value, 10);
-    const a3 = parseInt(document.getElementById('ant-3a').value, 10);
-    const b3 = parseInt(document.getElementById('ant-3b').value, 10);
-    const a4 = parseInt(document.getElementById('ant-4a').value, 10);
-    const b4 = parseInt(document.getElementById('ant-4b').value, 10);
-    const a5 = parseInt(document.getElementById('ant-5a').value, 10);
-    const b5 = parseInt(document.getElementById('ant-5b').value, 10);
-
-    const ok = (a1===599 && b1===601 && a2===498 && b2===500 && a3===819 && b3===821 && a4===699 && b4===701 && a5===349 && b5===351);
-    for(let i=1; i<=5; i++) scoreState['ant-'+i] = ok;
-    setCardFeedback('card-ant', 'fb-ant', ok, "¡Los 5 antecesores y sucesores correctos!", "Revisa bien los números.");
-  }
-
-  function checkWrd() {
-    const w1 = norm(document.getElementById('wrd-1').value);
-    const w2 = norm(document.getElementById('wrd-2').value);
-    const w3 = norm(document.getElementById('wrd-3').value);
-    const w4 = norm(document.getElementById('wrd-4').value);
-    const w5 = norm(document.getElementById('wrd-5').value);
-
-    const ok1 = w1 === "setecientoscincuentaytres";
-    const ok2 = w2 === "seiscientosocho";
-    const ok3 = w3 === "novecientoscuarentaydos";
-    const ok4 = w4 === "quinientosdieciseis" || w4 === "quinientosdieciseis";
-    const ok5 = w5 === "ochocientossetenta";
+  // --- OPERATORIA ---
+  function checkAntecesores() {
+    const ok1 = (parseInt(document.getElementById('ant-1').value, 10) === 599 && parseInt(document.getElementById('suc-1').value, 10) === 601);
+    const ok2 = (parseInt(document.getElementById('ant-2').value, 10) === 498 && parseInt(document.getElementById('suc-2').value, 10) === 500);
+    const ok3 = (parseInt(document.getElementById('ant-3').value, 10) === 819 && parseInt(document.getElementById('suc-3').value, 10) === 821);
+    const ok4 = (parseInt(document.getElementById('ant-4').value, 10) === 699 && parseInt(document.getElementById('suc-4').value, 10) === 701);
+    const ok5 = (parseInt(document.getElementById('ant-5').value, 10) === 349 && parseInt(document.getElementById('suc-5').value, 10) === 351);
 
     const ok = (ok1 && ok2 && ok3 && ok4 && ok5);
-    for(let i=1; i<=5; i++) scoreState['wrd-'+i] = ok;
-    setCardFeedback('card-wrd', 'fb-wrd', ok, "¡Escritura en palabras impecable!", "Revisa la ortografía de cada número.");
+    for(let i=1; i<=5; i++) scoreState['ant-'+i] = ok;
+    setCardFeedback('card-ant', 'fb-ant', ok, "¡Los 5 antecesores y sucesores están correctos!", "Revisa los números, recuerda restar 1 y sumar 1.");
   }
 
-  function checkSum() {
+  function checkEscritura() {
+    const e1 = norm(document.getElementById('esc-1').value);
+    const e2 = norm(document.getElementById('esc-2').value);
+    const e3 = norm(document.getElementById('esc-3').value);
+    const e4 = norm(document.getElementById('esc-4').value);
+    const e5 = norm(document.getElementById('esc-5').value);
+
+    const ok1 = e1.includes("setecientoscincuentaytres");
+    const ok2 = e2.includes("seiscientosocho");
+    const ok3 = e3.includes("novecientoscuarentaydos");
+    const ok4 = e4.includes("quinientosdieciseis");
+    const ok5 = e5.includes("ochocientossetenta");
+
+    const ok = (ok1 && ok2 && ok3 && ok4 && ok5);
+    for(let i=1; i<=5; i++) scoreState['esc-'+i] = ok;
+    setCardFeedback('card-esc', 'fb-esc', ok, "¡Excelente ortografía en los números!", "Revisa la escritura: recuerda cómo se escribe 700 (setecientos), 600 (seiscientos), etc.");
+  }
+
+  function checkSumas() {
     const s1 = parseInt(document.getElementById('sum-1').value, 10);
     const s2 = parseInt(document.getElementById('sum-2').value, 10);
     const s3 = parseInt(document.getElementById('sum-3').value, 10);
     const s4 = parseInt(document.getElementById('sum-4').value, 10);
     const s5 = parseInt(document.getElementById('sum-5').value, 10);
 
-    const ok = (s1===496 && s2===784 && s3===833 && s4===864 && s5===854);
+    const ok = (s1 === 496 && s2 === 784 && s3 === 833 && s4 === 864 && s5 === 854);
     for(let i=1; i<=5; i++) scoreState['sum-'+i] = ok;
-    setCardFeedback('card-sum', 'fb-sum', ok, "¡Las 5 sumas verticales correctas!", "Revisa bien las reservas que suben a la centena.");
+    setCardFeedback('card-sum', 'fb-sum', ok, "¡Todas las sumas verticales están perfectas!", "Hay sumas incorrectas. Revisa las columnas de unidades y las reservas.");
   }
 
-  function checkRes() {
+  function checkRestas() {
     const r1 = parseInt(document.getElementById('res-1').value, 10);
     const r2 = parseInt(document.getElementById('res-2').value, 10);
     const r3 = parseInt(document.getElementById('res-3').value, 10);
     const r4 = parseInt(document.getElementById('res-4').value, 10);
     const r5 = parseInt(document.getElementById('res-5').value, 10);
 
-    const ok = (r1===444 && r2===441 && r3===362 && r4===344 && r5===357);
+    const ok = (r1 === 444 && r2 === 441 && r3 === 362 && r4 === 344 && r5 === 357);
     for(let i=1; i<=5; i++) scoreState['res-'+i] = ok;
-    setCardFeedback('card-res', 'fb-res', ok, "¡Las 5 restas verticales correctas!", "Revisa bien los canjes con ceros.");
+    setCardFeedback('card-res', 'fb-res', ok, "¡Todas las restas verticales están correctas!", "Hay restas incorrectas. Recuerda pedir prestado a la decena o centena vecina.");
   }
 
-  function checkMul() {
+  function checkMultiplicaciones() {
     const m1 = parseInt(document.getElementById('mul-1').value, 10);
     const m2 = parseInt(document.getElementById('mul-2').value, 10);
     const m3 = parseInt(document.getElementById('mul-3').value, 10);
     const m4 = parseInt(document.getElementById('mul-4').value, 10);
     const m5 = parseInt(document.getElementById('mul-5').value, 10);
 
-    const ok = (m1===96 && m2===82 && m3===48 && m4===39 && m5===69);
+    const ok = (m1 === 96 && m2 === 82 && m3 === 69 && m4 === 108 && m5 === 90);
     for(let i=1; i<=5; i++) scoreState['mul-'+i] = ok;
-    setCardFeedback('card-mul', 'fb-mul', ok, "¡Las 5 multiplicaciones resueltas!", "Calcula primero la unidad y luego la decena.");
+    setCardFeedback('card-mul', 'fb-mul', ok, "¡Multiplicaciones impecables!", "Revisa las tablas del 2 y del 3.");
   }
 
-  function checkPrb() {
-    const p1 = parseInt(document.getElementById('prb-1').value, 10);
-    const p2 = parseInt(document.getElementById('prb-2').value, 10);
-    const p3 = parseInt(document.getElementById('prb-3').value, 10);
-    const p4 = parseInt(document.getElementById('prb-4').value, 10);
-    const p5 = parseInt(document.getElementById('prb-5').value, 10);
+  function checkProblemas() {
+    const p1 = parseInt(document.getElementById('pr-1').value, 10);
+    const p2 = parseInt(document.getElementById('pr-2').value, 10);
+    const p3 = parseInt(document.getElementById('pr-3').value, 10);
+    const p4 = parseInt(document.getElementById('pr-4').value, 10);
+    const p5 = parseInt(document.getElementById('pr-5').value, 10);
 
-    const ok = (p1===20 && p2===18 && p3===685 && p4===450 && p5===20);
-    for(let i=1; i<=5; i++) scoreState['prb-'+i] = ok;
-    setCardFeedback('card-prb', 'fb-prb', ok, "¡Los 5 problemas resueltos a la perfección!", "Revisa tus cálculos en cada problema.");
+    const ok = (p1 === 20 && p2 === 693 && p3 === 430 && p4 === 362 && p5 === 66);
+    for(let i=1; i<=5; i++) scoreState['pr-'+i] = ok;
+    setCardFeedback('card-prob', 'fb-pr', ok, "¡Los 5 problemas resueltos con éxito!", "Revisa las operaciones de cada problema.");
   }
 
-  // --- TIEMPO ---
-  function checkRel() {
-    const r1 = (document.getElementById('rel-1').value || '').trim();
-    const r2 = (document.getElementById('rel-2').value || '').trim();
-    const r3 = (document.getElementById('rel-3').value || '').trim();
-    const r4 = (document.getElementById('rel-4').value || '').trim();
-    const r5 = (document.getElementById('rel-5').value || '').trim();
+  // --- EL TIEMPO ---
+  function checkRelojes() {
+    const r1 = norm(document.getElementById('reloj-1').value);
+    const r2 = norm(document.getElementById('reloj-2').value);
+    const r3 = norm(document.getElementById('reloj-3').value);
+    const r4 = norm(document.getElementById('reloj-4').value);
+    const r5 = norm(document.getElementById('reloj-5').value);
 
-    const ok1 = r1.includes('7:00') || r1.includes('07:00');
-    const ok2 = r2.includes('2:30') || r2.includes('02:30');
-    const ok3 = r3.includes('9:15') || r3.includes('09:15');
-    const ok4 = r4.includes('4:45') || r4.includes('04:45');
-    const ok5 = r5.includes('11:10');
+    const ok1 = (r1 === '0700' || r1 === '700' || r1 === '07' || r1 === '7');
+    const ok2 = (r2 === '0230' || r2 === '230');
+    const ok3 = (r3 === '0915' || r3 === '915');
+    const ok4 = (r4 === '0445' || r4 === '445');
+    const ok5 = (r5 === '1110');
 
     const ok = (ok1 && ok2 && ok3 && ok4 && ok5);
     for(let i=1; i<=5; i++) scoreState['rel-'+i] = ok;
-    setCardFeedback('card-rel', 'fb-rel', ok, "¡Los 5 relojes análogos leídos con exactitud!", "Revisa las manecillas corta y larga.");
+    setCardFeedback('card-rel', 'fb-rel', ok, "¡Todos los relojes leídos correctamente!", "Revisa la manecilla roja (hora) y la azul (minutos de 5 en 5).");
   }
 
-  function checkCnv() {
-    const c1 = document.getElementById('cnv-1').value.trim();
-    const c2 = document.getElementById('cnv-2').value.trim();
-    const c3 = document.getElementById('cnv-3').value.trim();
-    const c4 = document.getElementById('cnv-4').value.trim();
-    const c5 = document.getElementById('cnv-5').value.trim();
+  function checkConv() {
+    const c1 = norm(document.getElementById('c-1').value);
+    const c2 = norm(document.getElementById('c-2').value);
+    const c3 = norm(document.getElementById('c-3').value);
+    const c4 = norm(document.getElementById('c-4').value);
+    const c5 = norm(document.getElementById('c-5').value);
 
-    const ok1 = c1.includes('14');
-    const ok2 = c2.includes('17:30');
-    const ok3 = c3.includes('20');
-    const ok4 = c4.includes('22:15');
-    const ok5 = c5.includes('5') || c5.includes('5:00');
+    const ok1 = (c1 === '1400' || c1 === '14');
+    const ok2 = (c2 === '1730');
+    const ok3 = (c3 === '2000' || c3 === '20');
+    const ok4 = (c4 === '2215');
+    const ok5 = (c5 === '0500' || c5 === '500' || c5 === '5');
 
     const ok = (ok1 && ok2 && ok3 && ok4 && ok5);
     for(let i=1; i<=5; i++) scoreState['cnv-'+i] = ok;
-    setCardFeedback('card-cnv', 'fb-cnv', ok, "¡Las 5 conversiones de hora correctas!", "Suma 12 para 24h o resta 12 para PM.");
+    setCardFeedback('card-conv', 'fb-conv', ok, "¡Conversiones de formato 24h exactas!", "Recuerda: después de las 12 del mediodía sumas 12 para formato 24h.");
   }
 
-  function checkInt() {
-    const i1 = parseInt(document.getElementById('int-1').value, 10);
-    const i2 = parseInt(document.getElementById('int-2').value, 10);
-    const i3 = parseInt(document.getElementById('int-3').value, 10);
-    const i4 = parseInt(document.getElementById('int-4').value, 10);
-    const i5 = parseInt(document.getElementById('int-5').value, 10);
+  function checkInterv() {
+    const it1 = parseInt(document.getElementById('it-1').value, 10);
+    const it2 = parseInt(document.getElementById('it-2').value, 10);
+    const it3 = parseInt(document.getElementById('it-3').value, 10);
+    const it4 = parseInt(document.getElementById('it-4').value, 10);
+    const it5 = parseInt(document.getElementById('it-5').value, 10);
 
-    const ok = (i1===30 && i2===30 && i3===15 && i4===30 && i5===25);
-    for(let i=1; i<=5; i++) scoreState['int-'+i] = ok;
-    setCardFeedback('card-int', 'fb-int', ok, "¡Los 5 intervalos calculados al minuto!", "Resta los minutos iniciales de los finales.");
+    const ok = (it1 === 30 && it2 === 30 && it3 === 15 && it4 === 30 && it5 === 25);
+    for(let i=1; i<=5; i++) scoreState['it-'+i] = ok;
+    setCardFeedback('card-interv', 'fb-it', ok, "¡Cálculos de minutos transcurridos perfectos!", "Calcula cuántos minutos faltan para llegar a la hora indicada.");
   }
 
   // --- GEOMETRÍA ---
   function checkGA() {
-    const a1 = document.getElementById('ga-1').value;
-    const a2 = document.getElementById('ga-2').value;
-    const a3 = document.getElementById('ga-3').value;
-    const a4 = parseInt(document.getElementById('ga-4').value, 10);
-    const a5 = document.getElementById('ga-5').value;
+    const g1 = document.getElementById('ga-1').value;
+    const g2 = document.getElementById('ga-2').value;
+    const g3 = document.getElementById('ga-3').value;
+    const g4 = parseInt(document.getElementById('ga-4').value, 10);
+    const g5 = document.getElementById('ga-5').value;
 
-    const ok = (a1==='recto' && a2==='agudo' && a3==='obtuso' && a4===4 && a5==='recto');
+    const ok = (g1 === 'recto' && g2 === 'agudo' && g3 === 'obtuso' && g4 === 4 && g5 === 'recto');
     for(let i=1; i<=5; i++) scoreState['ga-'+i] = ok;
-    setCardFeedback('card-geo-a', 'fb-ga', ok, "¡Los 5 ejercicios de ángulos correctos!", "Compara con la esquina cuadrada de 90°.");
+    setCardFeedback('card-geo-a', 'fb-ga', ok, "¡Clasificación de ángulos dominada!", "Recuerda: Recto = 90°, Agudo = menor a 90°, Obtuso = mayor a 90°.");
   }
 
   function checkGT() {
@@ -1230,44 +1869,33 @@
     const t2 = document.getElementById('gt-2').value;
     const t3 = document.getElementById('gt-3').value;
     const t4 = document.getElementById('gt-4').value;
-    const t5 = parseInt(document.getElementById('gt-5').value, 10);
+    const t5a = parseInt(document.getElementById('gt-5a').value, 10);
+    const t5b = parseInt(document.getElementById('gt-5b').value, 10);
+    const t5c = parseInt(document.getElementById('gt-5c').value, 10);
 
-    const ok = (t1==='equilatero' && t2==='isosceles' && t3==='escaleno' && t4==='rectangulo' && t5===3);
+    const ok = (t1 === 'equilatero' && t2 === 'isosceles' && t3 === 'escaleno' && t4 === 'rectangulo' && t5a === 3 && t5b === 3 && t5c === 3);
     for(let i=1; i<=5; i++) scoreState['gt-'+i] = ok;
-    setCardFeedback('card-geo-t', 'fb-gt', ok, "¡Clasificación de triángulos dominada!", "Equilátero (3), Isósceles (2), Escaleno (3 dif).");
+    setCardFeedback('card-geo-t', 'fb-gt', ok, "¡Clasificación de triángulos y sus partes perfecta!", "Revisa: Equilátero (3 iguales), Isósceles (2 iguales), Escaleno (todos distintos).");
   }
 
   function checkGC() {
-    const c1c = parseInt(document.getElementById('gc-1c').value, 10);
-    const c1v = parseInt(document.getElementById('gc-1v').value, 10);
-    const c1a = parseInt(document.getElementById('gc-1a').value, 10);
-
-    const c2c = parseInt(document.getElementById('gc-2c').value, 10);
-    const c2v = parseInt(document.getElementById('gc-2v').value, 10);
-    const c2a = parseInt(document.getElementById('gc-2a').value, 10);
-
-    const c3c = parseInt(document.getElementById('gc-3c').value, 10);
-    const c3v = parseInt(document.getElementById('gc-3v').value, 10);
-    const c3a = parseInt(document.getElementById('gc-3a').value, 10);
-
-    const c4c = parseInt(document.getElementById('gc-4c').value, 10);
-    const c4r = document.getElementById('gc-4r').value;
-
-    const c5c = parseInt(document.getElementById('gc-5c').value, 10);
-    const c5v = parseInt(document.getElementById('gc-5v').value, 10);
-
-    const ok1 = (c1c===6 && c1v===8 && c1a===12);
-    const ok2 = (c2c===6 && c2v===8 && c2a===12);
-    const ok3 = (c3c===5 && c3v===5 && c3a===8);
-    const ok4 = (c4c===2 && c4r==='si');
-    const ok5 = (c5c===0 && c5v===0);
+    // Cubo: 6, 8, 12
+    const ok1 = (parseInt(document.getElementById('gc-1a').value, 10) === 6 && parseInt(document.getElementById('gc-1b').value, 10) === 8 && parseInt(document.getElementById('gc-1c').value, 10) === 12);
+    // Prisma: 6, 8, 12
+    const ok2 = (parseInt(document.getElementById('gc-2a').value, 10) === 6 && parseInt(document.getElementById('gc-2b').value, 10) === 8 && parseInt(document.getElementById('gc-2c').value, 10) === 12);
+    // Pirámide: 5, 5, 8
+    const ok3 = (parseInt(document.getElementById('gc-3a').value, 10) === 5 && parseInt(document.getElementById('gc-3b').value, 10) === 5 && parseInt(document.getElementById('gc-3c').value, 10) === 8);
+    // Cilindro: 2, si
+    const ok4 = (parseInt(document.getElementById('gc-4a').value, 10) === 2 && document.getElementById('gc-4b').value === 'si');
+    // Esfera: 0, si
+    const ok5 = (parseInt(document.getElementById('gc-5a').value, 10) === 0 && document.getElementById('gc-5b').value === 'si');
 
     const ok = (ok1 && ok2 && ok3 && ok4 && ok5);
     for(let i=1; i<=5; i++) scoreState['gc-'+i] = ok;
-    setCardFeedback('card-geo-c', 'fb-gc', ok, "¡Los 5 cuerpos 3D analizados con precisión!", "Revisa las caras, vértices y aristas.");
+    setCardFeedback('card-geo-c', 'fb-gc', ok, "¡Los 5 cuerpos 3D analizados con precisión!", "Revisa las caras, vértices y aristas de cada cuerpo.");
   }
 
-  // --- DATOS ---
+  // --- DATOS Y GRÁFICOS ---
   function checkP1() {
     const a = parseInt(document.getElementById('p1-1').value, 10);
     const b = norm(document.getElementById('p1-2').value);
@@ -1275,9 +1903,9 @@
     const d = parseInt(document.getElementById('p1-4').value, 10);
     const e = parseInt(document.getElementById('p1-5').value, 10);
 
-    const ok = (a===16 && b==='mayo' && c===16 && d===20 && e===68);
+    const ok = (a === 16 && b === 'mayo' && c === 8 && d === 20 && e === 68);
     for(let i=1; i<=5; i++) scoreState['p1-'+i] = ok;
-    setCardFeedback('card-p1', 'fb-p1', ok, "¡Pictograma 1 resuelto con tus propios cálculos!", "Multiplica cada símbolo por 4.");
+    setCardFeedback('card-p1', 'fb-p1', ok, "¡Pictograma 1 resuelto con tus propios cálculos!", "Multiplica cada símbolo por 4 libros.");
   }
 
   function checkP2() {
@@ -1287,7 +1915,7 @@
     const d = norm(document.getElementById('p2-4').value);
     const e = parseInt(document.getElementById('p2-5').value, 10);
 
-    const ok = (a===20 && b==='miercoles' && c===10 && d==='jueves' && e===70);
+    const ok = (a === 20 && b === 'miercoles' && c === 10 && d === 'jueves' && e === 70);
     for(let i=1; i<=5; i++) scoreState['p2-'+i] = ok;
     setCardFeedback('card-p2', 'fb-p2', ok, "¡Pictograma 2 resuelto con éxito!", "Multiplica cada manzana por 5.");
   }
@@ -1299,7 +1927,7 @@
     const d = norm(document.getElementById('b1-4').value);
     const e = parseInt(document.getElementById('b1-5').value, 10);
 
-    const ok = (a==='futbol' && b===20 && c===15 && a!='' && e===70);
+    const ok = (a === 'futbol' && b === 20 && c === 15 && d === 'atletismo' && e === 70);
     for(let i=1; i<=5; i++) scoreState['b1-'+i] = ok;
     setCardFeedback('card-b1', 'fb-b1', ok, "¡Gráfico 1 dominado al 100%!", "Revisa la escala de 5 en 5.");
   }
@@ -1311,7 +1939,7 @@
     const d = norm(document.getElementById('b2-4').value);
     const e = parseInt(document.getElementById('b2-5').value, 10);
 
-    const ok = (a===10 && b==='perro' && c===8 && d==='canario' && e===32);
+    const ok = (a === 10 && b === 'perro' && c === 8 && d === 'canario' && e === 32);
     for(let i=1; i<=5; i++) scoreState['b2-'+i] = ok;
     setCardFeedback('card-b2', 'fb-b2', ok, "¡Gráfico 2 resuelto sin errores!", "Revisa la escala de 2 en 2.");
   }
