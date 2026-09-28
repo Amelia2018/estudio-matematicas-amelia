@@ -1,0 +1,899 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Guía de Estudio Matemáticas 3° Básico - Amelia</title>
+  <style>
+    @page {
+      size: letter;
+      margin: 12mm 15mm;
+    }
+    * {
+      box-sizing: border-box;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      color: #2d3748;
+      background: #ffffff;
+      margin: 0;
+      padding: 0;
+      font-size: 13.5px;
+      line-height: 1.45;
+    }
+
+    /* Contenedor principal de página */
+    .page {
+      page-break-after: always;
+      padding-bottom: 10px;
+    }
+    .page:last-child {
+      page-break-after: avoid;
+    }
+
+    /* Encabezado escolar */
+    .school-header {
+      border: 2px solid #cbd5e1;
+      border-radius: 12px;
+      padding: 10px 14px;
+      margin-bottom: 14px;
+      background: #f8fafc;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .school-title {
+      font-weight: 800;
+      font-size: 16px;
+      color: #1e3a8a;
+      letter-spacing: -0.2px;
+    }
+    .school-subtitle {
+      font-size: 12px;
+      color: #475569;
+      font-weight: 600;
+    }
+    .student-data {
+      display: grid;
+      grid-template-columns: auto 1fr auto 1fr;
+      gap: 6px 12px;
+      font-size: 12.5px;
+      margin-top: 6px;
+    }
+    .student-data strong {
+      color: #334155;
+    }
+    .field-line {
+      border-bottom: 1.5px dotted #94a3b8;
+      min-width: 120px;
+      display: inline-block;
+      height: 15px;
+    }
+
+    /* Secciones temáticas */
+    .section-banner {
+      background: linear-gradient(90deg, #3b82f6, #6366f1);
+      color: white;
+      padding: 6px 12px;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 13.5px;
+      margin: 12px 0 8px 0;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .section-banner.purple {
+      background: linear-gradient(90deg, #8b5cf6, #ec4899);
+    }
+    .section-banner.emerald {
+      background: linear-gradient(90deg, #059669, #10b981);
+    }
+
+    .theory-box {
+      background: #eff6ff;
+      border-left: 4px solid #3b82f6;
+      border-radius: 6px;
+      padding: 8px 12px;
+      font-size: 12px;
+      margin-bottom: 12px;
+    }
+    .theory-box ul {
+      margin: 4px 0;
+      padding-left: 18px;
+    }
+    .theory-box li {
+      margin-bottom: 2px;
+    }
+
+    /* Grilla de ejercicios */
+    .exercise-grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px 14px;
+      margin-bottom: 10px;
+    }
+    .exercise-grid-3 {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+    .exercise-card {
+      border: 1.5px solid #e2e8f0;
+      border-radius: 8px;
+      padding: 8px 10px;
+      background: #ffffff;
+      position: relative;
+    }
+    .exercise-number {
+      display: inline-block;
+      background: #e0e7ff;
+      color: #3730a3;
+      font-weight: 800;
+      font-size: 11px;
+      padding: 2px 7px;
+      border-radius: 999px;
+      margin-bottom: 4px;
+    }
+    .exercise-title {
+      font-weight: 700;
+      font-size: 12px;
+      color: #1e293b;
+      margin-bottom: 6px;
+    }
+
+    /* Tablas de Algoritmos C D U */
+    .algorithm-table {
+      margin: 4px auto;
+      border-collapse: collapse;
+      font-family: "Courier New", Courier, monospace;
+      font-size: 15px;
+      font-weight: bold;
+    }
+    .algorithm-table td {
+      width: 24px;
+      height: 24px;
+      text-align: center;
+      vertical-align: middle;
+      border: 1px dashed #cbd5e1;
+    }
+    .algorithm-table .header-cdu {
+      font-size: 10px;
+      color: #64748b;
+      font-weight: 800;
+      background: #f1f5f9;
+      border: 1px solid #cbd5e1;
+    }
+    .algorithm-table .reserva-cell {
+      height: 18px;
+      background: #fffbeb;
+      font-size: 11px;
+      color: #b45309;
+      border: 1px dotted #fcd34d;
+    }
+    .algorithm-table .operator-col {
+      border: none;
+      width: 18px;
+      color: #dc2626;
+      font-size: 16px;
+    }
+    .algorithm-table .result-row td {
+      border-top: 2.5px solid #1e293b;
+      border-bottom: 1px solid #cbd5e1;
+      height: 26px;
+      background: #fafafa;
+    }
+
+    /* Formato Cuaderno para problemas */
+    .problem-box {
+      border: 1.5px solid #cbd5e1;
+      border-radius: 8px;
+      padding: 10px 14px;
+      margin-top: 8px;
+      background: #ffffff;
+    }
+    .cuaderno-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1.4fr;
+      gap: 12px;
+      margin-top: 8px;
+    }
+    .cuaderno-col {
+      background: #f8fafc;
+      border: 1px dashed #94a3b8;
+      border-radius: 6px;
+      padding: 8px;
+      min-height: 85px;
+    }
+    .cuaderno-col-title {
+      font-weight: 700;
+      font-size: 11.5px;
+      color: #475569;
+      margin-bottom: 4px;
+      border-bottom: 1px solid #e2e8f0;
+      padding-bottom: 2px;
+    }
+    .blank-writing-space {
+      line-height: 22px;
+      background-image: repeating-linear-gradient(transparent, transparent 21px, #cbd5e1 21px, #cbd5e1 22px);
+      min-height: 60px;
+    }
+
+    /* Relojes SVG */
+    .clock-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 0;
+    }
+    .clock-svg {
+      width: 95px;
+      height: 95px;
+    }
+    .time-answer-box {
+      border: 1.5px solid #3b82f6;
+      border-radius: 6px;
+      padding: 4px 10px;
+      font-weight: bold;
+      font-size: 13px;
+      min-width: 90px;
+      text-align: center;
+      background: #eff6ff;
+    }
+
+    /* Solucionario */
+    .solution-page {
+      background: #fafafa;
+      border: 2px dashed #94a3b8;
+      border-radius: 12px;
+      padding: 14px 18px;
+    }
+    .solution-title {
+      font-size: 15px;
+      font-weight: 800;
+      color: #047857;
+      text-align: center;
+      margin-bottom: 10px;
+    }
+    .solution-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      font-size: 11.5px;
+    }
+    .solution-item {
+      background: white;
+      border: 1px solid #e2e8f0;
+      border-radius: 6px;
+      padding: 6px 10px;
+    }
+    .solution-item strong {
+      color: #1e3a8a;
+    }
+
+    .badge-star {
+      font-size: 16px;
+      vertical-align: middle;
+      color: #eab308;
+    }
+    .note-text {
+      font-size: 11px;
+      color: #64748b;
+      margin-top: 4px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ==================== PÁGINA 1: NÚMEROS Y OPERACIONES ==================== -->
+  <div class="page">
+    <div class="school-header">
+      <div>
+        <div class="school-title">✏️ GUÍA DE PREPARACIÓN DE MATEMÁTICAS — 3° BÁSICO</div>
+        <div class="school-subtitle">Evaluación formativa para Amelia • ¡Tú puedes, lo vas a hacer increíble! ⭐</div>
+      </div>
+      <div style="text-align: right;">
+        <span style="font-size: 20px;">🎒 📐</span>
+      </div>
+    </div>
+
+    <div class="student-data" style="margin-bottom: 10px;">
+      <div><strong>Estudiante:</strong> Amelia Bustos</div>
+      <div><strong>Fecha:</strong> <span class="field-line"></span></div>
+      <div><strong>Curso:</strong> 3° Básico</div>
+      <div><strong>Puntaje:</strong> ______ / 21 pts</div>
+    </div>
+
+    <div class="section-banner">
+      <span>🔢 PARTE 1: NÚMEROS, OPERACIONES Y PROBLEMAS</span>
+    </div>
+
+    <!-- Antecesor y sucesor -->
+    <div class="exercise-grid-3">
+      <div class="exercise-card">
+        <span class="exercise-number">Ej. 1</span>
+        <div class="exercise-title">Antecesor y Sucesor</div>
+        <div style="font-size: 14px; text-align: center; font-weight: 700; margin: 10px 0;">
+          <span style="border-bottom: 1.5px solid #2563eb; display: inline-block; width: 42px;">&nbsp;</span>
+          &lt; 600 &lt;
+          <span style="border-bottom: 1.5px solid #2563eb; display: inline-block; width: 42px;">&nbsp;</span>
+        </div>
+        <div class="note-text text-center" style="text-align: center;">-1 antes | +1 después</div>
+      </div>
+
+      <div class="exercise-card">
+        <span class="exercise-number">Ej. 2</span>
+        <div class="exercise-title">Antecesor y Sucesor</div>
+        <div style="font-size: 14px; text-align: center; font-weight: 700; margin: 10px 0;">
+          <span style="border-bottom: 1.5px solid #2563eb; display: inline-block; width: 42px;">&nbsp;</span>
+          &lt; 499 &lt;
+          <span style="border-bottom: 1.5px solid #2563eb; display: inline-block; width: 42px;">&nbsp;</span>
+        </div>
+        <div class="note-text" style="text-align: center;">-1 antes | +1 después</div>
+      </div>
+
+      <div class="exercise-card">
+        <span class="exercise-number">Ej. 3</span>
+        <div class="exercise-title">Antecesor y Sucesor</div>
+        <div style="font-size: 14px; text-align: center; font-weight: 700; margin: 10px 0;">
+          <span style="border-bottom: 1.5px solid #2563eb; display: inline-block; width: 42px;">&nbsp;</span>
+          &lt; 820 &lt;
+          <span style="border-bottom: 1.5px solid #2563eb; display: inline-block; width: 42px;">&nbsp;</span>
+        </div>
+        <div class="note-text" style="text-align: center;">-1 antes | +1 después</div>
+      </div>
+    </div>
+
+    <!-- Escritura con palabras -->
+    <div class="exercise-card" style="margin-bottom: 12px; padding: 10px 14px;">
+      <span class="exercise-number">Ej. 4</span>
+      <strong style="margin-left: 6px; font-size: 12.5px;">Escribe con palabras el siguiente número:</strong>
+      <div style="display: flex; align-items: center; gap: 14px; margin-top: 8px;">
+        <span style="font-size: 20px; font-weight: 900; color: #1e3a8a; background: #e0f2fe; padding: 4px 14px; border-radius: 8px; border: 1.5px solid #38bdf8;">753</span>
+        <div style="flex: 1; border-bottom: 2px dotted #64748b; height: 26px;"></div>
+      </div>
+    </div>
+
+    <!-- Operaciones Verticales: Sumas y Restas -->
+    <div class="exercise-grid-2">
+      <!-- Suma sin reserva -->
+      <div class="exercise-card">
+        <span class="exercise-number">Ej. 5</span>
+        <div class="exercise-title">Suma vertical (Sin reserva)</div>
+        <table class="algorithm-table">
+          <tr>
+            <td class="operator-col"></td>
+            <td class="header-cdu">C</td>
+            <td class="header-cdu">D</td>
+            <td class="header-cdu">U</td>
+          </tr>
+          <tr>
+            <td class="operator-col"></td>
+            <td>3</td>
+            <td>4</td>
+            <td>2</td>
+          </tr>
+          <tr>
+            <td class="operator-col">+</td>
+            <td>1</td>
+            <td>5</td>
+            <td>4</td>
+          </tr>
+          <tr class="result-row">
+            <td class="operator-col"></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+        </table>
+      </div>
+
+      <!-- Suma con reserva -->
+      <div class="exercise-card">
+        <span class="exercise-number">Ej. 6</span>
+        <div class="exercise-title">Suma vertical (¡Con reserva!) 🔴</div>
+        <table class="algorithm-table">
+          <tr>
+            <td class="operator-col"></td>
+            <td class="header-cdu">C</td>
+            <td class="header-cdu">D</td>
+            <td class="header-cdu">U</td>
+          </tr>
+          <tr>
+            <td class="operator-col"></td>
+            <td class="reserva-cell"></td>
+            <td class="reserva-cell"></td>
+            <td class="reserva-cell" style="background: #f1f5f9; border-color: #cbd5e1;">-</td>
+          </tr>
+          <tr>
+            <td class="operator-col"></td>
+            <td>5</td>
+            <td>8</td>
+            <td>6</td>
+          </tr>
+          <tr>
+            <td class="operator-col">+</td>
+            <td>2</td>
+            <td>4</td>
+            <td>7</td>
+          </tr>
+          <tr class="result-row">
+            <td class="operator-col"></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+        </table>
+      </div>
+
+      <!-- Resta sin canje -->
+      <div class="exercise-card">
+        <span class="exercise-number">Ej. 7</span>
+        <div class="exercise-title">Resta vertical (Sin canje)</div>
+        <table class="algorithm-table">
+          <tr>
+            <td class="operator-col"></td>
+            <td class="header-cdu">C</td>
+            <td class="header-cdu">D</td>
+            <td class="header-cdu">U</td>
+          </tr>
+          <tr>
+            <td class="operator-col"></td>
+            <td>7</td>
+            <td>8</td>
+            <td>5</td>
+          </tr>
+          <tr>
+            <td class="operator-col">-</td>
+            <td>3</td>
+            <td>4</td>
+            <td>1</td>
+          </tr>
+          <tr class="result-row">
+            <td class="operator-col"></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+        </table>
+      </div>
+
+      <!-- Resta con canje -->
+      <div class="exercise-card">
+        <span class="exercise-number">Ej. 8</span>
+        <div class="exercise-title">Resta vertical (¡Con canje a ceros!) ⚠️</div>
+        <table class="algorithm-table">
+          <tr>
+            <td class="operator-col"></td>
+            <td class="header-cdu">C</td>
+            <td class="header-cdu">D</td>
+            <td class="header-cdu">U</td>
+          </tr>
+          <tr>
+            <td class="operator-col"></td>
+            <td class="reserva-cell"></td>
+            <td class="reserva-cell"></td>
+            <td class="reserva-cell"></td>
+          </tr>
+          <tr>
+            <td class="operator-col"></td>
+            <td>6</td>
+            <td>0</td>
+            <td>0</td>
+          </tr>
+          <tr>
+            <td class="operator-col">-</td>
+            <td>2</td>
+            <td>3</td>
+            <td>8</td>
+          </tr>
+          <tr class="result-row">
+            <td class="operator-col"></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+        </table>
+      </div>
+    </div>
+
+    <!-- Multiplicaciones -->
+    <div class="exercise-grid-2">
+      <div class="exercise-card">
+        <span class="exercise-number">Ej. 9</span>
+        <div class="exercise-title">Algoritmo de Multiplicación</div>
+        <table class="algorithm-table">
+          <tr>
+            <td class="operator-col"></td>
+            <td class="header-cdu">D</td>
+            <td class="header-cdu">U</td>
+            <td class="operator-col"></td>
+            <td class="operator-col"></td>
+          </tr>
+          <tr>
+            <td class="operator-col"></td>
+            <td>3</td>
+            <td>2</td>
+            <td class="operator-col">x</td>
+            <td style="border: 1.5px solid #2563eb; background: #dbeafe;">3</td>
+          </tr>
+          <tr class="result-row">
+            <td class="operator-col"></td>
+            <td></td>
+            <td></td>
+            <td class="operator-col"></td>
+            <td class="operator-col"></td>
+          </tr>
+        </table>
+      </div>
+
+      <div class="exercise-card">
+        <span class="exercise-number">Ej. 10</span>
+        <div class="exercise-title">Algoritmo de Multiplicación</div>
+        <table class="algorithm-table">
+          <tr>
+            <td class="operator-col"></td>
+            <td class="header-cdu">D</td>
+            <td class="header-cdu">U</td>
+            <td class="operator-col"></td>
+            <td class="operator-col"></td>
+          </tr>
+          <tr>
+            <td class="operator-col"></td>
+            <td>4</td>
+            <td>1</td>
+            <td class="operator-col">x</td>
+            <td style="border: 1.5px solid #2563eb; background: #dbeafe;">2</td>
+          </tr>
+          <tr class="result-row">
+            <td class="operator-col"></td>
+            <td></td>
+            <td></td>
+            <td class="operator-col"></td>
+            <td class="operator-col"></td>
+          </tr>
+        </table>
+      </div>
+    </div>
+
+    <!-- Problema 11 -->
+    <div class="problem-box">
+      <span class="exercise-number">Ej. 11</span>
+      <strong style="margin-left: 6px; font-size: 12.5px;">Problema de Aplicación (Formato Cuaderno):</strong>
+      <div style="font-size: 13px; font-style: italic; background: #fdf2f8; border-left: 3px solid #db2777; padding: 6px 10px; margin: 6px 0; border-radius: 4px;">
+        &ldquo;Martina compró 4 cajas con 5 lápices cada una. ¿Cuántos lápices tiene en total?&rdquo;
+      </div>
+      <div class="cuaderno-grid">
+        <div class="cuaderno-col">
+          <div class="cuaderno-col-title">📌 DATOS</div>
+          <div class="blank-writing-space"></div>
+        </div>
+        <div class="cuaderno-col">
+          <div class="cuaderno-col-title">⚙️ OPERACIÓN</div>
+          <div class="blank-writing-space"></div>
+        </div>
+        <div class="cuaderno-col">
+          <div class="cuaderno-col-title">📝 RESPUESTA COMPLETA</div>
+          <div class="blank-writing-space"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== PÁGINA 2: TIEMPO Y RELOJES ==================== -->
+  <div class="page">
+    <div class="school-header">
+      <div>
+        <div class="school-title">⏰ GUÍA 4: TIEMPO (Reloj Análogo, Intervalos y Formato 24 Horas)</div>
+        <div class="school-subtitle">3° Básico • Matemáticas • Alumna: Amelia Bustos</div>
+      </div>
+      <div style="font-size: 20px;">⏱️ 🕒</div>
+    </div>
+
+    <!-- Resumen teórico -->
+    <div class="theory-box">
+      <strong style="color: #1e40af;">💡 RESUMEN CLAVE PARA RECORDAR:</strong>
+      <ul>
+        <li><strong>Manecilla CORTA:</strong> Marca la <u>HORA</u>. Se mueve despacio.</li>
+        <li><strong>Manecilla LARGA:</strong> Marca los <u>MINUTOS</u> (el minutero avanza de 5 en 5 por los números).</li>
+        <li><strong>AM:</strong> De 00:00 a 11:59 (en la mañana).</li>
+        <li><strong>PM:</strong> De 12:00 a 23:59 (en la tarde y noche).</li>
+        <li><strong>Formato 24 horas:</strong> Para pasar de la tarde (PM) a 24 hrs, ¡sumamos 12 a la hora! (Ej: 3:00 PM + 12 = 15:00 hrs).</li>
+      </ul>
+    </div>
+
+    <div class="section-banner purple">
+      <span>🕒 LECTURA DE RELOJ ANÁLOGO</span>
+    </div>
+
+    <div class="exercise-grid-2">
+      <!-- Ejercicio 1 Reloj -->
+      <div class="exercise-card">
+        <span class="exercise-number">Ej. 1</span>
+        <div class="exercise-title">¿Qué hora marca el reloj?</div>
+        <div class="clock-container">
+          <!-- SVG Reloj 7:00 en punto -->
+          <svg class="clock-svg" viewBox="0 0 100 100">
+            <circle cx="50" cy="50" r="46" fill="#f8fafc" stroke="#3b82f6" stroke-width="4"/>
+            <!-- Marcas de horas -->
+            <text x="50" y="16" font-size="9" font-weight="bold" text-anchor="middle" fill="#1e293b">12</text>
+            <text x="84" y="53" font-size="9" font-weight="bold" text-anchor="middle" fill="#1e293b">3</text>
+            <text x="50" y="90" font-size="9" font-weight="bold" text-anchor="middle" fill="#1e293b">6</text>
+            <text x="16" y="53" font-size="9" font-weight="bold" text-anchor="middle" fill="#1e293b">9</text>
+            <text x="68" y="24" font-size="7" text-anchor="middle" fill="#64748b">1</text>
+            <text x="80" y="38" font-size="7" text-anchor="middle" fill="#64748b">2</text>
+            <text x="80" y="68" font-size="7" text-anchor="middle" fill="#64748b">4</text>
+            <text x="68" y="82" font-size="7" text-anchor="middle" fill="#64748b">5</text>
+            <text x="32" y="82" font-size="7" text-anchor="middle" fill="#64748b">7</text>
+            <text x="20" y="68" font-size="7" text-anchor="middle" fill="#64748b">8</text>
+            <text x="20" y="38" font-size="7" text-anchor="middle" fill="#64748b">10</text>
+            <text x="32" y="24" font-size="7" text-anchor="middle" fill="#64748b">11</text>
+            <!-- Centro -->
+            <circle cx="50" cy="50" r="3.5" fill="#1e293b"/>
+            <!-- Manecilla horaria (corta) hacia el 7 (ángulo 210°) -->
+            <line x1="50" y1="50" x2="33" y2="69" stroke="#dc2626" stroke-width="3.5" stroke-linecap="round"/>
+            <!-- Manecilla minutera (larga) hacia el 12 (ángulo 0°) -->
+            <line x1="50" y1="50" x2="50" y2="18" stroke="#2563eb" stroke-width="2.5" stroke-linecap="round"/>
+          </svg>
+          <div style="font-size: 11.5px; text-align: center;">
+            Manecilla corta en el <strong>7</strong> y larga en el <strong>12</strong>.<br>
+            Son las: <span style="border-bottom: 2px solid #2563eb; display: inline-block; width: 90px; text-align: center;">&nbsp;</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Ejercicio 2 Reloj -->
+      <div class="exercise-card">
+        <span class="exercise-number">Ej. 2</span>
+        <div class="exercise-title">¿Qué hora marca el reloj?</div>
+        <div class="clock-container">
+          <!-- SVG Reloj 2:30 -->
+          <svg class="clock-svg" viewBox="0 0 100 100">
+            <circle cx="50" cy="50" r="46" fill="#f8fafc" stroke="#8b5cf6" stroke-width="4"/>
+            <!-- Marcas de horas -->
+            <text x="50" y="16" font-size="9" font-weight="bold" text-anchor="middle" fill="#1e293b">12</text>
+            <text x="84" y="53" font-size="9" font-weight="bold" text-anchor="middle" fill="#1e293b">3</text>
+            <text x="50" y="90" font-size="9" font-weight="bold" text-anchor="middle" fill="#1e293b">6</text>
+            <text x="16" y="53" font-size="9" font-weight="bold" text-anchor="middle" fill="#1e293b">9</text>
+            <text x="68" y="24" font-size="7" text-anchor="middle" fill="#64748b">1</text>
+            <text x="80" y="38" font-size="7" text-anchor="middle" fill="#64748b">2</text>
+            <text x="80" y="68" font-size="7" text-anchor="middle" fill="#64748b">4</text>
+            <text x="68" y="82" font-size="7" text-anchor="middle" fill="#64748b">5</text>
+            <text x="32" y="82" font-size="7" text-anchor="middle" fill="#64748b">7</text>
+            <text x="20" y="68" font-size="7" text-anchor="middle" fill="#64748b">8</text>
+            <text x="20" y="38" font-size="7" text-anchor="middle" fill="#64748b">10</text>
+            <text x="32" y="24" font-size="7" text-anchor="middle" fill="#64748b">11</text>
+            <!-- Centro -->
+            <circle cx="50" cy="50" r="3.5" fill="#1e293b"/>
+            <!-- Manecilla horaria entre el 2 y el 3 (ángulo 75°) -->
+            <line x1="50" y1="50" x2="68" y2="55" stroke="#dc2626" stroke-width="3.5" stroke-linecap="round"/>
+            <!-- Manecilla minutera al 6 (30 minutos, ángulo 180°) -->
+            <line x1="50" y1="50" x2="50" y2="82" stroke="#2563eb" stroke-width="2.5" stroke-linecap="round"/>
+          </svg>
+          <div style="font-size: 11.5px; text-align: center;">
+            Manecilla corta entre <strong>2 y 3</strong>, larga en el <strong>6</strong>.<br>
+            Son las: <span style="border-bottom: 2px solid #8b5cf6; display: inline-block; width: 90px; text-align: center;">&nbsp;</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-banner emerald">
+      <span>🔄 CONVERSIÓN Y FORMATO 24 HORAS</span>
+    </div>
+
+    <!-- Ejercicios 3 a 7 de conversión -->
+    <div class="exercise-grid-2">
+      <div class="exercise-card">
+        <span class="exercise-number">Ej. 3</span>
+        <div class="exercise-title">Formato 12 horas (AM o PM)</div>
+        <p style="margin: 4px 0 8px 0; font-size: 12px;">Las 5:00 de la tarde se escribe como:</p>
+        <div style="font-size: 14px; font-weight: bold; text-align: center;">
+          5:00 <span style="border-bottom: 2px solid #059669; display: inline-block; width: 60px;">&nbsp;</span> (AM / PM)
+        </div>
+      </div>
+
+      <div class="exercise-card">
+        <span class="exercise-number">Ej. 4</span>
+        <div class="exercise-title">A formato 24 horas</div>
+        <p style="margin: 4px 0 8px 0; font-size: 12px;">Convierte <strong>2:00 PM</strong> a formato 24 horas:</p>
+        <div style="font-size: 14px; font-weight: bold; text-align: center;">
+          <span style="border-bottom: 2px solid #059669; display: inline-block; width: 70px;">&nbsp;</span> hrs.
+        </div>
+      </div>
+
+      <div class="exercise-card">
+        <span class="exercise-number">Ej. 5</span>
+        <div class="exercise-title">A formato 24 horas</div>
+        <p style="margin: 4px 0 8px 0; font-size: 12px;">Convierte <strong>6:30 PM</strong> a formato 24 horas:</p>
+        <div style="font-size: 14px; font-weight: bold; text-align: center;">
+          <span style="border-bottom: 2px solid #059669; display: inline-block; width: 70px;">&nbsp;</span> hrs.
+        </div>
+      </div>
+
+      <div class="exercise-card">
+        <span class="exercise-number">Ej. 6</span>
+        <div class="exercise-title">A formato 24 horas</div>
+        <p style="margin: 4px 0 8px 0; font-size: 12px;">Convierte <strong>9:00 PM</strong> a formato 24 horas:</p>
+        <div style="font-size: 14px; font-weight: bold; text-align: center;">
+          <span style="border-bottom: 2px solid #059669; display: inline-block; width: 70px;">&nbsp;</span> hrs.
+        </div>
+      </div>
+    </div>
+
+    <div class="exercise-card" style="margin-bottom: 10px;">
+      <span class="exercise-number">Ej. 7</span>
+      <span style="font-weight: 700; margin-left: 6px;">¿Qué hora de la tarde corresponde a las 17:00 hrs?</span>
+      <div style="margin-top: 6px; font-size: 13px; text-align: center;">
+        Corresponde a las: <span style="border-bottom: 2px solid #059669; display: inline-block; width: 120px;">&nbsp;</span> (Indicar con PM)
+      </div>
+    </div>
+
+    <div class="section-banner" style="background: linear-gradient(90deg, #f59e0b, #d97706);">
+      <span>⏳ INTERVALOS DE TIEMPO (¿Cuántos minutos faltan?)</span>
+    </div>
+
+    <!-- Ejercicios 8, 9, 10 de intervalos -->
+    <div style="display: flex; flex-direction: column; gap: 8px;">
+      <div class="exercise-card">
+        <span class="exercise-number">Ej. 8</span>
+        <span style="font-size: 12.5px;">&ldquo;Son las <strong>09:00 hrs</strong> y el recreo comienza a las <strong>09:30 hrs</strong>. ¿Cuántos minutos faltan?&rdquo;</span>
+        <div style="margin-top: 4px; text-align: right; font-weight: bold;">
+          Respuesta: Faltan <span style="border-bottom: 2px solid #d97706; display: inline-block; width: 60px;">&nbsp;</span> minutos.
+        </div>
+      </div>
+
+      <div class="exercise-card">
+        <span class="exercise-number">Ej. 9</span>
+        <span style="font-size: 12.5px;">&ldquo;Son las <strong>10:45 hrs</strong> y la clase termina a las <strong>11:15 hrs</strong>. ¿Cuántos minutos faltan?&rdquo;</span>
+        <div style="margin-top: 4px; text-align: right; font-weight: bold;">
+          Respuesta: Faltan <span style="border-bottom: 2px solid #d97706; display: inline-block; width: 60px;">&nbsp;</span> minutos.
+        </div>
+      </div>
+
+      <div class="exercise-card">
+        <span class="exercise-number">Ej. 10</span>
+        <span style="font-size: 12.5px;">&ldquo;Son las <strong>12:35 hrs</strong> y el almuerzo es a las <strong>12:50 hrs</strong>. ¿Cuántos minutos faltan?&rdquo;</span>
+        <div style="margin-top: 4px; text-align: right; font-weight: bold;">
+          Respuesta: Faltan <span style="border-bottom: 2px solid #d97706; display: inline-block; width: 60px;">&nbsp;</span> minutos.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== PÁGINA 3: SOLUCIONARIO DETALLADO ==================== -->
+  <div class="page">
+    <div class="solution-page">
+      <div class="solution-title">🎯 SOLUCIONARIO Y PAUTA DE CORRECCIÓN (Para Padres / Profesor)</div>
+      <div style="text-align: center; font-size: 12px; color: #475569; margin-bottom: 14px;">
+        Explicaciones paso a paso y respuestas exactas para revisar con Amelia
+      </div>
+
+      <div class="solution-grid">
+        <!-- Parte 1 -->
+        <div class="solution-item">
+          <strong>1. Antecesor y sucesor de 600:</strong><br>
+          ✅ <strong>599</strong> &lt; 600 &lt; <strong>601</strong><br>
+          <span class="note-text">Tip: Restar 1 a 600 da 599; sumar 1 da 601.</span>
+        </div>
+
+        <div class="solution-item">
+          <strong>2. Antecesor y sucesor de 499:</strong><br>
+          ✅ <strong>498</strong> &lt; 499 &lt; <strong>500</strong><br>
+          <span class="note-text">Tip: 499 pasa a la siguiente centena exacta: 500.</span>
+        </div>
+
+        <div class="solution-item">
+          <strong>3. Antecesor y sucesor de 820:</strong><br>
+          ✅ <strong>819</strong> &lt; 820 &lt; <strong>821</strong>
+        </div>
+
+        <div class="solution-item">
+          <strong>4. Escritura en palabras de 753:</strong><br>
+          ✅ <strong>Setecientos cincuenta y tres</strong><br>
+          <span class="note-text">Atención a que "setecientos" se escribe con S y C.</span>
+        </div>
+
+        <div class="solution-item">
+          <strong>5. Suma vertical 342 + 154:</strong><br>
+          ✅ <strong>496</strong><br>
+          <span class="note-text">U: 2+4=6 | D: 4+5=9 | C: 3+1=4</span>
+        </div>
+
+        <div class="solution-item">
+          <strong>6. Suma con reserva 586 + 247:</strong><br>
+          ✅ <strong>833</strong><br>
+          <span class="note-text">U: 6+7=13 (3 y reserva 1) | D: 8+4+1=13 (3 y reserva 1) | C: 5+2+1=8.</span>
+        </div>
+
+        <div class="solution-item">
+          <strong>7. Resta sin canje 785 - 341:</strong><br>
+          ✅ <strong>444</strong><br>
+          <span class="note-text">U: 5-1=4 | D: 8-4=4 | C: 7-3=4</span>
+        </div>
+
+        <div class="solution-item">
+          <strong>8. Resta con canje 600 - 238:</strong><br>
+          ✅ <strong>362</strong><br>
+          <span class="note-text">Canje desde las centenas: 6 centenas quedan en 5; 10 decenas quedan en 9; 10 unidades. 10-8=2; 9-3=6; 5-2=3.</span>
+        </div>
+
+        <div class="solution-item">
+          <strong>9. Multiplicación 32 x 3:</strong><br>
+          ✅ <strong>96</strong><br>
+          <span class="note-text">3 x 2 unidades = 6 | 3 x 3 decenas = 9 decenas = 96.</span>
+        </div>
+
+        <div class="solution-item">
+          <strong>10. Multiplicación 41 x 2:</strong><br>
+          ✅ <strong>82</strong><br>
+          <span class="note-text">2 x 1 unidad = 2 | 2 x 4 decenas = 8 decenas = 82.</span>
+        </div>
+
+        <div class="solution-item" style="grid-column: span 2;">
+          <strong>11. Problema de aplicación (Martina):</strong><br>
+          • <strong>Datos:</strong> 4 cajas, 5 lápices en cada caja.<br>
+          • <strong>Operación:</strong> 4 x 5 = 20 (también válido suma iterada: 5 + 5 + 5 + 5 = 20).<br>
+          • <strong>Respuesta completa:</strong> Martina tiene en total 20 lápices.
+        </div>
+
+        <!-- Parte 2 -->
+        <div class="solution-item">
+          <strong>Guía 4 - Ej. 1 (Reloj 1):</strong><br>
+          ✅ <strong>07:00 en punto</strong> (o 7:00).
+        </div>
+
+        <div class="solution-item">
+          <strong>Guía 4 - Ej. 2 (Reloj 2):</strong><br>
+          ✅ <strong>02:30</strong> (dos y media).
+        </div>
+
+        <div class="solution-item">
+          <strong>Guía 4 - Ej. 3 (5:00 de la tarde):</strong><br>
+          ✅ <strong>5:00 PM</strong> (PM es tarde/noche).
+        </div>
+
+        <div class="solution-item">
+          <strong>Guía 4 - Ej. 4 (2:00 PM a 24h):</strong><br>
+          ✅ <strong>14:00 hrs</strong> (2 + 12 = 14).
+        </div>
+
+        <div class="solution-item">
+          <strong>Guía 4 - Ej. 5 (6:30 PM a 24h):</strong><br>
+          ✅ <strong>18:30 hrs</strong> (6 + 12 = 18 y se mantienen 30 min).
+        </div>
+
+        <div class="solution-item">
+          <strong>Guía 4 - Ej. 6 (9:00 PM a 24h):</strong><br>
+          ✅ <strong>21:00 hrs</strong> (9 + 12 = 21).
+        </div>
+
+        <div class="solution-item">
+          <strong>Guía 4 - Ej. 7 (17:00 hrs a tarde):</strong><br>
+          ✅ <strong>5:00 PM</strong> (17 - 12 = 5).
+        </div>
+
+        <div class="solution-item">
+          <strong>Guía 4 - Ej. 8 (09:00 a 09:30):</strong><br>
+          ✅ <strong>Faltan 30 minutos</strong> (o media hora).
+        </div>
+
+        <div class="solution-item">
+          <strong>Guía 4 - Ej. 9 (10:45 a 11:15):</strong><br>
+          ✅ <strong>Faltan 30 minutos</strong> (15 min para las 11:00 + 15 min hasta 11:15).
+        </div>
+
+        <div class="solution-item">
+          <strong>Guía 4 - Ej. 10 (12:35 a 12:50):</strong><br>
+          ✅ <strong>Faltan 15 minutos</strong> (50 - 35 = 15).
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
