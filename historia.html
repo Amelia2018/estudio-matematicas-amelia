@@ -1,0 +1,1639 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>¡Guía Oficial de Estudio de Historia: Amelia! 🏛️ 3° Básico</title>
+  <style>
+    :root {
+      --primary: #c2410c; /* Terracotta clásico */
+      --primary-light: #ffedd5;
+      --secondary: #0284c7; /* Azul Mar Egeo */
+      --secondary-light: #e0f2fe;
+      --olive: #4d7c0f; /* Verde olivo */
+      --olive-light: #ecfccb;
+      --gold: #b45309; /* Dorado Olimpo */
+      --gold-light: #fef3c7;
+      --success: #15803d;
+      --success-light: #dcfce7;
+      --danger: #b91c1c;
+      --danger-light: #fee2e2;
+      --bg: #fbfbf9;
+      --card-bg: #ffffff;
+      --text: #1c1917;
+      --text-muted: #57534e;
+      --border: #e7e5e4;
+      --radius: 16px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    }
+
+    body {
+      background: linear-gradient(135deg, #fffbeb 0%, #f0fdf4 50%, #eff6ff 100%);
+      color: var(--text);
+      min-height: 100vh;
+      padding: 16px;
+    }
+
+    .container {
+      max-width: 980px;
+      margin: 0 auto;
+    }
+
+    /* Barra Superior de Navegación entre Asignaturas */
+    .subject-nav-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 10px 16px;
+      margin-bottom: 14px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.03);
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .subject-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 13px;
+      font-weight: 700;
+      color: #78350f;
+    }
+    .nav-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 7px 14px;
+      background: #f8fafc;
+      border: 1.5px solid #cbd5e1;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 700;
+      color: #334155;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+    .nav-btn:hover {
+      background: #f1f5f9;
+      border-color: #94a3b8;
+      color: #0f172a;
+    }
+
+    /* Hero Header */
+    .hero-card {
+      background: linear-gradient(135deg, #9a3412 0%, #c2410c 45%, #b45309 100%);
+      color: white;
+      padding: 24px;
+      border-radius: var(--radius);
+      box-shadow: 0 10px 25px -5px rgba(194, 65, 12, 0.35);
+      margin-bottom: 18px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-card::after {
+      content: "🏛️";
+      position: absolute;
+      right: 20px;
+      bottom: -15px;
+      font-size: 110px;
+      opacity: 0.15;
+      pointer-events: none;
+    }
+    .hero-card h1 {
+      font-size: 26px;
+      font-weight: 800;
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .hero-card p {
+      font-size: 14.5px;
+      opacity: 0.95;
+      max-width: 650px;
+      line-height: 1.4;
+    }
+    .hero-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 14px;
+    }
+    .hero-badge {
+      background: rgba(255, 255, 255, 0.22);
+      padding: 4px 12px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 700;
+      backdrop-filter: blur(4px);
+    }
+
+    /* Control Superior */
+    .top-control-bar {
+      background: white;
+      border-radius: var(--radius);
+      padding: 14px 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+      margin-bottom: 18px;
+      border: 1px solid var(--border);
+      flex-wrap: wrap;
+    }
+    .progress-box {
+      flex: 1;
+      min-width: 220px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .progress-outer {
+      flex: 1;
+      background: #f1f5f9;
+      height: 14px;
+      border-radius: 999px;
+      overflow: hidden;
+    }
+    .progress-inner {
+      background: linear-gradient(90deg, #ea580c, #f59e0b);
+      height: 100%;
+      width: 0%;
+      transition: width 0.4s ease;
+      border-radius: 999px;
+    }
+    .score-badge {
+      font-weight: 800;
+      font-size: 15px;
+      color: var(--primary);
+      white-space: nowrap;
+    }
+    .action-btn-group {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .btn-pdf {
+      background: #0284c7;
+      color: white;
+      text-decoration: none;
+      padding: 9px 15px;
+      border-radius: 10px;
+      font-size: 13px;
+      font-weight: 700;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s;
+      border: none;
+      cursor: pointer;
+    }
+    .btn-pdf:hover {
+      background: #0369a1;
+      transform: translateY(-1px);
+    }
+    .btn-sol-toggle {
+      background: #fff7ed;
+      color: #9a3412;
+      border: 1.5px solid #fed7aa;
+      padding: 9px 15px;
+      border-radius: 10px;
+      font-size: 13px;
+      font-weight: 700;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s;
+    }
+    .btn-sol-toggle:hover {
+      background: #ffedd5;
+    }
+
+    /* Pestañas de Navegación */
+    .tabs-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+    .tab-btn {
+      background: white;
+      border: 1.5px solid var(--border);
+      border-radius: 12px;
+      padding: 12px 14px;
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--text-muted);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      transition: all 0.2s;
+    }
+    .tab-btn:hover {
+      background: #fbfbf9;
+      border-color: #d6d3d1;
+      color: var(--text);
+    }
+    .tab-btn.active {
+      background: #fff7ed;
+      border-color: #ea580c;
+      color: #9a3412;
+      box-shadow: 0 4px 10px rgba(234, 88, 12, 0.12);
+    }
+
+    /* Tarjetas de Ejercicios */
+    .tab-content { display: none; }
+    .tab-content.active { display: block; }
+
+    .exercise-card {
+      background: var(--card-bg);
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius);
+      padding: 22px;
+      margin-bottom: 22px;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.03);
+    }
+    .exercise-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--border);
+    }
+    .badge-number {
+      font-size: 15px;
+      font-weight: 800;
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .status-icon {
+      font-size: 18px;
+    }
+    .instruction {
+      font-size: 14.5px;
+      color: var(--text-muted);
+      margin-bottom: 14px;
+      line-height: 1.45;
+    }
+
+    /* Preguntas y Opciones */
+    .q-item {
+      background: #fafaf9;
+      border: 1px solid #e7e5e4;
+      border-radius: 12px;
+      padding: 14px 16px;
+      margin-bottom: 12px;
+    }
+    .q-text {
+      font-size: 14px;
+      font-weight: 700;
+      color: #1c1917;
+      margin-bottom: 8px;
+      line-height: 1.4;
+    }
+    .q-select {
+      width: 100%;
+      max-width: 440px;
+      padding: 8px 12px;
+      border: 1.5px solid #cbd5e1;
+      border-radius: 8px;
+      font-size: 13.5px;
+      font-weight: 600;
+      color: #1e293b;
+      background: white;
+      outline: none;
+      transition: all 0.2s;
+      cursor: pointer;
+    }
+    .q-select:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(194, 65, 12, 0.15);
+    }
+
+    /* Grillas Ilustradas */
+    .illustration-box {
+      background: #f8fafc;
+      border: 1.5px solid #e2e8f0;
+      border-radius: 14px;
+      padding: 16px;
+      margin: 14px 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+    }
+    .illustration-caption {
+      font-size: 12.5px;
+      font-weight: 700;
+      color: #475569;
+      text-align: center;
+    }
+
+    /* Filas de Acción */
+    .action-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 16px;
+      flex-wrap: wrap;
+    }
+    .btn {
+      padding: 9px 18px;
+      border-radius: 10px;
+      font-size: 13.5px;
+      font-weight: 700;
+      border: none;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s;
+    }
+    .btn-primary {
+      background: var(--primary);
+      color: white;
+    }
+    .btn-primary:hover {
+      background: #9a3412;
+      transform: translateY(-1px);
+    }
+    .btn-hint {
+      background: #fef3c7;
+      color: #92400e;
+      border: 1px solid #fde68a;
+      padding: 8px 14px;
+      border-radius: 8px;
+      font-size: 12.5px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .btn-hint:hover { background: #fde68a; }
+
+    .feedback-msg {
+      font-size: 13.5px;
+      font-weight: 700;
+      margin-left: 6px;
+    }
+    .feedback-msg.correct { color: #15803d; }
+    .feedback-msg.wrong { color: #b91c1c; }
+
+    .hint-box {
+      display: none;
+      background: #fffbeb;
+      border-left: 4px solid #f59e0b;
+      padding: 10px 14px;
+      border-radius: 6px;
+      font-size: 13px;
+      color: #92400e;
+      margin-top: 12px;
+      line-height: 1.45;
+    }
+    .hint-box.show { display: block; }
+
+    .sol-inline {
+      display: none;
+      background: #eff6ff;
+      border-left: 4px solid #0284c7;
+      padding: 10px 14px;
+      border-radius: 6px;
+      font-size: 13px;
+      color: #0369a1;
+      margin-top: 12px;
+      font-weight: 600;
+      line-height: 1.45;
+    }
+    .sol-inline.show { display: block; }
+
+    /* Cuadro Comparativo */
+    .compare-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin: 14px 0;
+    }
+    .compare-col {
+      padding: 14px;
+      border-radius: 12px;
+      border: 1.5px solid;
+    }
+    .col-esparta {
+      background: #fef2f2;
+      border-color: #fecaca;
+    }
+    .col-atenas {
+      background: #eff6ff;
+      border-color: #bfdbfe;
+    }
+    .compare-title {
+      font-size: 14.5px;
+      font-weight: 800;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .col-esparta .compare-title { color: #991b1b; }
+    .col-atenas .compare-title { color: #1e40af; }
+
+    @media (max-width: 640px) {
+      .compare-grid { grid-template-columns: 1fr; }
+      .hero-card h1 { font-size: 21px; }
+      .badge-number { font-size: 13.5px; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+
+  <!-- Selector de Asignaturas -->
+  <div class="subject-nav-bar">
+    <div class="subject-pill">
+      <span>📚 Estudio 3° Básico:</span>
+      <strong>Historia, Geografía y Ciencias Sociales</strong>
+    </div>
+    <a href="index.html" class="nav-btn">
+      <span>📐</span> Ir a Guía de Matemáticas (80 pts)
+    </a>
+  </div>
+
+  <!-- Hero Header Oficial -->
+  <div class="hero-card">
+    <h1>🏺 Guía Oficial de Estudio de Historia: Amelia 🏛️</h1>
+    <p>3° Básico A: La Civilización Griega (Entorno geográfico, polis, sociedad, vida cotidiana, democracia y su gran legado cultural).</p>
+    <div class="hero-badges">
+      <span class="hero-badge">Estudiante: Amelia Bustos</span>
+      <span class="hero-badge">Curso: 3° Básico A</span>
+      <span class="hero-badge">Texto Mineduc / Santillana</span>
+      <span class="hero-badge">Puntaje Total: 45 pts</span>
+    </div>
+  </div>
+
+  <!-- Barra de Control y Progreso -->
+  <div class="top-control-bar">
+    <div class="progress-box">
+      <div class="progress-outer">
+        <div class="progress-inner" id="progressBar"></div>
+      </div>
+      <div class="score-badge" id="scoreDisplay">⭐ 0 / 45</div>
+    </div>
+    <div class="action-btn-group">
+      <a href="guia_estudio_historia.pdf" download="guia_estudio_historia_amelia.pdf" class="btn-pdf">
+        <span>📥</span> Descargar PDF (8 págs)
+      </a>
+      <button class="btn-sol-toggle" id="btnToggleSol" onclick="toggleAllSolutions()">
+        <span>👁️</span> Ver Solucionario Completo
+      </button>
+    </div>
+  </div>
+
+  <!-- Pestañas de Navegación Temática -->
+  <div class="tabs-container">
+    <button class="tab-btn active" onclick="switchTab('tab-geo-polis', this)">
+      <span>🗺️</span> Territorio y Polis (10)
+    </button>
+    <button class="tab-btn" onclick="switchTab('tab-soc-vida', this)">
+      <span>🏺</span> Sociedad y Vida (15)
+    </button>
+    <button class="tab-btn" onclick="switchTab('tab-ciudades-demo', this)">
+      <span>⚔️</span> Atenas, Esparta y Democracia (10)
+    </button>
+    <button class="tab-btn" onclick="switchTab('tab-dioses-legado', this)">
+      <span>⚡</span> Dioses y Legado Cultural (10)
+    </button>
+  </div>
+
+  <!-- =========================================================================
+       PESTAÑA 1: TERRITORIO Y POLIS (MÓDULOS 1 Y 5 - 10 EJERCICIOS)
+       ========================================================================= -->
+  <div class="tab-content active" id="tab-geo-polis">
+
+    <!-- MÓDULO 1: UBICACIÓN GEOGRÁFICA -->
+    <div class="exercise-card" id="card-geo">
+      <div class="exercise-header">
+        <span class="badge-number">I. Ubicación Geográfica de los Griegos (5 ejercicios)</span>
+        <span class="status-icon" id="st-geo">⚪</span>
+      </div>
+      <div class="instruction">Observa el mapa esquemático del Mar Mediterráneo y la Península Balcánica, luego selecciona la opción correcta:</div>
+
+      <!-- Ilustración Vectorial del Mapa Griego -->
+      <div class="illustration-box">
+        <svg viewBox="0 0 600 240" width="100%" height="210" style="max-width:540px; border-radius:10px; background:#e0f2fe;">
+          <!-- Mar Mediterráneo de fondo -->
+          <rect width="600" height="240" fill="#bae6fd" />
+          <text x="320" y="225" font-size="12" font-weight="bold" fill="#0369a1" letter-spacing="2">MAR MEDITERRÁNEO</text>
+          
+          <!-- Península Balcánica (Grecia Continental) -->
+          <path d="M 160 10 L 220 10 L 250 50 L 290 70 L 320 60 L 300 120 L 270 140 L 250 120 L 230 150 L 200 140 L 190 100 L 170 80 Z" fill="#86efac" stroke="#15803d" stroke-width="2" />
+          <!-- Peloponeso -->
+          <path d="M 230 152 L 260 148 L 275 175 L 250 200 L 220 195 L 210 170 Z" fill="#86efac" stroke="#15803d" stroke-width="2" />
+          <!-- Cadena Montañosa -->
+          <path d="M 200 40 L 210 25 L 220 40 L 230 30 L 240 45 L 250 35 L 260 55" fill="none" stroke="#78350f" stroke-width="2.5" stroke-linecap="round" />
+          <text x="210" y="55" font-size="10" font-weight="bold" fill="#78350f">Montañas</text>
+
+          <!-- Asia Menor (Costa Este) -->
+          <path d="M 440 20 L 580 20 L 580 200 L 480 180 L 450 140 L 460 90 L 430 60 Z" fill="#fde68a" stroke="#b45309" stroke-width="1.5" />
+          <text x="475" y="100" font-size="11" font-weight="bold" fill="#92400e">Asia Menor</text>
+
+          <!-- Islas del Mar Egeo -->
+          <circle cx="340" cy="90" r="7" fill="#86efac" stroke="#15803d" />
+          <circle cx="370" cy="115" r="9" fill="#86efac" stroke="#15803d" />
+          <circle cx="330" cy="135" r="6" fill="#86efac" stroke="#15803d" />
+          <circle cx="390" cy="145" r="8" fill="#86efac" stroke="#15803d" />
+          <text x="325" y="80" font-size="12" font-weight="bold" fill="#0284c7">MAR EGEO</text>
+
+          <!-- Mar Jónico al Oeste -->
+          <text x="80" y="125" font-size="12" font-weight="bold" fill="#0284c7">MAR JÓNICO</text>
+
+          <!-- Isla de Creta -->
+          <path d="M 280 215 L 390 215 L 385 228 L 275 228 Z" fill="#86efac" stroke="#15803d" stroke-width="2" />
+          <text x="315" y="225" font-size="10" font-weight="bold" fill="#1e3a8a">Isla de Creta</text>
+
+          <!-- Etiquetas Ciudades -->
+          <circle cx="285" cy="135" r="4" fill="#dc2626" />
+          <text x="293" y="138" font-size="10" font-weight="bold" fill="#991b1b">Atenas</text>
+          
+          <circle cx="245" cy="175" r="4" fill="#dc2626" />
+          <text x="195" y="180" font-size="10" font-weight="bold" fill="#991b1b">Esparta</text>
+        </svg>
+        <span class="illustration-caption">Esquema: Península Balcánica, Mar Egeo, Mar Jónico e Isla de Creta</span>
+      </div>
+
+      <div class="q-item">
+        <div class="q-text">1.1) ¿En qué península del sur de Europa se ubicó principalmente la civilización griega?</div>
+        <select class="q-select" id="g1-1">
+          <option value="">Selecciona tu respuesta...</option>
+          <option value="balcanes">Península de los Balcanes</option>
+          <option value="iberica">Península Ibérica</option>
+          <option value="italica">Península Itálica</option>
+        </select>
+      </div>
+
+      <div class="q-item">
+        <div class="q-text">1.2) Si los griegos navegaban hacia el este (oriente), ¿qué mar surcaban entre la península y Asia Menor?</div>
+        <select class="q-select" id="g1-2">
+          <option value="">Selecciona tu respuesta...</option>
+          <option value="egeo">Mar Egeo</option>
+          <option value="jonico">Mar Jónico</option>
+          <option value="rojo">Mar Rojo</option>
+        </select>
+      </div>
+
+      <div class="q-item">
+        <div class="q-text">1.3) El relieve de Grecia es muy montañoso con valles aislados. ¿Qué consecuencia histórica provocó este relieve?</div>
+        <select class="q-select" id="g1-3">
+          <option value="">Selecciona tu respuesta...</option>
+          <option value="aislamiento">Dificultó la comunicación terrestre y facilitó que cada ciudad fuera independiente (polis)</option>
+          <option value="unificado">Permitió crear un único imperio gobernado por un solo rey</option>
+          <option value="carreteras">Hizo que los griegos construyeran grandes carreteras planas</option>
+        </select>
+      </div>
+
+      <div class="q-item">
+        <div class="q-text">1.4) Rodeados de tantas costas, golfos e islas, ¿cuál fue la principal vía de transporte y comercio de los griegos?</div>
+        <select class="q-select" id="g1-4">
+          <option value="">Selecciona tu respuesta...</option>
+          <option value="mar">El mar y la navegación en barcos</option>
+          <option value="ferrocarril">El ferrocarril y carretas terrestres</option>
+          <option value="rio">Grandes ríos navegables de agua dulce</option>
+        </select>
+      </div>
+
+      <div class="q-item">
+        <div class="q-text">1.5) Al sur del Mar Egeo se encuentra la isla más grande de Grecia, cuna de la civilización minoica. ¿Cómo se llama?</div>
+        <select class="q-select" id="g1-5">
+          <option value="">Selecciona tu respuesta...</option>
+          <option value="creta">Isla de Creta</option>
+          <option value="sicilia">Isla de Sicilia</option>
+          <option value="pascua">Isla de Pascua</option>
+        </select>
+      </div>
+
+      <div class="action-row">
+        <button class="btn btn-primary" onclick="checkGeo()">Comprobar Geografía</button>
+        <button class="btn-hint" onclick="toggleHint('hint-geo')">💡 Pista</button>
+        <span class="feedback-msg" id="fb-geo"></span>
+      </div>
+      <div class="hint-box" id="hint-geo">Recuerda: Los Balcanes son montañosos. Al este está el mar Egeo (con muchas islas) y al oeste el mar Jónico. Todo forma parte de la cuenca del mar Mediterráneo.</div>
+      <div class="sol-inline">Solución: 1.1) Península de los Balcanes | 1.2) Mar Egeo | 1.3) Dificultó la comunicación y facilitó ciudades independientes | 1.4) El mar y la navegación | 1.5) Isla de Creta</div>
+    </div>
+
+    <!-- MÓDULO 5: PARTES IMPORTANTES DE LA POLIS -->
+    <div class="exercise-card" id="card-polis">
+      <div class="exercise-header">
+        <span class="badge-number">V. Partes Importantes de la Polis (5 ejercicios)</span>
+        <span class="status-icon" id="st-polis">⚪</span>
+      </div>
+      <div class="instruction">La polis griega (ciudad-Estado) tenía espacios fundamentales donde se desarrollaba la vida política, religiosa y comunitaria:</div>
+
+      <!-- Ilustración Vectorial de la Polis -->
+      <div class="illustration-box">
+        <svg viewBox="0 0 600 230" width="100%" height="200" style="max-width:540px; border-radius:10px; background:#f0fdf4;">
+          <!-- Colina Acrópolis -->
+          <path d="M 40 220 L 150 70 L 320 70 L 400 220 Z" fill="#cbd5e1" stroke="#475569" stroke-width="2" />
+          
+          <!-- Templo en la Acrópolis -->
+          <rect x="180" y="38" width="110" height="32" fill="#f8fafc" stroke="#1e293b" stroke-width="2" />
+          <!-- Columnas del templo -->
+          <line x1="190" y1="48" x2="190" y2="70" stroke="#1e293b" stroke-width="3" />
+          <line x1="210" y1="48" x2="210" y2="70" stroke="#1e293b" stroke-width="3" />
+          <line x1="235" y1="48" x2="235" y2="70" stroke="#1e293b" stroke-width="3" />
+          <line x1="260" y1="48" x2="260" y2="70" stroke="#1e293b" stroke-width="3" />
+          <line x1="280" y1="48" x2="280" y2="70" stroke="#1e293b" stroke-width="3" />
+          <!-- Techo a dos aguas -->
+          <polygon points="175,38 235,16 295,38" fill="#ea580c" stroke="#9a3412" stroke-width="2" />
+          <text x="185" y="12" font-size="11" font-weight="bold" fill="#7c2d12">Acrópolis (Zona Alta)</text>
+
+          <!-- Teatro griego en la ladera -->
+          <path d="M 80 180 A 45 45 0 0 1 150 140" fill="none" stroke="#64748b" stroke-width="4" stroke-dasharray="3,3" />
+          <path d="M 70 190 A 60 60 0 0 1 160 130" fill="none" stroke="#64748b" stroke-width="4" stroke-dasharray="3,3" />
+          <text x="65" y="130" font-size="10" font-weight="bold" fill="#334155">Teatro</text>
+
+          <!-- Ágora en la parte baja -->
+          <rect x="360" y="140" width="130" height="60" fill="#fef3c7" stroke="#d97706" stroke-width="2" rx="6" />
+          <text x="390" y="165" font-size="12" font-weight="bold" fill="#92400e">ÁGORA</text>
+          <text x="375" y="182" font-size="10" fill="#b45309">Plaza y Mercado</text>
+
+          <!-- Murallas de la Polis -->
+          <path d="M 20 220 L 20 180 L 30 180 L 30 220" stroke="#475569" stroke-width="3" />
+          <path d="M 520 220 L 520 180 L 530 180 L 530 220" stroke="#475569" stroke-width="3" />
+          <text x="500" y="170" font-size="10" font-weight="bold" fill="#475569">Muralla</text>
+
+          <!-- Mar y Puerto a la derecha -->
+          <path d="M 530 190 Q 560 190 600 200 L 600 230 L 530 230 Z" fill="#93c5fd" />
+          <text x="545" y="218" font-size="10" font-weight="bold" fill="#1e40af">Puerto</text>
+        </svg>
+        <span class="illustration-caption">Esquema: Acrópolis (alta), Ágora (plaza central), Teatro semicircular, Murallas y Puerto</span>
+      </div>
+
+      <div class="q-item">
+        <div class="q-text">5.1) ¿Qué era exactamente una **polis** en la antigua Grecia?</div>
+        <select class="q-select" id="pol-1">
+          <option value="">Selecciona tu respuesta...</option>
+          <option value="ciudad_estado">Una ciudad-Estado independiente con sus propias leyes, gobierno y ejército</option>
+          <option value="templo">Un templo gigante dedicado a Zeus en el monte Olimpo</option>
+          <option value="barco">Un tipo de barco de guerra con tres filas de remos</option>
+        </select>
+      </div>
+
+      <div class="q-item">
+        <div class="q-text">5.2) La zona más alta y fortificada de la colina, donde estaban los templos sagrados y servía de refugio en guerras, se llamaba:</div>
+        <select class="q-select" id="pol-2">
+          <option value="">Selecciona tu respuesta...</option>
+          <option value="acropolis">Acrópolis</option>
+          <option value="agora">Ágora</option>
+          <option value="gineceo">Gineceo</option>
+        </select>
+      </div>
+
+      <div class="q-item">
+        <div class="q-text">5.3) La plaza pública en la parte baja, centro de la vida social, donde se ponía el mercado y los ciudadanos debatían de política, era el:</div>
+        <select class="q-select" id="pol-3">
+          <option value="">Selecciona tu respuesta...</option>
+          <option value="agora">Ágora</option>
+          <option value="acropolis">Acrópolis</option>
+          <option value="estadio">Estadio</option>
+        </select>
+      </div>
+
+      <div class="q-item">
+        <div class="q-text">5.4) El espacio al aire libre construido aprovechando la ladera de una colina para tener excelente acústica y ver obras dramáticas era el:</div>
+        <select class="q-select" id="pol-4">
+          <option value="">Selecciona tu respuesta...</option>
+          <option value="teatro">Teatro griego</option>
+          <option value="puerto">Puerto marítimo</option>
+          <option value="andron">Andrón</option>
+        </select>
+      </div>
+
+      <div class="q-item">
+        <div class="q-text">5.5) ¿Cuál era la función principal del **puerto** (como El Pireo en Atenas) en una polis costera?</div>
+        <select class="q-select" id="pol-5">
+          <option value="">Selecciona tu respuesta...</option>
+          <option value="comercio">Conectar la ciudad con otras tierras por vía marítima para comerciar y pescar</option>
+          <option value="rezar">Celebrar los sacrificios a los dioses del Olimpo</option>
+          <option value="reunion">Servir de sala de clases para los niños pequeños</option>
+        </select>
+      </div>
+
+      <div class="action-row">
+        <button class="btn btn-primary" onclick="checkPolis()">Comprobar Polis</button>
+        <button class="btn-hint" onclick="toggleHint('hint-pol')">💡 Pista</button>
+        <span class="feedback-msg" id="fb-pol"></span>
+      </div>
+      <div class="hint-box" id="hint-pol">Recuerda: "Acro" significa alto (Acrópolis = ciudad alta sagrada); "Ágora" es la plaza central de mercado y debate ciudadano.</div>
+      <div class="sol-inline">Solución: 5.1) Ciudad-Estado independiente | 5.2) Acrópolis | 5.3) Ágora | 5.4) Teatro griego | 5.5) Conectar la ciudad para comerciar y pescar</div>
+    </div>
+
+  </div>
+
+  <!-- =========================================================================
+       PESTAÑA 2: SOCIEDAD Y VIDA COTIDIANA (MÓDULOS 2, 6 Y 7 - 15 EJERCICIOS)
+       ========================================================================= -->
+  <div class="tab-content" id="tab-soc-vida">
+
+    <!-- MÓDULO 2: ORGANIZACIÓN SOCIAL -->
+    <div class="exercise-card" id="card-soc">
+      <div class="exercise-header">
+        <span class="badge-number">II. Organización Social en Grecia (5 ejercicios)</span>
+        <span class="status-icon" id="st-soc">⚪</span>
+      </div>
+      <div class="instruction">La sociedad griega no era igualitaria. Había una gran división entre quienes tenían derechos de ciudadanía y quienes estaban excluidos:</div>
+
+      <div class="q-item">
+        <div class="q-text">2.1) En una polis como Atenas, ¿quiénes eran los únicos considerados **ciudadanos** con plenos derechos de voto y gobierno?</div>
+        <select class="q-select" id="soc-1">
+          <option value="">Selecciona tu respuesta...</option>
+          <option value="hombres_libres">Solo los hombres libres mayores de edad nacidos de padre y madre atenienses</option>
+          <option value="todos">Todos los habitantes que vivieran dentro de las murallas de la ciudad</option>
+          <option value="hombres_mujeres">Todos los hombres y mujeres que supieran leer y escribir</option>
+        </select>
+      </div>
+
+      <div class="q-item">
+        <div class="q-text">2.2) ¿Qué grupo social no tenía libertad, era propiedad de otra persona o del Estado y realizaba los trabajos más pesados?</div>
+        <select class="q-select" id="soc-2">
+          <option value="">Selecciona tu respuesta...</option>
+          <option value="esclavos">Los esclavos</option>
+          <option value="metecos">Los metecos</option>
+          <option value="ciudadanos">Los ciudadanos</option>
+        </select>
+      </div>
+
+      <div class="q-item">
+        <div class="q-text">2.3) Los extranjeros libres que vivían en Atenas, trabajaban en el comercio o artesanía y pagaban impuestos pero NO votaban, se llamaban:</div>
+        <select class="q-select" id="soc-3">
+          <option value="">Selecciona tu respuesta...</option>
+          <option value="metecos">Metecos</option>
+          <option value="hoplitas">Hoplitas</option>
+          <option value="filosofos">Filósofos</option>
+        </select>
+      </div>
+
+      <div class="q-item">
+        <div class="q-text">2.4) Las mujeres en la antigua Grecia: ¿Podían votar en las elecciones o ejercer cargos de gobierno?</div>
+        <select class="q-select" id="soc-4">
+          <option value="">Selecciona tu respuesta...</option>
+          <option value="no">No, no eran consideradas ciudadanas y estaban dedicadas a la administración del hogar</option>
+          <option value="si">Sí, votaban junto a sus esposos en el ágora</option>
+          <option value="solteras">Solo si eran mujeres solteras mayores de 25 años</option>
+        </select>
+      </div>
+
+      <div class="q-item">
+        <div class="q-text">2.5) Aproximadamente, ¿qué porcentaje de la población real tenía la condición de ciudadano con derecho a voto en Atenas?</div>
+        <select class="q-select" id="soc-5">
+          <option value="">Selecciona tu respuesta...</option>
+          <option value="minoria">Una minoría (menos del 20% de la población total)</option>
+          <option value="mayoria">La gran mayoría (más del 80% de los habitantes)</option>
+          <option value="cien">El 100% de los habitantes de la polis</option>
+        </select>
+      </div>
+
+      <div class="action-row">
+        <button class="btn btn-primary" onclick="checkSoc()">Comprobar Sociedad</button>
+        <button class="btn-hint" onclick="toggleHint('hint-soc')">💡 Pista</button>
+        <span class="feedback-msg" id="fb-soc"></span>
+      </div>
+      <div class="hint-box" id="hint-soc">Recuerda: Ciudadanos eran SOLO los hombres libres atenienses. Quedaban completamente excluidos: mujeres, niños, extranjeros (metecos) y esclavos.</div>
+      <div class="sol-inline">Solución: 2.1) Solo hombres libres atenienses | 2.2) Los esclavos | 2.3) Metecos | 2.4) No tenían derechos políticos | 2.5) Una minoría (menos del 20%)</div>
+    </div>
+
+    <!-- MÓDULO 6: ALIMENTACIÓN GRIEGA -->
+    <div class="exercise-card" id="card-alim">
+      <div class="exercise-header">
+        <span class="badge-number">VI. Alimentación Griega y la Tríada Mediterránea (5 ejercicios)</span>
+        <span class="status-icon" id="st-alim">⚪</span>
+      </div>
+      <div class="instruction">La dieta de los griegos estaba adaptada a su clima y geografía, con tres cultivos esenciales llamados la "Tríada Mediterránea":</div>
+
+      <!-- Ilustración Vectorial de la Tríada Mediterránea -->
+      <div class="illustration-box">
+        <svg viewBox="0 0 540 130" width="100%" height="120" style="max-width:500px; background:#fff7ed; border-radius:10px;">
+          <!-- 1. Trigo -->
+          <g transform="translate(60, 20)">
+            <ellipse cx="30" cy="50" rx="20" ry="12" fill="#fed7aa" stroke="#ea580c" stroke-width="2" />
+            <path d="M 30 10 L 30 75" stroke="#d97706" stroke-width="3" />
+            <circle cx="24" cy="25" r="4" fill="#fbbf24" /><circle cx="36" cy="30" r="4" fill="#fbbf24" />
+            <circle cx="24" cy="40" r="4" fill="#fbbf24" /><circle cx="36" cy="45" r="4" fill="#fbbf24" />
+            <text x="5" y="95" font-size="12" font-weight="bold" fill="#9a3412">1. TRIGO (Pan)</text>
+          </g>
+
+          <!-- 2. Olivo -->
+          <g transform="translate(230, 20)">
+            <path d="M 30 15 Q 45 40 30 75" stroke="#4d7c0f" stroke-width="3" fill="none" />
+            <ellipse cx="20" cy="35" rx="10" ry="5" fill="#84cc16" transform="rotate(-30 20 35)" />
+            <ellipse cx="42" cy="45" rx="10" ry="5" fill="#84cc16" transform="rotate(30 42 45)" />
+            <circle cx="28" cy="55" r="7" fill="#3f6212" stroke="#1a2e05" stroke-width="1.5" />
+            <text x="-5" y="95" font-size="12" font-weight="bold" fill="#365314">2. OLIVO (Aceite)</text>
+          </g>
+
+          <!-- 3. Vid -->
+          <g transform="translate(400, 20)">
+            <path d="M 30 15 L 30 30" stroke="#78350f" stroke-width="3" />
+            <circle cx="23" cy="40" r="7" fill="#7e22ce" /><circle cx="37" cy="40" r="7" fill="#7e22ce" />
+            <circle cx="16" cy="52" r="7" fill="#6b21a8" /><circle cx="30" cy="52" r="7" fill="#6b21a8" /><circle cx="44" cy="52" r="7" fill="#6b21a8" />
+            <circle cx="23" cy="64" r="7" fill="#581c87" /><circle cx="37" cy="64" r="7" fill="#581c87" />
+            <circle cx="30" cy="74" r="6" fill="#3b0764" />
+            <text x="0" y="95" font-size="12" font-weight="bold" fill="#581c87">3. VID (Uvas y Vino)</text>
+          </g>
+        </svg>
+        <span class="illustration-caption">La Tríada Mediterránea: Trigo para el pan, Olivo para el aceite y Vid para uvas y vino</span>
+      </div>
+
+      <div class="q-item">
+        <div class="q-text">6.1) ¿Cuáles eran los 3 productos agrícolas fundamentales de la llamada **Tríada Mediterránea**?</div>
+        <select class="q-select" id="ali-1">
+          <option value="">Selecciona tu respuesta...</option>
+          <option value="triada">Trigo (harina y pan), Olivo (aceitunas y aceite) y Vid (uvas y vino)</option>
+          <option value="maiz">Maíz, papas y porotos</option>
+          <option value="arroz">Arroz, carne de cerdo y leche de vaca</option>
+        </select>
+      </div>
+
+      <div class="q-item">
+        <div class="q-text">6.2) Por vivir rodeados de mar y en zonas de cerros con pastizales, ¿qué otros alimentos comían con frecuencia?</div>
+        <select class="q-select" id="ali-2">
+          <option value="">Selecciona tu respuesta...</option>
+          <option value="marinos">Pescados, mariscos, queso de cabra y queso de oveja</option>
+          <option value="vacuno">Carne asada de vacuno y leche en caja</option>
+          <option value="frituras">Papas fritas y bebidas gaseosas</option>
+        </select>
+      </div>
+
+      <div class="q-item">
+        <div class="q-text">6.3) ¿Con qué frecuencia comía **carne roja** una familia griega común y corriente?</div>
+        <select class="q-select" id="ali-3">
+          <option value="">Selecciona tu respuesta...</option>
+          <option value="rara_vez">Rara vez, principalmente en fiestas religiosas y sacrificios a los dioses</option>
+          <option value="diario">Todos los días en el almuerzo y cena</option>
+          <option value="nunca">Nunca, porque estaba estrictamente prohibido comer carne</option>
+        </select>
+      </div>
+
+      <div class="q-item">
+        <div class="q-text">6.4) Como los antiguos griegos no tenían azúcar procesada, ¿qué alimento natural usaban para endulzar?</div>
+        <select class="q-select" id="ali-4">
+          <option value="">Selecciona tu respuesta...</option>
+          <option value="miel">La miel de abejas y frutas dulces como los higos</option>
+          <option value="sacarina">Edulcorantes artificiales</option>
+          <option value="azucar">Azúcar blanca de caña traída del supermercado</option>
+        </select>
+      </div>
+
+      <div class="q-item">
+        <div class="q-text">6.5) En Chile central tenemos un clima mediterráneo similar a Grecia. ¿Qué productos de la tríada griega producimos con éxito hoy?</div>
+        <select class="q-select" id="ali-5">
+          <option value="">Selecciona tu respuesta...</option>
+          <option value="chile_triada">Uvas para vino, aceitunas para aceite de oliva y trigo para harina</option>
+          <option value="chile_tropical">Plátanos, piñas y café tropical</option>
+          <option value="chile_cacao">Cacao para chocolate y arroz basmati</option>
+        </select>
+      </div>
+
+      <div class="action-row">
+        <button class="btn btn-primary" onclick="checkAlim()">Comprobar Alimentación</button>
+        <button class="btn-hint" onclick="toggleHint('hint-ali')">💡 Pista</button>
+        <span class="feedback-msg" id="fb-ali"></span>
+      </div>
+      <div class="hint-box" id="hint-ali">Recuerda: Tríada Mediterránea = Trigo + Olivo + Vid. La carne era de consumo escaso y usaban higos y miel para endulzar.</div>
+      <div class="sol-inline">Solución: 6.1) Trigo, Olivo y Vid | 6.2) Pescados, mariscos y queso de cabra/oveja | 6.3) Rara vez en fiestas religiosas | 6.4) La miel de abejas e higos | 6.5) Uvas, aceitunas y trigo</div>
+    </div>
+
+    <!-- MÓDULO 7: FAMILIA GRIEGA -->
+    <div class="exercise-card" id="card-fam">
+      <div class="exercise-header">
+        <span class="badge-number">VII. La Familia Griega y la Vida en el Hogar (5 ejercicios)</span>
+        <span class="status-icon" id="st-fam">⚪</span>
+      </div>
+      <div class="instruction">La casa y la familia constituían el centro de la vida privada de los antiguos griegos:</div>
+
+      <div class="q-item">
+        <div class="q-text">7.1) La familia, su casa, tierras, esclavos y bienes materiales formaban una unidad básica llamada:</div>
+        <select class="q-select" id="fam-1">
+          <option value="">Selecciona tu respuesta...</option>
+          <option value="oikos">El Oikos</option>
+          <option value="polis">La Polis</option>
+          <option value="ecclesia">La Ecclesia</option>
+        </select>
+      </div>
+
+      <div class="q-item">
+        <div class="q-text">7.2) ¿Quién tenía la máxima autoridad legal en la familia y representaba a todos ante la sociedad?</div>
+        <select class="q-select" id="fam-2">
+          <option value="">Selecciona tu respuesta...</option>
+          <option value="padre">El padre de familia (cabeza del hogar)</option>
+          <option value="hijo_menor">El hijo menor de edad</option>
+          <option value="esclavo">El esclavo administrador</option>
+        </select>
+      </div>
+
+      <div class="q-item">
+        <div class="q-text">7.3) La parte de la casa griega reservada exclusivamente para las mujeres, donde tejían y cuidaban a los hijos, se llamaba:</div>
+        <select class="q-select" id="fam-3">
+          <option value="">Selecciona tu respuesta...</option>
+          <option value="gineceo">Gineceo</option>
+          <option value="andron">Andrón (sala de hombres)</option>
+          <option value="acropolis">Acrópolis</option>
+        </select>
+      </div>
+
+      <div class="q-item">
+        <div class="q-text">7.4) ¿Qué aprendían principalmente las **niñas** en su casa durante su infancia?</div>
+        <select class="q-select" id="fam-4">
+          <option value="">Selecciona tu respuesta...</option>
+          <option value="labores">Labores del hogar (hilar lana, tejer ropa, cocinar y administrar la casa)</option>
+          <option value="guerra">Manejo de armas pesadas y combates navales</option>
+          <option value="politica">Discursos públicos para hablar en la asamblea</option>
+        </select>
+      </div>
+
+      <div class="q-item">
+        <div class="q-text">7.5) En Atenas, el esclavo educado que acompañaba a los niños a la escuela y cuidaba sus modales se llamaba:</div>
+        <select class="q-select" id="fam-5">
+          <option value="">Selecciona tu respuesta...</option>
+          <option value="pedagogo">Pedagogo</option>
+          <option value="hoplita">Hoplita</option>
+          <option value="sacerdote">Sacerdote</option>
+        </select>
+      </div>
+
+      <div class="action-row">
+        <button class="btn btn-primary" onclick="checkFam()">Comprobar Familia</button>
+        <button class="btn-hint" onclick="toggleHint('hint-fam')">💡 Pista</button>
+        <span class="feedback-msg" id="fb-fam"></span>
+      </div>
+      <div class="hint-box" id="hint-fam">Recuerda: Oikos = Hogar/Familia. Gineceo = habitación de mujeres. Andrón = habitación de hombres. El pedagogo guiaba y acompañaba al niño.</div>
+      <div class="sol-inline">Solución: 7.1) El Oikos | 7.2) El padre de familia | 7.3) Gineceo | 7.4) Labores del hogar (hilar, tejer, administrar) | 7.5) Pedagogo</div>
+    </div>
+
+  </div>
+
+  <!-- =========================================================================
+       PESTAÑA 3: ATENAS, ESPARTA Y DEMOCRACIA (MÓDULOS 4 Y 8 - 10 EJERCICIOS)
+       ========================================================================= -->
+  <div class="tab-content" id="tab-ciudades-demo">
+
+    <!-- MÓDULO 4: ATENAS VS ESPARTA -->
+    <div class="exercise-card" id="card-ciudades">
+      <div class="exercise-header">
+        <span class="badge-number">IV. Diferencias entre Esparta y Atenas (5 ejercicios)</span>
+        <span class="status-icon" id="st-ciudades">⚪</span>
+      </div>
+      <div class="instruction">Esparta y Atenas fueron las dos polis más poderosas de Grecia, pero tenían formas de vida y valores completamente opuestos:</div>
+
+      <!-- Cuadro Comparativo Visual -->
+      <div class="compare-grid">
+        <div class="compare-col col-atenas">
+          <div class="compare-title">🏛️ ATENAS (Cuna de la Democracia)</div>
+          <ul style="font-size:12.5px; line-height:1.5; color:#1e3a8a; padding-left:18px;">
+            <li>Valoraban las artes, filosofía, ciencia y debate.</li>
+            <li>Gobierno democrático (los ciudadanos votaban).</li>
+            <li>Comercio marítimo por el mar Egeo.</li>
+            <li>Niños educados en lectura, escritura, música y gimnasia.</li>
+          </ul>
+        </div>
+        <div class="compare-col col-esparta">
+          <div class="compare-title">⚔️ ESPARTA (Ciudad Guerrera)</div>
+          <ul style="font-size:12.5px; line-height:1.5; color:#7f1d1d; padding-left:18px;">
+            <li>Valoraban la disciplina, valentía y obediencia absoluta.</li>
+            <li>Gobierno oligárquico (pocos ancianos y 2 reyes).</li>
+            <li>Economía agrícola trabajada por siervos (ilotas).</li>
+            <li>Niños entregados al Estado a los 7 años para entrenamiento militar.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="q-item">
+        <div class="q-text">4.1) ¿Cuál era el objetivo principal de la sociedad y educación en la polis de **Esparta**?</div>
+        <select class="q-select" id="esp-1">
+          <option value="">Selecciona tu respuesta...</option>
+          <option value="soldados">Formar soldados fuertes, disciplinados y obedientes para el ejército</option>
+          <option value="poetas">Educar a grandes poetas, pintores y actores de teatro</option>
+          <option value="comerciantes">Convertir a todos en comerciantes marítimos</option>
+        </select>
+      </div>
+
+      <div class="q-item">
+        <div class="q-text">4.2) ¿Cuál fue el gran aporte político que distinguió a la polis de **Atenas** en el mundo antiguo?</div>
+        <select class="q-select" id="esp-2">
+          <option value="">Selecciona tu respuesta...</option>
+          <option value="democracia">La invención de la Democracia (gobierno del pueblo)</option>
+          <option value="reyes">Tener emperadores con coronas de oro que mandaban solos</option>
+          <option value="prohibir">Prohibir que los ciudadanos hablaran en público</option>
+        </select>
+      </div>
+
+      <div class="q-item">
+        <div class="q-text">4.3) ¿Qué ocurría con un niño espartano al cumplir los 7 años de edad?</div>
+        <select class="q-select" id="esp-3">
+          <option value="">Selecciona tu respuesta...</option>
+          <option value="estado">Dejaba a su familia y pasaba al Estado para un riguroso entrenamiento militar</option>
+          <option value="universidad">Iba a la universidad a estudiar leyes y astronomía</option>
+          <option value="viaje">Se iba de viaje a recorrer el mar Mediterráneo en barco</option>
+        </select>
+      </div>
+
+      <div class="q-item">
+        <div class="q-text">4.4) ¿Qué materias aprendía un niño ateniense en su escuela con su maestro?</div>
+        <select class="q-select" id="esp-4">
+          <option value="">Selecciona tu respuesta...</option>
+          <option value="integral">Leer, escribir, recitar poemas, tocar la flauta/lira y gimnasia</option>
+          <option value="solo_pelea">Únicamente técnicas para herir con espadas y lanzas</option>
+          <option value="programacion">Robótica e idiomas modernos</option>
+        </select>
+      </div>
+
+      <div class="q-item">
+        <div class="q-text">4.5) ¿Qué característica especial tenían las **mujeres espartanas** a diferencia de las atenienses?</div>
+        <select class="q-select" id="esp-5">
+          <option value="">Selecciona tu respuesta...</option>
+          <option value="deportes">Tenían mayor libertad física, practicaban gimnasia y deportes al aire libre</option>
+          <option value="gobernaban">Eran las únicas que gobernaban la ciudad de Esparta</option>
+          <option value="encerradas">Tenían prohibido salir de una habitación oscura toda su vida</option>
+        </select>
+      </div>
+
+      <div class="action-row">
+        <button class="btn btn-primary" onclick="checkEsp()">Comprobar Atenas vs Esparta</button>
+        <button class="btn-hint" onclick="toggleHint('hint-esp')">💡 Pista</button>
+        <span class="feedback-msg" id="fb-esp"></span>
+      </div>
+      <div class="hint-box" id="hint-esp">Atenas cultivó la mente, las artes y la democracia. Esparta cultivó el cuerpo, la disciplina de hierro y las habilidades militares.</div>
+      <div class="sol-inline">Solución: 4.1) Formar soldados disciplinados | 4.2) La invención de la Democracia | 4.3) Pasaba al Estado para entrenamiento militar | 4.4) Leer, escribir, música y gimnasia | 4.5) Mayor libertad física y deportes</div>
+    </div>
+
+    <!-- MÓDULO 8: CONCEPTO DE DEMOCRACIA -->
+    <div class="exercise-card" id="card-demo">
+      <div class="exercise-header">
+        <span class="badge-number">VIII. Concepto de Democracia (5 ejercicios)</span>
+        <span class="status-icon" id="st-demo">⚪</span>
+      </div>
+      <div class="instruction">La palabra democracia nació en Atenas hace más de 2.500 años. Analiza su significado y compárala con Chile actual:</div>
+
+      <div class="q-item">
+        <div class="q-text">8.1) La palabra **Democracia** viene del griego *Demos* y *Kratos*. ¿Cuál es su significado etimológico exacto?</div>
+        <select class="q-select" id="dem-1">
+          <option value="">Selecciona tu respuesta...</option>
+          <option value="pueblo_poder">Demos = Pueblo y Kratos = Gobierno o Poder ("El gobierno del pueblo")</option>
+          <option value="rey_guerra">Demos = Soldado y Kratos = Batalla ("La fuerza de la guerra")</option>
+          <option value="riqueza">Demos = Dinero y Kratos = Oro ("El poder de los ricos")</option>
+        </select>
+      </div>
+
+      <div class="q-item">
+        <div class="q-text">8.2) En la asamblea de Atenas (llamada la **Ecclesia**), ¿cómo votaban habitualmente las leyes los ciudadanos presentes?</div>
+        <select class="q-select" id="dem-2">
+          <option value="">Selecciona tu respuesta...</option>
+          <option value="alzada">A mano alzada (levantando la mano al aire libre)</option>
+          <option value="computador">En cabinas electrónicas con teclado</option>
+          <option value="sorteo_rey">El rey decidía solo y los demás aplaudían</option>
+        </select>
+      </div>
+
+      <div class="q-item">
+        <div class="q-text">8.3) ¿Por qué decimos que la democracia ateniense era una **democracia directa**?</div>
+        <select class="q-select" id="dem-3">
+          <option value="">Selecciona tu respuesta...</option>
+          <option value="directa">Porque los propios ciudadanos votaban directamente las leyes, sin elegir diputados intermediarios</option>
+          <option value="reyes">Porque tenían presidentes elegidos por 4 años</option>
+          <option value="cartas">Porque mandaban cartas secretas a los jueces</option>
+        </select>
+      </div>
+
+      <div class="q-item">
+        <div class="q-text">8.4) ¿Por qué la democracia ateniense NO era inclusiva ni justa según los derechos humanos modernos?</div>
+        <select class="q-select" id="dem-4">
+          <option value="">Selecciona tu respuesta...</option>
+          <option value="excluyente">Excluía por completo a las mujeres, a los esclavos y a los extranjeros</option>
+          <option value="voto_ninos">Porque obligaban a votar a los bebés recién nacidos</option>
+          <option value="caro">Porque cobraban mucho dinero por levantar la mano</option>
+        </select>
+      </div>
+
+      <div class="q-item">
+        <div class="q-text">8.5) ¿Cuál es la gran diferencia entre la democracia de Atenas y la **democracia actual en Chile**?</div>
+        <select class="q-select" id="dem-5">
+          <option value="">Selecciona tu respuesta...</option>
+          <option value="chile_universal">En Chile hoy el voto es universal (votan mujeres y hombres mayores de 18) y elegimos representantes</option>
+          <option value="igual">Son idénticas, no ha cambiado nada en 2.500 años</option>
+          <option value="chile_no">En Chile hoy solo votan los militares</option>
+        </select>
+      </div>
+
+      <div class="action-row">
+        <button class="btn btn-primary" onclick="checkDemo()">Comprobar Democracia</button>
+        <button class="btn-hint" onclick="toggleHint('hint-dem')">💡 Pista</button>
+        <span class="feedback-msg" id="fb-dem"></span>
+      </div>
+      <div class="hint-box" id="hint-dem">Demos = pueblo, Kratos = poder. En Atenas votaban levantando la mano, pero solo los hombres libres. Hoy en Chile votamos todos los ciudadanos (mujeres y hombres).</div>
+      <div class="sol-inline">Solución: 8.1) Demos = Pueblo, Kratos = Poder | 8.2) A mano alzada | 8.3) Los propios ciudadanos votaban directamente las leyes | 8.4) Excluía a mujeres, esclavos y extranjeros | 8.5) En Chile hoy el voto es universal (hombres y mujeres) y representativo</div>
+    </div>
+
+  </div>
+
+  <!-- =========================================================================
+       PESTAÑA 4: DIOSES Y LEGADO CULTURAL (MÓDULOS 3 Y 9 - 10 EJERCICIOS)
+       ========================================================================= -->
+  <div class="tab-content" id="tab-dioses-legado">
+
+    <!-- MÓDULO 3: RELIGIÓN Y DIOSES -->
+    <div class="exercise-card" id="card-dioses">
+      <div class="exercise-header">
+        <span class="badge-number">III. Religión y Dioses Griegos (5 ejercicios)</span>
+        <span class="status-icon" id="st-dioses">⚪</span>
+      </div>
+      <div class="instruction">Los griegos eran politeístas y sus dioses habitaban en el legendario Monte Olimpo:</div>
+
+      <div class="q-item">
+        <div class="q-text">3.1) Los griegos creían en la existencia de muchos dioses diferentes. ¿Cómo se llama esta forma de creencia religiosa?</div>
+        <select class="q-select" id="dio-1">
+          <option value="">Selecciona tu respuesta...</option>
+          <option value="politeismo">Politeísmo</option>
+          <option value="monoteismo">Monoteísmo</option>
+          <option value="ateismo">Ateísmo</option>
+        </select>
+      </div>
+
+      <div class="q-item">
+        <div class="q-text">3.2) ¿Dónde creían los griegos que habitaban los 12 dioses principales de su religión?</div>
+        <select class="q-select" id="dio-2">
+          <option value="">Selecciona tu respuesta...</option>
+          <option value="olimpo">En la cumbre más alta: el Monte Olimpo</option>
+          <option value="partenon">En las pirámides de Egipto</option>
+          <option value="fondo_mar">En una cueva secreta bajo el ágora</option>
+        </select>
+      </div>
+
+      <div class="q-item">
+        <div class="q-text">3.3) ¿Quién era el rey de todos los dioses griegos, señor del cielo y lanzador de rayos?</div>
+        <select class="q-select" id="dio-3">
+          <option value="">Selecciona tu respuesta...</option>
+          <option value="zeus">Zeus</option>
+          <option value="poseidon">Poseidón</option>
+          <option value="hades">Hades</option>
+        </select>
+      </div>
+
+      <div class="q-item">
+        <div class="q-text">3.4) Diosa protectora de Atenas, nacida armada de la cabeza de Zeus, diosa de la sabiduría y de la estrategia:</div>
+        <select class="q-select" id="dio-4">
+          <option value="">Selecciona tu respuesta...</option>
+          <option value="atenea">Atenea</option>
+          <option value="afrodita">Afrodita</option>
+          <option value="artemisa">Artemisa</option>
+        </select>
+      </div>
+
+      <div class="q-item">
+        <div class="q-text">3.5) ¿Qué dios gobernaba los mares y provocaba tempestades con su tridente de tres puntas?</div>
+        <select class="q-select" id="dio-5">
+          <option value="">Selecciona tu respuesta...</option>
+          <option value="poseidon">Poseidón</option>
+          <option value="ares">Ares</option>
+          <option value="hermes">Hermes</option>
+        </select>
+      </div>
+
+      <div class="action-row">
+        <button class="btn btn-primary" onclick="checkDioses()">Comprobar Dioses</button>
+        <button class="btn-hint" onclick="toggleHint('hint-dio')">💡 Pista</button>
+        <span class="feedback-msg" id="fb-dio"></span>
+      </div>
+      <div class="hint-box" id="hint-dio">Poli = muchos, teos = dioses (Politeísmo). Zeus manda con el rayo, Atenea con la sabiduría y Poseidón gobierna el mar con su tridente.</div>
+      <div class="sol-inline">Solución: 3.1) Politeísmo | 3.2) Monte Olimpo | 3.3) Zeus | 3.4) Atenea | 3.5) Poseidón</div>
+    </div>
+
+    <!-- MÓDULO 9: LEGADO CULTURAL -->
+    <div class="exercise-card" id="card-legado">
+      <div class="exercise-header">
+        <span class="badge-number">IX. Legado Cultural Griego (5 ejercicios)</span>
+        <span class="status-icon" id="st-legado">⚪</span>
+      </div>
+      <div class="instruction">La civilización griega nos dejó una herencia viva que sigue presente en nuestro teatro, deporte, arquitectura e idioma:</div>
+
+      <!-- Ilustración Vectorial de Columnas Griegas -->
+      <div class="illustration-box">
+        <svg viewBox="0 0 540 130" width="100%" height="120" style="max-width:500px; background:#f8fafc; border-radius:10px;">
+          <!-- 1. Dórico -->
+          <g transform="translate(60, 15)">
+            <rect x="10" y="5" width="60" height="12" fill="#cbd5e1" stroke="#475569" stroke-width="1.5" />
+            <rect x="20" y="17" width="40" height="85" fill="#e2e8f0" stroke="#475569" stroke-width="1.5" />
+            <rect x="15" y="102" width="50" height="10" fill="#cbd5e1" stroke="#475569" stroke-width="1.5" />
+            <text x="15" y="125" font-size="11" font-weight="bold" fill="#334155">1. DÓRICO (Liso)</text>
+          </g>
+
+          <!-- 2. Jónico -->
+          <g transform="translate(230, 15)">
+            <circle cx="18" cy="12" r="8" fill="#f8fafc" stroke="#475569" stroke-width="2" />
+            <circle cx="62" cy="12" r="8" fill="#f8fafc" stroke="#475569" stroke-width="2" />
+            <rect x="15" y="8" width="50" height="10" fill="#cbd5e1" stroke="#475569" stroke-width="1.5" />
+            <rect x="22" y="18" width="36" height="84" fill="#e2e8f0" stroke="#475569" stroke-width="1.5" />
+            <rect x="15" y="102" width="50" height="10" fill="#cbd5e1" stroke="#475569" stroke-width="1.5" />
+            <text x="10" y="125" font-size="11" font-weight="bold" fill="#334155">2. JÓNICO (Espirales)</text>
+          </g>
+
+          <!-- 3. Corintio -->
+          <g transform="translate(400, 15)">
+            <path d="M 15 5 L 65 5 L 55 22 L 25 22 Z" fill="#cbd5e1" stroke="#475569" stroke-width="1.5" />
+            <!-- Hojas de acanto estilizadas -->
+            <circle cx="25" cy="14" r="5" fill="#94a3b8" /><circle cx="40" cy="11" r="5" fill="#94a3b8" /><circle cx="55" cy="14" r="5" fill="#94a3b8" />
+            <rect x="24" y="22" width="32" height="80" fill="#e2e8f0" stroke="#475569" stroke-width="1.5" />
+            <rect x="15" y="102" width="50" height="10" fill="#cbd5e1" stroke="#475569" stroke-width="1.5" />
+            <text x="5" y="125" font-size="11" font-weight="bold" fill="#334155">3. CORINTIO (Hojas)</text>
+          </g>
+        </svg>
+        <span class="illustration-caption">Los 3 Órdenes Arquitectónicos Griegos: Dórico (sobrio), Jónico (volutas/espirales) y Corintio (hojas de acanto)</span>
+      </div>
+
+      <div class="q-item">
+        <div class="q-text">9.1) ¿Cuáles fueron los dos grandes géneros del **teatro griego** donde los actores usaban máscaras para actuar?</div>
+        <select class="q-select" id="leg-1">
+          <option value="">Selecciona tu respuesta...</option>
+          <option value="tragedia_comedia">La Tragedia (historias tristes de héroes) y la Comedia (historias alegres y de humor)</option>
+          <option value="telenovela">La Telenovela y la Película de acción</option>
+          <option value="circo">El show de magia y los malabares</option>
+        </select>
+      </div>
+
+      <div class="q-item">
+        <div class="q-text">9.2) Cada 4 años, deportistas de todas las polis griegas suspendían las guerras para competir en la ciudad de Olimpia. Esto dio origen a:</div>
+        <select class="q-select" id="leg-2">
+          <option value="">Selecciona tu respuesta...</option>
+          <option value="olimpicos">Los Juegos Olímpicos modernos</option>
+          <option value="futbol">La Copa Mundial de Clubes</option>
+          <option value="maraton">Los Premios Óscar de cine</option>
+        </select>
+      </div>
+
+      <div class="q-item">
+        <div class="q-text">9.3) En las columnas griegas, ¿cuál es el estilo que se reconoce fácilmente por tener volutas (espirales como cuernos de carnero)?</div>
+        <select class="q-select" id="leg-3">
+          <option value="">Selecciona tu respuesta...</option>
+          <option value="jonico">Orden Jónico</option>
+          <option value="dorico">Orden Dórico</option>
+          <option value="corintio">Orden Corintio</option>
+        </select>
+      </div>
+
+      <div class="q-item">
+        <div class="q-text">9.4) Muchas palabras en español provienen del idioma griego. ¿Cuál de estas parejas de palabras tiene origen griego directo?</div>
+        <select class="q-select" id="leg-4">
+          <option value="">Selecciona tu respuesta...</option>
+          <option value="geo_demo">Geografía (descripción de la Tierra) y Democracia (gobierno del pueblo)</option>
+          <option value="modernas">Internet y Teléfono celular</option>
+          <option value="comida">Pizza y Hamburguesa</option>
+        </select>
+      </div>
+
+      <div class="q-item">
+        <div class="q-text">9.5) Los griegos crearon la **Filosofía** ("amor a la sabiduría"). ¿Qué buscaban los filósofos como Sócrates y Platón?</div>
+        <select class="q-select" id="leg-5">
+          <option value="">Selecciona tu respuesta...</option>
+          <option value="razon">Explicar el mundo mediante la razón, las preguntas y el pensamiento lógico</option>
+          <option value="magia">Vender trucos de magia en las ferias</option>
+          <option value="riqueza">Hacerse millonarios sin trabajar</option>
+        </select>
+      </div>
+
+      <div class="action-row">
+        <button class="btn btn-primary" onclick="checkLegado()">Comprobar Legado Cultural</button>
+        <button class="btn-hint" onclick="toggleHint('hint-leg')">💡 Pista</button>
+        <span class="feedback-msg" id="fb-leg"></span>
+      </div>
+      <div class="hint-box" id="hint-leg">El teatro (tragedia y comedia), los Juegos Olímpicos, la filosofía y las columnas (Dórico, Jónico, Corintio) son herencia viva de los griegos.</div>
+      <div class="sol-inline">Solución: 9.1) Tragedia y Comedia | 9.2) Juegos Olímpicos modernos | 9.3) Orden Jónico | 9.4) Geografía y Democracia | 9.5) Explicar el mundo mediante la razón y preguntas</div>
+    </div>
+
+  </div>
+
+</div>
+
+<script>
+  // Estado global de aciertos por módulo (5 por cada uno de los 9 módulos = 45)
+  const scoreState = {
+    geo: 0,
+    pol: 0,
+    soc: 0,
+    ali: 0,
+    fam: 0,
+    esp: 0,
+    dem: 0,
+    dio: 0,
+    leg: 0
+  };
+
+  function updateProgress() {
+    let total = 0;
+    for (let k in scoreState) total += scoreState[k];
+    const pct = Math.round((total / 45) * 100);
+    document.getElementById('progressBar').style.width = pct + '%';
+    document.getElementById('scoreDisplay').innerHTML = `⭐ ${total} / 45 pts (${pct}%)`;
+  }
+
+  function switchTab(tabId, btn) {
+    document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
+    document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
+    document.getElementById(tabId).classList.add('active');
+    btn.classList.add('active');
+    window.scrollTo({ top: 120, behavior: 'smooth' });
+  }
+
+  function toggleHint(id) {
+    const el = document.getElementById(id);
+    el.classList.toggle('show');
+  }
+
+  let solutionsVisible = false;
+  function toggleAllSolutions() {
+    solutionsVisible = !solutionsVisible;
+    document.querySelectorAll('.sol-inline').forEach(el => {
+      if (solutionsVisible) el.classList.add('show');
+      else el.classList.remove('show');
+    });
+    const btn = document.getElementById('btnToggleSol');
+    if (solutionsVisible) {
+      btn.innerHTML = '<span>🙈</span> Ocultar Solucionario';
+      btn.style.background = '#fee2e2';
+      btn.style.borderColor = '#fca5a5';
+      btn.style.color = '#991b1b';
+    } else {
+      btn.innerHTML = '<span>👁️</span> Ver Solucionario Completo';
+      btn.style.background = '#fff7ed';
+      btn.style.borderColor = '#fed7aa';
+      btn.style.color = '#9a3412';
+    }
+  }
+
+  // Comprobaciones por módulo
+  function checkGeo() {
+    const answers = {
+      'g1-1': 'balcanes',
+      'g1-2': 'egeo',
+      'g1-3': 'aislamiento',
+      'g1-4': 'mar',
+      'g1-5': 'creta'
+    };
+    let correct = 0;
+    for (let id in answers) {
+      const val = document.getElementById(id).value;
+      if (val === answers[id]) correct++;
+    }
+    scoreState.geo = correct;
+    const fb = document.getElementById('fb-geo');
+    const st = document.getElementById('st-geo');
+    if (correct === 5) {
+      fb.className = 'feedback-msg correct';
+      fb.innerHTML = '¡Excelente! 5/5 correctas en Geografía Griega 🌟';
+      st.innerHTML = '🟢';
+    } else {
+      fb.className = 'feedback-msg wrong';
+      fb.innerHTML = `Llevas ${correct}/5 correctas. Revisa las preguntas pendientes.`;
+      st.innerHTML = '🟡';
+    }
+    updateProgress();
+  }
+
+  function checkPolis() {
+    const answers = {
+      'pol-1': 'ciudad_estado',
+      'pol-2': 'acropolis',
+      'pol-3': 'agora',
+      'pol-4': 'teatro',
+      'pol-5': 'comercio'
+    };
+    let correct = 0;
+    for (let id in answers) {
+      const val = document.getElementById(id).value;
+      if (val === answers[id]) correct++;
+    }
+    scoreState.pol = correct;
+    const fb = document.getElementById('fb-pol');
+    const st = document.getElementById('st-polis');
+    if (correct === 5) {
+      fb.className = 'feedback-msg correct';
+      fb.innerHTML = '¡Perfecto! 5/5 correctas en Partes de la Polis 🌟';
+      st.innerHTML = '🟢';
+    } else {
+      fb.className = 'feedback-msg wrong';
+      fb.innerHTML = `Llevas ${correct}/5 correctas. Consulta la pista si tienes dudas.`;
+      st.innerHTML = '🟡';
+    }
+    updateProgress();
+  }
+
+  function checkSoc() {
+    const answers = {
+      'soc-1': 'hombres_libres',
+      'soc-2': 'esclavos',
+      'soc-3': 'metecos',
+      'soc-4': 'no',
+      'soc-5': 'minoria'
+    };
+    let correct = 0;
+    for (let id in answers) {
+      const val = document.getElementById(id).value;
+      if (val === answers[id]) correct++;
+    }
+    scoreState.soc = correct;
+    const fb = document.getElementById('fb-soc');
+    const st = document.getElementById('st-soc');
+    if (correct === 5) {
+      fb.className = 'feedback-msg correct';
+      fb.innerHTML = '¡Muy bien! 5/5 correctas en Organización Social 🌟';
+      st.innerHTML = '🟢';
+    } else {
+      fb.className = 'feedback-msg wrong';
+      fb.innerHTML = `Llevas ${correct}/5 correctas. Recuerda quiénes eran ciudadanos.`;
+      st.innerHTML = '🟡';
+    }
+    updateProgress();
+  }
+
+  function checkAlim() {
+    const answers = {
+      'ali-1': 'triada',
+      'ali-2': 'marinos',
+      'ali-3': 'rara_vez',
+      'ali-4': 'miel',
+      'ali-5': 'chile_triada'
+    };
+    let correct = 0;
+    for (let id in answers) {
+      const val = document.getElementById(id).value;
+      if (val === answers[id]) correct++;
+    }
+    scoreState.ali = correct;
+    const fb = document.getElementById('fb-ali');
+    const st = document.getElementById('st-alim');
+    if (correct === 5) {
+      fb.className = 'feedback-msg correct';
+      fb.innerHTML = '¡Excelente! 5/5 en Alimentación y Tríada Mediterránea 🌟';
+      st.innerHTML = '🟢';
+    } else {
+      fb.className = 'feedback-msg wrong';
+      fb.innerHTML = `Llevas ${correct}/5 correctas. Vuelve a revisar la tríada.`;
+      st.innerHTML = '🟡';
+    }
+    updateProgress();
+  }
+
+  function checkFam() {
+    const answers = {
+      'fam-1': 'oikos',
+      'fam-2': 'padre',
+      'fam-3': 'gineceo',
+      'fam-4': 'labores',
+      'fam-5': 'pedagogo'
+    };
+    let correct = 0;
+    for (let id in answers) {
+      const val = document.getElementById(id).value;
+      if (val === answers[id]) correct++;
+    }
+    scoreState.fam = correct;
+    const fb = document.getElementById('fb-fam');
+    const st = document.getElementById('st-fam');
+    if (correct === 5) {
+      fb.className = 'feedback-msg correct';
+      fb.innerHTML = '¡Brillante! 5/5 en Familia y Vida en el Hogar 🌟';
+      st.innerHTML = '🟢';
+    } else {
+      fb.className = 'feedback-msg wrong';
+      fb.innerHTML = `Llevas ${correct}/5 correctas. Revisa los nombres griegos.`;
+      st.innerHTML = '🟡';
+    }
+    updateProgress();
+  }
+
+  function checkEsp() {
+    const answers = {
+      'esp-1': 'soldados',
+      'esp-2': 'democracia',
+      'esp-3': 'estado',
+      'esp-4': 'integral',
+      'esp-5': 'deportes'
+    };
+    let correct = 0;
+    for (let id in answers) {
+      const val = document.getElementById(id).value;
+      if (val === answers[id]) correct++;
+    }
+    scoreState.esp = correct;
+    const fb = document.getElementById('fb-esp');
+    const st = document.getElementById('st-ciudades');
+    if (correct === 5) {
+      fb.className = 'feedback-msg correct';
+      fb.innerHTML = '¡Sobresaliente! 5/5 en Atenas vs Esparta 🌟';
+      st.innerHTML = '🟢';
+    } else {
+      fb.className = 'feedback-msg wrong';
+      fb.innerHTML = `Llevas ${correct}/5 correctas. Compara el cuadro de arriba.`;
+      st.innerHTML = '🟡';
+    }
+    updateProgress();
+  }
+
+  function checkDemo() {
+    const answers = {
+      'dem-1': 'pueblo_poder',
+      'dem-2': 'alzada',
+      'dem-3': 'directa',
+      'dem-4': 'excluyente',
+      'dem-5': 'chile_universal'
+    };
+    let correct = 0;
+    for (let id in answers) {
+      const val = document.getElementById(id).value;
+      if (val === answers[id]) correct++;
+    }
+    scoreState.dem = correct;
+    const fb = document.getElementById('fb-dem');
+    const st = document.getElementById('st-demo');
+    if (correct === 5) {
+      fb.className = 'feedback-msg correct';
+      fb.innerHTML = '¡Extraordinario! 5/5 en Concepto de Democracia 🌟';
+      st.innerHTML = '🟢';
+    } else {
+      fb.className = 'feedback-msg wrong';
+      fb.innerHTML = `Llevas ${correct}/5 correctas. Revisa las diferencias con Chile.`;
+      st.innerHTML = '🟡';
+    }
+    updateProgress();
+  }
+
+  function checkDioses() {
+    const answers = {
+      'dio-1': 'politeismo',
+      'dio-2': 'olimpo',
+      'dio-3': 'zeus',
+      'dio-4': 'atenea',
+      'dio-5': 'poseidon'
+    };
+    let correct = 0;
+    for (let id in answers) {
+      const val = document.getElementById(id).value;
+      if (val === answers[id]) correct++;
+    }
+    scoreState.dio = correct;
+    const fb = document.getElementById('fb-dio');
+    const st = document.getElementById('st-dioses');
+    if (correct === 5) {
+      fb.className = 'feedback-msg correct';
+      fb.innerHTML = '¡Fantástico! 5/5 en Religión y Dioses del Olimpo 🌟';
+      st.innerHTML = '🟢';
+    } else {
+      fb.className = 'feedback-msg wrong';
+      fb.innerHTML = `Llevas ${correct}/5 correctas. Recuerda los poderes de los dioses.`;
+      st.innerHTML = '🟡';
+    }
+    updateProgress();
+  }
+
+  function checkLegado() {
+    const answers = {
+      'leg-1': 'tragedia_comedia',
+      'leg-2': 'olimpicos',
+      'leg-3': 'jonico',
+      'leg-4': 'geo_demo',
+      'leg-5': 'razon'
+    };
+    let correct = 0;
+    for (let id in answers) {
+      const val = document.getElementById(id).value;
+      if (val === answers[id]) correct++;
+    }
+    scoreState.leg = correct;
+    const fb = document.getElementById('fb-leg');
+    const st = document.getElementById('st-legado');
+    if (correct === 5) {
+      fb.className = 'feedback-msg correct';
+      fb.innerHTML = '¡Felicidades! 5/5 en Legado Cultural Griego 🌟';
+      st.innerHTML = '🟢';
+    } else {
+      fb.className = 'feedback-msg wrong';
+      fb.innerHTML = `Llevas ${correct}/5 correctas. Revisa las columnas y el teatro.`;
+      st.innerHTML = '🟡';
+    }
+    updateProgress();
+  }
+</script>
+
+</body>
+</html>
